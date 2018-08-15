@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- test
+  <div class="jumbotron text-center" style="margin-bottom:0">
+    <h1>Flamingo Car Share :)</h1>
+  </div>  -->
+  
+  
+  
+  <!--Jumbotron-->
+  <div class="row mb-5">
+    <div class="col-md-12">
+        <div class="card card-image" style="background-image: url('{% static 'img/jumbo-bg.jpg' %}');">
+            <div class="text-center py-5 px-4">
+                <div class="py-5">
+
+                    <!--Content-->
+                        <h1>Flamingo Car Share :)</h1>
+                    <!--Content-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!--Jumbotron-->
+  
+  
+  
+  
+
+    {% if user.is_authenticated %}
+      <div>Welcome {{ user.username }}!</div>
+    {% else %}
+      <h3>Welcome!</h3>
+      <div>You are not currently logged in.</div>
+    {% endif %}
+  
+{% endblock %}
