@@ -14,37 +14,76 @@
     <!-- font -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- md bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- md bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
     
+	
+	
     <!-- my css -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	
+	<style>
+		.navbar .navbar-nav {
+			display: inline-block;
+			float: none;
+			vertical-align: top;
+			margin: 5px;
+		}
+		
+		.navbar .container-fluid>.navbar-header {
+			float: left;
+			margin-right: 10px;
+		}
+		
+		.navbar .navbar-collapse {
+			text-align: center;
+		}
+		
+		#map {
+			border: 4px solid;
+		}
+	</style>
   </head>
 
   <body>
     <!-- Navigation -->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark secondary-color">
-        <a class="navbar-brand" href="{% url 'home' %}"><strong>Home</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="{% url 'map' %}">Available Cars</a> </li>
-              {% if user.is_authenticated %}
-                <li class="nav-item"> <a class="nav-link" href="{% url 'logout' %}">Logout</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'signup' %}"></a> </li>
-              {% else %}
-                <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}">Login</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'signup' %}">Sign Up</a> </li>
-              {% endif %}
-                <!-- <li class="nav-item"> <a class="nav-link" href="">About Us</a> </li> -->
-            </ul>
-        </div>
-      </nav>
+     <div class="container">
+
+		<div class="text-center">
+			<h1 style="margin-bottom:20px;"><strong>Flamingo <span style="background-color: #ff3399; color: white; padding:10px">Sharing</span></strong></h1>
+		</div>
+
+		<nav class="navbar navbar-inverse navbar-expand-lg">
+
+			<div class="container-fluid">
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand hidden-lg hidden-md hidden-sm" href="#" style="color: white;"> Menu </a>
+
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="book.html" style="color:white;">BOOK</a></li>
+						<li><a href="help.html" style="color:white;">HELP</a></li>
+						<li><a href="account.html" style="color:white;">ACCOUNT <span class="glyphicon glyphicon-user"></span></a></li>
+					</ul>
+				</div>
+
+			</div>
+
+		</nav>
+
+	</div>
     </header>
     
     <!-- Body -->
