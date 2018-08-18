@@ -5,16 +5,16 @@
 
 {% block content %}
   <div class="container">
-  
+
     <div class="row">
       <div class="col">
         <div id="map" style="height: 400px;"></div>
       </div>
-      
+
       <div class="col text-center" style="padding-top: 4%;">
-        <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button>
-                
+      <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
+      <a  href="{% url 'login' %}">  <button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
+
           <div id="authname" style="padding-top: 4%;">
             {% if user.is_authenticated %}
               <div>Welcome {{ user.username }}!</div>
@@ -24,15 +24,15 @@
             {% endif %}
           </div>
           <br>
-          <div> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+          <div> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
             sunt in culpa qui officia deserunt mollit anim id est laborum."
           </div>
-              
+
       </div>
     </div>
-    
+
     <script>
       var infoWindow;
         function initMap() {
@@ -86,37 +86,37 @@
                 map: map,
                 icon: image
             });
-            
+
             var marker3 = new google.maps.Marker({
                 position: car3,
                 map: map,
                 icon: image
             });
-            
+
             var marker4 = new google.maps.Marker({
                 position: car4,
                 map: map,
                 icon: image
             });
-            
+
             var marker5 = new google.maps.Marker({
                 position: car5,
                 map: map,
                 icon: image
             });
-            
+
             var marker6 = new google.maps.Marker({
                 position: car6,
                 map: map,
                 icon: image
             });
-            
+
             var marker7 = new google.maps.Marker({
                 position: car7,
                 map: map,
                 icon: image
             });
-            
+
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCKdevCkaionH2BkWdR8ELUyuYvES7TdzM&callback=initMap">
