@@ -19,8 +19,6 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 #added
 from django.conf.urls.static import static
-#added
-#from django.conf import settings
 
 #load order - top to bottom
 urlpatterns = [
@@ -39,5 +37,3 @@ urlpatterns = [
       path('', include('map.urls')),
 ]
 
-#dev test
-#] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
