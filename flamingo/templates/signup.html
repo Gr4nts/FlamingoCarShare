@@ -4,10 +4,14 @@
 
 {% block content %}
   <h1>Sign up</h1>
-  
+
   <form method="post">
       {% csrf_token %} <!-- security -->
       {{ form.as_p }} <!-- form as <p> tags -->
+        <div>
+          Already have an account? <a href="{% url 'login' %}">Log in</a> here
+        </div>
     <button type="submit">Sign up</button>
   </form>
+
 {% endblock %}

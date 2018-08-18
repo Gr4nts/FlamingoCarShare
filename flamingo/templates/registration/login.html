@@ -10,4 +10,7 @@
       {{ form.as_p }} <!-- form as <p> tags -->
     <button type="submit">Login</button>
   </form>
+  <div>
+    new user? <a href="{% url 'signup' %}">Sign up</a> here
+  </div>
 {% endblock %}
