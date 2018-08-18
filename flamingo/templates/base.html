@@ -74,7 +74,9 @@
                 {% if user.is_authenticated %}
               <li><a class="nav-item nav-link" style="color: white;" href="{% url 'logout' %}">Logout</a></li>
 
-              <li><a class="nav-item nav-link" style="color: white;">{{ user.username }} <span class="glyphicon glyphicon-user"></span></a>
+<!-- link to account.html if a user is logged in -->
+<!-- account.html should look like the home page without the map and buttons -->
+              <li><a class="nav-item nav-link" style="color: white;" >{{ user.username }} <span class="glyphicon glyphicon-user"></span></a>
 
               <li><a class="nav-item nav-link" style="color: white;" href="{% url 'signup' %}"></a></li>
                 {% else %}
