@@ -3,13 +3,10 @@ html, body {
 }
 
 #body {
-//   min-height:100%;
-//   overflow:auto;
    padding-bottom: 35px; /* this needs to be bigger than footer height*/
 }
 
 #footer{
-//  position: relative;
   color: white;
   background-color: #6b5b95;
   text-align: center;
@@ -25,10 +22,6 @@ html, body {
 #foot2{
   font-size:10px;
 }
-
-//p {
-//  margin-bottom: 0px;
-//}
      
 #map {
   height: 400px;
@@ -36,9 +29,3 @@ html, body {
   margin: auto;
   border: 4px solid black;
 }
-
-
-
-
-
-    
