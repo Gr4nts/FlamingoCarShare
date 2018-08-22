@@ -8,17 +8,20 @@
 
     <div class="row">
         <div class="col">
-        <!--style="height: 400px;"-->
+            <div>Available cars</div>
             <div id="map"> </div>
         </div>
 
         <div class="col text-center" style="padding-top: 4%;">
+            {% if user.is_authenticated %}
+            {% else %}
             <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
             <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
-
+            {% endif %}
+            
             <div id="authname" style="padding-top: 4%;">
                 {% if user.is_authenticated %}
-                    <div>Welcome {{ user.username }}!</div>
+                    <div> <h3>Welcome {{ user.username }}!</h3> </div>
                 {% else %}
                     <h3>Welcome!</h3>
                     <div>You are not currently logged in.</div>
@@ -80,7 +83,7 @@
         };
             
         // The markers
-        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        var image = '{% static 'img/caricon.jpg' %}'
             
         var marker = new google.maps.Marker({
             position: car1,
