@@ -27,5 +27,21 @@ html, body {
   height: 400px;
   width: 500px;
   margin: auto;
-  border: 4px solid black;
+  border: 4px solid pink;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    margin: 5px;
+}
+
+.navbar .container-fluid>.navbar-header {
+    float: left;
+    margin-right: 10px;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
 }
