@@ -1,33 +1,36 @@
 html, body {
-   height:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+
 }
 
 #body {
-   padding-bottom: 35px; /* this needs to be bigger than footer height*/
+    padding-bottom: 31px; /* this needs to be bigger than footer height*/
 }
 
 #footer{
-  color: white;
-  background-color: #6b5b95;
-  text-align: center;
-  margin-top: -30px; /* negative value of footer height */
-  height:30px;
-  width: 100%;
+    color: white;
+    background-color: #6b5b95;
+    text-align: center;
+    margin-top: -30px; /* negative value of footer height */
+    height:30px;
+    width: 100%;
 }
 
 #foot1{
-  font-size:10px;
+    font-size:10px;
 }
 
 #foot2{
-  font-size:10px;
+    font-size:10px;
 }
      
 #map {
-  height: 400px;
-  width: 500px;
-  margin: auto;
-  border: 4px solid pink;
+    height: 400px;
+    width: 500px;
+    margin: auto;
+    border: 4px solid pink;
 }
 
 .navbar .navbar-nav {
