@@ -4,159 +4,146 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+  <div class="container">
 
+    <div class="row">
+        <div class="col">
+            <div>Available cars</div>
+            <div id="map"> </div>
+        </div>
 
-	<div class="container">
+        <div class="col text-center" style="padding-top: 4%;">
+            {% if user.is_authenticated %}
+            {% else %}
+            <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
+            <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
+            {% endif %}
+            
+            <div id="authname" style="padding-top: 4%;">
+                {% if user.is_authenticated %}
+                    <div> <h3>Welcome {{ user.username }}!</h3> </div>
+                {% else %}
+                    <h3>Welcome!</h3>
+                    <div>You are not currently logged in.</div>
+                {% endif %}
+            </div>
+      
+            <br>
+      
+            <div> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+            sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </div>
 
-		<div class="row">
-			<div class="col-sm-6">
-				<div id="map" style="height: 400px;"></div>
-			</div>
+        </div>
+    </div>
 
-			<div class="col-sm-6 text-center" style="padding-top:4%;">
-				<button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button>
-				<button type="button" class="btn btn-default btn-lg btn-block" style="margin-top:3%">Sign In</button>
-		
-				<h5> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-				magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-				sunt in culpa qui officia deserunt mollit anim id est laborum."</h5>
-				
-				<h5> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-				magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-				sunt in culpa qui officia deserunt mollit anim id est laborum."</h5>
-				
+    <script>
+    var infoWindow;
+    function initMap() {
+        // Random car location generator
+        //var lati = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        //var longi = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
+      
+        // The starting map
+        var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: {
+                    lat: -37.8136,
+                    lng: 144.9631
+                }
+            });
+        
+        // Car locations
+        var c1lat = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        var c1long = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
+        var car1 = {
+            lat:c1lat, lng:c1long
+        };
+        
+        var c2lat = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        var c2long = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
+        var car2 = {
+            lat:c2lat, lng:c2long
+        };
+        
+        var c3lat = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        var c3long = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
+        var car3 = {
+            lat:c3lat, lng:c3long
+        };
+        
+        var c4lat = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        var c4long = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
+        var car4 = {
+            lat:c4lat, lng:c4long
+        };
+        
+        /*var car5 = {
+            lat: -37.807440,
+            lng: 144.958671
+        };
+        
+        var car6 = {
+            lat: -37.817080,
+            lng: 144.958337
+        };
+        
+        var car7 = {
+            lat: -37.806870,
+            lng: 144.973861
+        };*/
+            
+        // The markers
+        var image = '{% static 'img/caricon.jpg' %}'
+        
+        var marker = new google.maps.Marker({
+            position: car1,
+            map: map,
+            icon: image
+        });
 
-			</div>
-		</div>
-	</div>
+        var marker2 = new google.maps.Marker({
+            position: car2,
+            map: map,
+            icon: image
+        });
 
-	<script>
-		var infoWindow;
-		function initMap() {
-			// The starting map
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 14,
-				center: {
-					lat: -37.8136,
-					lng: 144.9631
-				}
-			});
-			 
-      infoWindow = new google.maps.InfoWindow;
+        var marker3 = new google.maps.Marker({
+            position: car3,
+            map: map,
+            icon: image
+        });
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+        var marker4 = new google.maps.Marker({
+            position: car4,
+            map: map,
+            icon: image
+        });
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-			
-			
-			
-				// Location of Car 1
-			var car1 = {
-				lat: -37.813361,
-				lng: 144.955694
-			};
-			var car2 = {
-				lat: -37.809206,
-				lng: 144.965309
-			};
-			var car3 = {
-				lat: -37.811295,
-				lng: 144.969483
-			};
-			var car4 = {
-				lat: -37.817952,
-				lng: 144.955743
-			};
-			var car5 = {
-				lat: -37.807440,
-				lng: 144.958671
-			};
-			var car6 = {
-				lat: -37.817080,
-				lng: 144.958337
-			};
-			var car7 = {
-				lat: -37.806870,
-				lng: 144.973861
-			};
-			// The markers
-			var image = '25_f_logo.png'
-			var marker = new google.maps.Marker({
-				position: car1,
-				map: map,
-				icon: image
-			});
+        /*var marker5 = new google.maps.Marker({
+            position: car5,
+            map: map,
+            icon: image
+        });
 
-			var marker2 = new google.maps.Marker({
-				position: car2,
-				map: map,
-				icon: image
-			});
-			
-			var marker3 = new google.maps.Marker({
-				position: car3,
-				map: map,
-				icon: image
-			});
-			
-			var marker4 = new google.maps.Marker({
-				position: car4,
-				map: map,
-				icon: image
-			});
-			
-			var marker5 = new google.maps.Marker({
-				position: car5,
-				map: map,
-				icon: image
-			});
-			
-			var marker6 = new google.maps.Marker({
-				position: car6,
-				map: map,
-				icon: image
-			});
-			
-			var marker7 = new google.maps.Marker({
-				position: car7,
-				map: map,
-				icon: image
-			});
-		}
-		
-		 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKdevCkaionH2BkWdR8ELUyuYvES7TdzM&callback=initMap" async defer>
-	</script>
-    {% if user.is_authenticated %}
-      <div>Welcome {{ user.username }}!</div>
-    {% else %}
-      <h3>Welcome!</h3>
-      <div>You are not currently logged in.</div>
-    {% endif %}
-  
+        var marker6 = new google.maps.Marker({
+            position: car6,
+            map: map,
+            icon: image
+        });
+
+        var marker7 = new google.maps.Marker({
+            position: car7,
+            map: map,
+            icon: image
+        });*/
+    }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap">
+    </script>
+
+  </div>
 {% endblock %}

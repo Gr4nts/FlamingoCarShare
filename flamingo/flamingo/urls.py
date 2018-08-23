@@ -19,8 +19,6 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 #added
 from django.conf.urls.static import static
-#added
-#from django.conf import settings
 
 #load order - top to bottom
 urlpatterns = [
@@ -30,7 +28,7 @@ urlpatterns = [
       path('', TemplateView.as_view(template_name='home.html'), name='home'),
     #authenticate
       path('admin/', admin.site.urls),
-    
+
     #signup
       path('', include('accounts.urls')),
     #login
@@ -38,10 +36,4 @@ urlpatterns = [
     #map
       path('', include('map.urls')),
 ]
-
-#dev test
-#] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-
-
 
