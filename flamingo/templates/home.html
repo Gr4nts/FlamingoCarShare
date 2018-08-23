@@ -8,16 +8,20 @@
 
     <div class="row">
         <div class="col">
-            <div id="map" style="height: 400px;"></div>
+            <div>Available cars</div>
+            <div id="map"> </div>
         </div>
 
         <div class="col text-center" style="padding-top: 4%;">
+            {% if user.is_authenticated %}
+            {% else %}
             <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
             <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
-
+            {% endif %}
+            
             <div id="authname" style="padding-top: 4%;">
                 {% if user.is_authenticated %}
-                    <div>Welcome {{ user.username }}!</div>
+                    <div> <h3>Welcome {{ user.username }}!</h3> </div>
                 {% else %}
                     <h3>Welcome!</h3>
                     <div>You are not currently logged in.</div>
@@ -36,51 +40,64 @@
     </div>
 
     <script>
-     var infoWindow;
-     function initMap() {
+    var infoWindow;
+    function initMap() {
+        // Random car location generator
+        //var lati = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        //var longi = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
       
-      // The starting map
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
-        center: {
-          lat: -37.8136,
-          lng: 144.9631
-        }
-        });
+        // The starting map
+        var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: {
+                    lat: -37.8136,
+                    lng: 144.9631
+                }
+            });
         
-        // Location of Car 1
+        // Car locations
+        var c1lat = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        var c1long = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
         var car1 = {
-            lat: -37.813361,
-            lng: 144.955694
+            lat:c1lat, lng:c1long
         };
+        
+        var c2lat = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        var c2long = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
         var car2 = {
-            lat: -37.809206,
-            lng: 144.965309
+            lat:c2lat, lng:c2long
         };
+        
+        var c3lat = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        var c3long = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
         var car3 = {
-            lat: -37.811295,
-            lng: 144.969483
+            lat:c3lat, lng:c3long
         };
+        
+        var c4lat = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
+        var c4long = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
         var car4 = {
-            lat: -37.817952,
-            lng: 144.955743
+            lat:c4lat, lng:c4long
         };
-        var car5 = {
+        
+        /*var car5 = {
             lat: -37.807440,
             lng: 144.958671
         };
+        
         var car6 = {
             lat: -37.817080,
             lng: 144.958337
         };
+        
         var car7 = {
             lat: -37.806870,
             lng: 144.973861
-        };
+        };*/
             
         // The markers
-        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-            
+        var image = '{% static 'img/caricon.jpg' %}'
+        
         var marker = new google.maps.Marker({
             position: car1,
             map: map,
@@ -105,7 +122,7 @@
             icon: image
         });
 
-        var marker5 = new google.maps.Marker({
+        /*var marker5 = new google.maps.Marker({
             position: car5,
             map: map,
             icon: image
@@ -121,11 +138,11 @@
             position: car7,
             map: map,
             icon: image
-        });
+        });*/
     }
     </script>
     
-    <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCKdevCkaionH2BkWdR8ELUyuYvES7TdzM&callback=initMap">
+    <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap">
     </script>
 
   </div>
