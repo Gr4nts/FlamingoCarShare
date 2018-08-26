@@ -4,7 +4,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <div class="container">
+
+  <div class="container"  style="padding: 30px">
 
     <div class="row">
         <div class="col">
@@ -17,7 +18,7 @@
             <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
             <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
             {% endif %}
-            
+
             <div id="authname" style="padding-top: 4%;">
                 {% if user.is_authenticated %}
                     <div> <h3>Welcome {{ user.username }}!</h3> </div>
@@ -26,9 +27,9 @@
                     <div>You are not currently logged in.</div>
                 {% endif %}
             </div>
-      
+
             <br>
-      
+
             <div> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
@@ -41,11 +42,11 @@
     <script>
     var infoWindow;
     function initMap() {
-    
+
         // Random location generator
         //var lati = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
         //var longi = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
-      
+
         // The starting map
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 14,
@@ -54,7 +55,7 @@
                 lng: 144.9631
             }
         });
-        
+
         // Parking spot locations
         var park1 = {
                 lat: -37.813361,
@@ -84,7 +85,7 @@
                 lat: -37.806870,
                 lng: 144.973861
         };
-        
+
         // Car locations
         var car1 = {
                 lat: -37.813361,
@@ -114,7 +115,7 @@
                 lat: -37.806870,
                 lng: 144.973861
         };
-            
+
         // Marker icons
         var imagepark = '{% static 'img/parkicon.png' %}'
         var imagecar1 = '{% static 'img/car1icon.png' %}'
@@ -163,7 +164,7 @@
             map: map,
             icon: imagepark
         });
-        
+
         // Car markers
         var markerc1 = new google.maps.Marker({
             position: car1,
@@ -222,7 +223,7 @@
         google.maps.event.addListener(markerc1, 'click', function() {
             infowindow1.open(map, markerc1);
         });
-        
+
         var contentc2 = '<div id="content">Economy car #2</div>';
         var infowindow2 = new google.maps.InfoWindow({
             content: contentc2
@@ -230,7 +231,7 @@
         google.maps.event.addListener(markerc2, 'click', function() {
             infowindow2.open(map, markerc2);
         });
-        
+
         var contentc3 = '<div id="content">Economy car #3</div>';
         var infowindow3 = new google.maps.InfoWindow({
             content: contentc3
@@ -238,7 +239,7 @@
         google.maps.event.addListener(markerc3, 'click', function() {
             infowindow3.open(map, markerc3);
         });
-        
+
         var contentc4 = '<div id="content">Luxury car #1</div>';
         var infowindow4 = new google.maps.InfoWindow({
             content: contentc4
@@ -246,7 +247,7 @@
         google.maps.event.addListener(markerc4, 'click', function() {
             infowindow4.open(map, markerc4);
         });
-        
+
         var contentc5 = '<div id="content">Luxury car #2</div>';
         var infowindow5 = new google.maps.InfoWindow({
             content: contentc5
@@ -254,7 +255,7 @@
         google.maps.event.addListener(markerc5, 'click', function() {
             infowindow5.open(map, markerc5);
         });
-        
+
         var contentc6 = '<div id="content">Luxury car #3</div>';
         var infowindow6 = new google.maps.InfoWindow({
             content: contentc6
@@ -262,7 +263,7 @@
         google.maps.event.addListener(markerc6, 'click', function() {
             infowindow6.open(map, markerc6);
         });
-        
+
         var contentc7 = '<div id="content">SVU #1</div>';
         var infowindow7 = new google.maps.InfoWindow({
             content: contentc7
@@ -273,9 +274,81 @@
     }
 
     </script>
-    
+
     <script async defer src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap">
     </script>
 
   </div>
+  <section id="section2" style="padding: 30px; background-color: red;" >
+    <h2>Section 2</h2>
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+  </section>
+
+  <section id="section3"  style="padding: 30px; background-color: blue;">
+    <h2>Section 3</h2>
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+  </section>
+</div>
 {% endblock %}
