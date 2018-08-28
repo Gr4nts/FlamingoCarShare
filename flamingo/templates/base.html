@@ -20,24 +20,20 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
-
-
 </head>
 
 <body>
     <div class="container">
-
+      <div class="text-center">
+          <h1 style="margin-bottom:20px;"><a href="{% url 'home' %}" style="text-decoration:none">
+        <strong>Flamingo <span style="background-color: #ff3399; color: white; padding:10px">Sharing</span></strong></a></h1>
+      </div>
     <!-- navigation -->
     <div class="row align-items-start">
         <div class="col">
             <header>
 
               <div class="container">
-
-                    <div class="text-center">
-                        <h1 style="margin-bottom:20px;"><a href="{% url 'home' %}" style="text-decoration:none">
-             	        <strong>Flamingo <span style="background-color: #ff3399; color: white; padding:10px">Sharing</span></strong></a></h1>
-                    </div>
 
                     <nav class="navbar navbar-inverse navbar-expand-lg">
       			        <div class="container-fluid">
@@ -49,19 +45,22 @@
                             </button>
 
               	          <!--   <a class="navbar-brand hidden-lg hidden-md hidden-sm" style="color: white;"> Menu </a> -->
-              	             <div class="collapse navbar-collapse" id="myNavbar">
+              	             <div class="collapse navbar-collapse  navbar-left" id="myNavbar">
+                               <ul class="nav navbar-nav navbar-right">
+                                   {% if user.is_authenticated %}
+                                   <li><a class="nav-item nav-link" style="color: white;" href="{% url 'logout' %}">Logout</a></li>
+                                   <li><a class="nav-item nav-link" style="color: white;" href="{% url 'account' %}">{{ user.username }} <span class="glyphicon glyphicon-user"></span></a>
+                                   {% else %}
+                                   <li><a class="nav-item nav-link" style="color: white;" href="{% url 'login' %}">Login <span class="glyphicon glyphicon-user"></span></a>
+                                   {% endif %}
+                               </ul>
                                 <ul class="nav navbar-nav">
                                     <li><a class="nav-item nav-link" style="color: white;" href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span></a>
                                     <li><a class="nav-item nav-link" style="color: white;" href="{% url 'map' %}">Book</a></li>
                                     <li><a class="nav-item nav-link" style="color: white;" href="#section2">Section 2</a></li>
                                     <li><a class="nav-item nav-link" style="color: white;" href="#section3">Section 3</a></li>
-                                    {% if user.is_authenticated %}
-                                    <li><a class="nav-item nav-link" style="color: white;" href="{% url 'logout' %}">Logout</a></li>
-                                    <li><a class="nav-item nav-link" style="color: white;" href="{% url 'account' %}">{{ user.username }} <span class="glyphicon glyphicon-user"></span></a>
-                                    {% else %}
-                                    <li><a class="nav-item nav-link" style="color: white;" href="{% url 'login' %}">Login <span class="glyphicon glyphicon-user"></span></a>
-                                    {% endif %}
                                 </ul>
+
                             </div>
                      </div>
                     </nav>
@@ -85,7 +84,7 @@
     </div>
 
     <!-- footer -->
-    <div class="row align-items-end fixed-bottom">
+    <div class="row align-items-end">
         <div class="col">
             <div id="footer">
                 <div id="foot1"> <a href="{% url 'admin:index' %}" style="color:pink;"> *Admin </a> <a href="{% url 'password_reset' %}" style="color:pink;"> *Lost password? </a> </div>
@@ -94,6 +93,9 @@
         </div>
     </div>
   </div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
     <!-- bootstrap javascript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -141,6 +143,27 @@ $('a[href*="#"]')
   });
   </script>
 -->
+
+<!-- script for "top" button  -->
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+
 </body>
 
 </html>
