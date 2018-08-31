@@ -15,6 +15,6 @@ book a vehicle of their choice for a time and place, and return the vehicle when
 ## Authors
 * Raphael Buenaventura - Scrum Master/Developer
 * Grace Balatinacz - Technical Writer/Developer
-* Gabriel Gacuya - Product Ownser/Developer
+* Gabriel Gacuya - Product Owner/Developer
 * Andrew Nguyen - Developer/Tester
 * Grant McKenzie - Developer/Tester
