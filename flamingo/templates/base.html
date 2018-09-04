@@ -57,7 +57,7 @@
                                 <ul class="nav navbar-nav">
                                     <li><a class="nav-item nav-link" style="color: white;" href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span></a>
                                     <li><a class="nav-item nav-link" style="color: white;" href="{% url 'map' %}">Book</a></li>
-                                    <li><a class="nav-item nav-link" style="color: white;" href="#section2">Section 2</a></li>
+                                    <li><a class="nav-item nav-link" style="color: white;" href="#section2">About</a></li>
                                     <li><a class="nav-item nav-link" style="color: white;" href="#section3">Section 3</a></li>
                                 </ul>
 
@@ -162,6 +162,26 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+</script>
+
+<!-- script for tabs  -->
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 </script>
 
 </body>

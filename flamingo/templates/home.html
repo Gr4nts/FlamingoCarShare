@@ -5,8 +5,9 @@
 
 {% block content %}
 
+<section id = "HomeBooking">
   <div class="container"  style="padding: 30px">
-
+  
     <div class="row">
         <div class="col">
             <div id="map"></div>
@@ -279,8 +280,42 @@
     </script>
 
   </div>
+
+        <!-- Tab links -->
+    <div class="tab">
+     <button class="tablinks" onclick="openCity(event, 'AllTab')" id="defaultOpen">All</button>
+    <button class="tablinks" onclick="openCity(event, 'EcoTab')">Economy</button>
+    <button class="tablinks" onclick="openCity(event, 'LuxTab')">Luxury</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="AllTab" class="tabcontent">
+    <h3>All Cars</h3>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </div>
+
+    <div id="EcoTab" class="tabcontent">
+    <h3>Economy class</h3>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </div>
+
+    <div id="LuxTab" class="tabcontent">
+    <h3>Luxury class</h3>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.".</p>
+    </div>
+
+  </section>
   <section id="section2" style="padding: 30px; " >
-    <h2>Section 2</h2>
+    <h2>About</h2>
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
     magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
@@ -350,5 +385,9 @@
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
     sunt in culpa qui officia deserunt mollit anim id est laborum."
   </section>
+
 </div>
+
+
+
 {% endblock %}
