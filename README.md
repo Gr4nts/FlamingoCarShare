@@ -7,10 +7,10 @@ and mobile application. Furthermore, the customers will have the ability to regi
 book a vehicle of their choice for a time and place, and return the vehicle when finished.
 
 ## Built With
+* Python
 * HTML
 * CSS
 * Django
-* Python
 
 ## Authors
 * Raphael Buenaventura - Scrum Master/Developer
