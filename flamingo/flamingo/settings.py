@@ -25,7 +25,7 @@ SECRET_KEY = '(h*)5r&#4n1qhs9)#u3o(kj8nx9t9#fefnp9afl$*-!gaw2li7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['s3515687.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'map',
+    'about',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = "/static/"
-#added
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
@@ -134,7 +133,7 @@ LOGOUT_REDIRECT_URL = 'home'
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
-#ssl for map?
+#ssl for production
 #SECURE_SSL_REDIRECT = True
 SECURE_SSL_REDIRECT = False
 

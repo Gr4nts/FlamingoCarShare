@@ -3,237 +3,321 @@
 {% block title %}Home{% endblock %}
 
 {% block navbar %}
-        <li><a class="nav-item nav-link" style="color: white;" href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span></a>
-        <li><a class="nav-item nav-link" style="color: white;" href="{% url 'map' %}">Book a car</a></li>
-        <li><a class="nav-item nav-link" style="color: white;" href="#section2">About</a></li>
-        <li><a class="nav-item nav-link" style="color: white;" href="#section3">Section 3</a></li>
+    <li><a class="nav-item nav-link" style="color: white;" href="#section2">How to use</a></li>
 {% endblock %}
 
 {% block content %}
 <section id="HomeBooking">
     <div style="padding: 30px">
-        <div class="row">
-            <div class="col">
-                <div id="map" style="height: 400px; width: 500px;"></div>
-            </div>
-
-            <div class="col text-center" style="padding-top: 4%;">
-                {% if user.is_authenticated %}
-                {% else %}
-                <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
-                <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
-                {% endif %}
-
-                <div id="authname" style="padding-top: 4%;">
-                    {% if user.is_authenticated %}
-                    <h1>Welcome {{ user.username }}!</h1>
-                    {% else %}
-                    <h1>Welcome!</h1>
-                    <div><p>You are not currently logged in.</p></div>
-                    {% endif %}
-                </div>
-                <br>
-                <div>
-                    <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                    sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
-                </div>
-            </div>
-        </div>
-
+        <!-- logged in -->
+        {% if user.is_authenticated %}
+        <h1>Welcome {{ user.username }}!</h1>
+        <p>Here are available cars ready to hire.</p>
+        
+        <div id="map"></div>
         <script>
-        var infoWindow;
+        var map, infoWindow;
         function initMap() {
+            var options = {
+                zoom:14,
+                center:{lat:-37.8136,lng:144.9631}
+            }
+      
+            // New map //
+            var map = new google.maps.Map(document.getElementById('map'), options);
+            infoWindow = new google.maps.InfoWindow;
 
-            // Random location generator
-            //var lati = (Math.random())*(-37.803469 - (-37.825056)) + (-37.825056);
-            //var longi = (Math.random())*(144.947771 - (144.980418)) + (144.980418);
-
-            // The starting map
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14,
-                center: {
-                    lat: -37.8136,
-                    lng: 144.9631
-                }
-            });
-
-        // Car locations
-        var car1 = {
+            // Try HTML5 geolocation //
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                    },
+                    function() {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    }
+                );
+            }
+            else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+                    
+            // Parking spot locations //
+            var park1 = {
                 lat: -37.813361,
                 lng: 144.955694
-        };
-        var car2 = {
+            };
+            var park2 = {
                 lat: -37.809206,
                 lng: 144.965309
-        };
-        var car3 = {
+            };
+            var park3 = {
                 lat: -37.811295,
                 lng: 144.969483
-        };
-        var car4 = {
+            };
+            var park4 = {
                 lat: -37.817952,
                 lng: 144.955743
-        };
-        var car5 = {
+            };
+            var park5 = {
                 lat: -37.807440,
                 lng: 144.958671
-        };
-        var car6 = {
+            };
+            var park6 = {
                 lat: -37.817080,
                 lng: 144.958337
-        };
-        var car7 = {
+            };
+            var park7 = {
                 lat: -37.806870,
                 lng: 144.973861
-        };
+            };
+            
+            // Car locations //
+            var car1 = {
+                lat: -37.813361,
+                lng: 144.955694
+            };
+            var car2 = {
+                lat: -37.809206,
+                lng: 144.965309
+            };
+            var car3 = {
+                lat: -37.811295,
+                lng: 144.969483
+            };
+            var car4 = {
+                lat: -37.817952,
+                lng: 144.955743
+            };
+            var car5 = {
+                lat: -37.807440,
+                lng: 144.958671
+            };
+            var car6 = {
+                lat: -37.817080,
+                lng: 144.958337
+            };
+            var car7 = {
+                lat: -37.806870,
+                lng: 144.973861
+            };
+        
+            // Marker icons //
+            var imagepark = '{% static 'img/parkicon.png' %}'
+            var imagecar1 = '{% static 'img/car1icon.png' %}'
+            var imagecar2 = '{% static 'img/car2icon.png' %}'
+            var imagecar3 = '{% static 'img/car3icon.png' %}'
+        
+        
+            // Parking markers //
+            var markerp1 = new google.maps.Marker({
+                position: park1,
+                map: map,
+                icon: imagepark
+            });
 
-        // Marker icons
-        var imagecar1 = '{% static 'img/car1icon.png' %}'
-        var imagecar2 = '{% static 'img/car2icon.png' %}'
-        var imagecar3 = '{% static 'img/car3icon.png' %}'
+            var markerp2 = new google.maps.Marker({
+                position: park2,
+                map: map,
+                icon: imagepark
+            });
 
-        // Car markers
-        var markerc1 = new google.maps.Marker({
-            position: car1,
-            map: map,
-            icon: imagecar1,
-            zIndex: google.maps.Marker.MAX_ZINDEX + 1
-        });
+            var markerp3 = new google.maps.Marker({
+                position: park3,
+                map: map,
+                icon: imagepark
+            });
 
-        var markerc2 = new google.maps.Marker({
-            position: car2,
-            map: map,
-            icon: imagecar1,
-            zIndex: google.maps.Marker.MAX_ZINDEX + 1
-        });
+            var markerp4 = new google.maps.Marker({
+                position: park4,
+                map: map,
+                icon: imagepark
+            });
 
-        var markerc3 = new google.maps.Marker({
-            position: car3,
-            map: map,
-            icon: imagecar1,
-            zIndex: google.maps.Marker.MAX_ZINDEX + 1
-        });
+            var markerp5 = new google.maps.Marker({
+                position: park5,
+                map: map,
+                icon: imagepark
+            });
 
-        var markerc4 = new google.maps.Marker({
-            position: car4,
-            map: map,
-            icon: imagecar2,
-            zIndex: google.maps.Marker.MAX_ZINDEX + 1
-        });
+            var markerp6 = new google.maps.Marker({
+                position: park6,
+                map: map,
+                icon: imagepark
+            });
 
-        var markerc5 = new google.maps.Marker({
-            position: car5,
-            map: map,
-            icon: imagecar2,
-            zIndex: google.maps.Marker.MAX_ZINDEX + 1
-        });
+            var markerp7 = new google.maps.Marker({
+                position: park7,
+                map: map,
+                icon: imagepark
+            });
+        
+            // Car markers //
+            var markerc1 = new google.maps.Marker({
+                position: car1,
+                map: map,
+                icon: imagecar1,
+                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+            });
 
-        var markerc6 = new google.maps.Marker({
-            position: car6,
-            map: map,
-            icon: imagecar2,
-            zIndex: google.maps.Marker.MAX_ZINDEX + 1
-        });
+            var markerc2 = new google.maps.Marker({
+                position: car2,
+                map: map,
+                icon: imagecar1,
+                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+            });
 
-        var markerc7 = new google.maps.Marker({
-            position: car7,
-            map: map,
-            icon: imagecar3,
-            zIndex: google.maps.Marker.MAX_ZINDEX + 1
-        });
+            var markerc3 = new google.maps.Marker({
+                position: car3,
+                map: map,
+                icon: imagecar1,
+                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+            });
 
-        // Popups
-        var contentc1 = '<div id="content">Economy car #1</div>';
-        var infowindow1 = new google.maps.InfoWindow({
+            var markerc4 = new google.maps.Marker({
+                position: car4,
+                map: map,
+                icon: imagecar2,
+                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+            });
+
+            var markerc5 = new google.maps.Marker({
+                position: car5,
+                map: map,
+                icon: imagecar2,
+                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+            });
+
+            var markerc6 = new google.maps.Marker({
+                position: car6,
+                map: map,
+                icon: imagecar2,
+                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+            });
+
+            var markerc7 = new google.maps.Marker({
+                position: car7,
+                map: map,
+                icon: imagecar3,
+                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+            });
+
+            // Popups //
+            var contentc1 = '<div id="content">Economy car #1</div>';
+            var infowindow1 = new google.maps.InfoWindow({
             content: contentc1
-        });
-        google.maps.event.addListener(markerc1, 'click', function() {
+            });
+            google.maps.event.addListener(markerc1, 'click', function() {
             infowindow1.open(map, markerc1);
-        });
+            });
 
-        var contentc2 = '<div id="content">Economy car #2</div>';
-        var infowindow2 = new google.maps.InfoWindow({
+            var contentc2 = '<div id="content">Economy car #2</div>';
+            var infowindow2 = new google.maps.InfoWindow({
             content: contentc2
-        });
-        google.maps.event.addListener(markerc2, 'click', function() {
-            infowindow2.open(map, markerc2);
-        });
+            });
+            google.maps.event.addListener(markerc2, 'click', function() {
+                infowindow2.open(map, markerc2);
+            });
+    
+            var contentc3 = '<div id="content">Economy car #3</div>';
+            var infowindow3 = new google.maps.InfoWindow({
+                content: contentc3
+            });
+            google.maps.event.addListener(markerc3, 'click', function() {
+                infowindow3.open(map, markerc3);
+            });
+    
+            var contentc4 = '<div id="content">Luxury car #1</div>';
+            var infowindow4 = new google.maps.InfoWindow({
+                content: contentc4
+            });
+            google.maps.event.addListener(markerc4, 'click', function() {
+                infowindow4.open(map, markerc4);
+            });
+    
+            var contentc5 = '<div id="content">Luxury car #2</div>';
+            var infowindow5 = new google.maps.InfoWindow({
+                content: contentc5
+            });
+            google.maps.event.addListener(markerc5, 'click', function() {
+                infowindow5.open(map, markerc5);
+            });
+        
+            var contentc6 = '<div id="content">Luxury car #3</div>';
+            var infowindow6 = new google.maps.InfoWindow({
+                content: contentc6
+            });
+            google.maps.event.addListener(markerc6, 'click', function() {
+                infowindow6.open(map, markerc6);
+            });
+    
+            var contentc7 = '<div id="content">SVU #1</div>';
+            var infowindow7 = new google.maps.InfoWindow({
+                content: contentc7
+            });
+            google.maps.event.addListener(markerc7, 'click', function() {
+                infowindow7.open(map, markerc7);
+            });
+        }
 
-        var contentc3 = '<div id="content">Economy car #3</div>';
-        var infowindow3 = new google.maps.InfoWindow({
-            content: contentc3
-        });
-        google.maps.event.addListener(markerc3, 'click', function() {
-            infowindow3.open(map, markerc3);
-        });
-
-        var contentc4 = '<div id="content">Luxury car #1</div>';
-        var infowindow4 = new google.maps.InfoWindow({
-            content: contentc4
-        });
-        google.maps.event.addListener(markerc4, 'click', function() {
-            infowindow4.open(map, markerc4);
-        });
-
-        var contentc5 = '<div id="content">Luxury car #2</div>';
-        var infowindow5 = new google.maps.InfoWindow({
-            content: contentc5
-        });
-        google.maps.event.addListener(markerc5, 'click', function() {
-            infowindow5.open(map, markerc5);
-        });
-
-        var contentc6 = '<div id="content">Luxury car #3</div>';
-        var infowindow6 = new google.maps.InfoWindow({
-            content: contentc6
-        });
-        google.maps.event.addListener(markerc6, 'click', function() {
-            infowindow6.open(map, markerc6);
-        });
-
-        var contentc7 = '<div id="content">SVU #1</div>';
-        var infowindow7 = new google.maps.InfoWindow({
-            content: contentc7
-        });
-        google.maps.event.addListener(markerc7, 'click', function() {
-            infowindow7.open(map, markerc7);
-        });
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
         }
         </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap">
-        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
+    
+        <!-- not logged in -->
+        {% else %}
+        <div class="col text-center" style="padding-top: 4%;">
+            <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
+            <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
+            <h1>Welcome!</h1>
+            <p>You are not currently logged in.</p>
+            <br>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+        {% endif %}
     </div>
 
     <!-- Tab links -->
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'AllTab')" id="defaultOpen">All</button>
-        <button class="tablinks" onclick="openCity(event, 'EcoTab')">Economy</button>
+        <button class="tablinks" onclick="openCity(event, 'EcoTab')" id="defaultOpen">Economy</button>
         <button class="tablinks" onclick="openCity(event, 'LuxTab')">Luxury</button>
+        <button class="tablinks" onclick="openCity(event, 'SuvTab')">SUV</button>
     </div>
 
     <!-- Tab content -->
-    <div id="AllTab" class="tabcontent">
-        <h3>All Cars</h3>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    </div>
-
     <div id="EcoTab" class="tabcontent">
-        <h3>Economy class</h3>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <h1>Economy</h1>
+        <p>Add car info, image, maybe cost too</p>
     </div>
 
     <div id="LuxTab" class="tabcontent">
-        <h3>Luxury class</h3>
+        <h1>Luxury</h1>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </div>
+
+    <div id="SuvTab" class="tabcontent">
+        <h1>SUV</h1>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
     magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
@@ -242,74 +326,11 @@
 </section>
     
 <section id="section2" style="padding: 30px; color: white;" >
-    <h2>About</h2>
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        <h1>How To Use</h1>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
     magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
     sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-</section>
-
-<section id="section3"  style="padding: 30px; background-color: blue; color: white;">
-    <h2>Section 3</h2>
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
+    <a href="{% url 'howtouse' %}">How to use</a><p>
 </section>
 {% endblock %}

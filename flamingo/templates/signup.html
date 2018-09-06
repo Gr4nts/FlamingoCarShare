@@ -6,8 +6,14 @@
     <h1>Sign up</h1>
     <br>
     <form method="post">
-        {% csrf_token %} <!-- security -->
-        {{ form.as_p }} <!-- form as <p> tags -->
+        {% csrf_token %}
+        <p><label for="id_username">Username:</label> <input type="text" name="username" maxlength="150" autofocus required id="id_username"></p>
+        <p><label for="id_password1">Password:</label> <input type="password" name="password1" required id="id_password1"></p>
+        <br>
+        <p><label for="id_password2">Password confirmation:</label> <input type="password" name="password2" required id="id_password2"> 
+        <br>
+        <p>Enter the same password as before, for verification.</p>
+        <br>
         <button type="submit">Sign up</button>
     </form>
 </div>

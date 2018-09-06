@@ -14,10 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-
 from django.urls import path, include
 from django.views.generic.base import TemplateView
-#added
 from django.conf.urls.static import static
 
 #load order - top to bottom
@@ -33,7 +31,7 @@ urlpatterns = [
       path('', include('accounts.urls')),
     #login
       path('', include('django.contrib.auth.urls')),
-    #map
-      path('', include('map.urls')),
+    #detail page
+      path('', include('about.urls')),
 ]
 
