@@ -8,11 +8,25 @@
         {% if user.is_authenticated %}
         <div>
             <h1>Hello {{ user.username }}!</h1>
+            <br>
+            <div class="col text-left">
+            <h1>List Bookings</h1>
+            {% for bookings in Bookings %}
+            <p>
+                ID: {{ bookings.booking_id }},<br>
+                Customer: {{ bookings.customer }},<br>
+                Car no: {{ bookings.car_id }},<br>
+                Start: {{ bookings.book_start_date }},<br>
+                End: {{ bookings.book_end_time }},<br>
+                Approved: {{ bookings.is_approved }}.<br>
+                Car available: {{ bookings.is_available }}.<br>
+                <br>
+            </p>
+            {% endfor %}
+            </div>
         </div>
         {% else %}
-        <div>
-            <p>Please log in to access this page.</p>
-        </div>
+        <h1>You are not authorized to access this page.</h1>
         {% endif %}
     </div>
 </div>
