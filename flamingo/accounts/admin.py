@@ -3,10 +3,13 @@ from django.contrib import admin
 from .models import Car
 from .models import Booking
 
-#class BookingModelAdmin(admin.ModelAdmin):
-    #list_display = ['user_id', 'user_first_name', 'user_last_name', 'user_email']
-    #search_fields = ['Booking.customer']
+class CarModelAdmin(admin.ModelAdmin):
+    list_display = ['car_name', 'description', 'price', 'is_available']
+    list_filter = ['price', 'is_available']
 
-admin.site.register(Car)
-admin.site.register(Booking)
-#admin.site.register(Booking,BookingModelAdmin)
+class BookingModelAdmin(admin.ModelAdmin):
+    list_display = ['customer', 'car_id', 'book_start_date', 'book_end_time']
+    list_filter = ['customer', 'car_id']
+
+admin.site.register(Car,CarModelAdmin)
+admin.site.register(Booking,BookingModelAdmin)

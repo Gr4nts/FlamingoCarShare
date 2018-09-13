@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -118,12 +117,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = "/static/"
+#collectstatic
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+#files in static_root
+STATIC_URL = "/static/"
+#file locations
 STATICFILES_DIRS = (
     'flamingo/static/',
 )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'flamingo/static/img/')
+MEDIA_URL = "/img/"
 
 #added login redirection
 LOGIN_REDIRECT_URL = 'home'
