@@ -5,6 +5,15 @@
 <div>
     <h1>Create Booking - UNDER CONSTRUCTION, PLEASE USE ADMIN LOGIN TO BOOK</h1>
 
+    <form method="post">
+        {% csrf_token %}
+        <div style="color:#cccccc;">
+          {{ form.as_p }}
+        </div>
+        <br>
+        <input type="submit" value="Book">
+      </form>
+
 <!--
     <form action="" method="post">
         {% csrf_token %}
@@ -22,8 +31,8 @@
 
     <form action="" method="POST">
         {% csrf_token %}
-        
-        
+
+
         <br/>
         <p>
             Car: <input type="text" name="car_id"/><br/><br/>
@@ -40,7 +49,7 @@
                 <option value="{{ car.car_id }}">{{ car.car_name }}</option>
                 {% endfor %}
             </select>
-            
+
             <input type="submit" value="Book" style="background-color: black;">
         </p>
 
@@ -54,11 +63,9 @@
             <option value="{{ car.car_id }}">{{ car.car_name }}</option>
             {% endfor %}
         </select>
-        
+
         </p>
     </form>
     -->
 </div>
 {% endblock %}
-
-

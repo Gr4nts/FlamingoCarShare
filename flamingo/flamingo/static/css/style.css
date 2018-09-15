@@ -1,8 +1,6 @@
 /* general Section */
-#id_username{ background-color: #1a1a1a; }
-#id_password{ background-color: #1a1a1a; }
-#id_password1{ background-color: #1a1a1a; }
-#id_password2{ background-color: #1a1a1a; }
+
+#id_car_id{ background-color: #1a1a1a; }
 
 a{ color: hotpink; }
 
@@ -15,6 +13,7 @@ input[type=text],
 input[type=password] {
     border: 2px solid #ff66b3;
     border-radius: 2px;
+    background-color: #1a1a1a;
 }
 
 html, body{
