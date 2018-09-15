@@ -22,11 +22,12 @@ class Car(models.Model):
 class Booking(models.Model):
     booking_id = models.AutoField(primary_key=True)
     #customer = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, related_name='my_books')
-    customer = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Customer")
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Customer")
     car_id = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name="Car")
     book_start_date = models.DateTimeField("Start date", null=True, blank=True)
     book_end_date = models.DateTimeField("End date", null=True, blank=True)
     #is_available = models.ForeignKey(Car, on_delete=models.CASCADE,default=False)
+    #cars = models.ManyToManyField(Car)
     def get_absolute_url(self):
         return reverse('booking-details', kwargs={'pk': self.pk})
     def __str__(self):

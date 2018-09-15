@@ -7,4 +7,5 @@ urlpatterns = [
     path('account/', views.Account, name='account'),
     #path('book/', views.CreateBook.as_view(), name='book'),
     path('book/', views.CreateBooking, name='book'),
+    path('booked/', views.Booked.as_view(), name='booked'),
 ]

@@ -6,8 +6,6 @@ from django.views.generic import TemplateView
 
 from .models import Booking
 from django.http import HttpResponseRedirect
-
-from .models import Booking
 from .forms import BookingForm
 
 class SignUp(generic.CreateView):
@@ -24,10 +22,13 @@ def CreateBooking(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            Booking = form.save(commit=False)
-            Booking.customer = request.user
-            Booking.save()
-            return HttpResponseRedirect('/booked.html')
+            bform = form.save(commit=False)
+            bform.customer = request.user
+            bform.save()
+            return HttpResponseRedirect('/')
     else:
         form = BookingForm(request.POST)
     return render(request, 'book.html', {'form': form})
+
+class Booked(generic.CreateView):
+    template_name = 'booked.html'
