@@ -34,12 +34,6 @@ html, body{
 }
 
 /* ID Section */
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> homepage-raph
 #body{
     padding-bottom: 35px;
 }
@@ -63,12 +57,7 @@ html, body{
 }
 
 #map{
-<<<<<<< HEAD
     height: 800px;
-=======
-    height: 500px;
-    width: inherit;
->>>>>>> homepage-raph
     margin: auto;
     border: 4px solid pink;
 }
@@ -91,42 +80,11 @@ html, body{
 
 #myBtn:hover {
     background-color: #555;
-
 }
 
 #HomeBooking {
-    background-color:  #555;
+    background-color: #555;
 }
-
-#homeCover{
-
-background-image: url('/static/img/tempBackground.jpg');
-background-size: cover;
-text-align: center;
-min-height:500px
-
-
-}
-#regButton{
-  display: inline-block;
-  background-color:#ff3399;
-  width: 150px;
-}
-#signButton{
-  display: inline-block;
-    width: 150px;
-    margin-top:1%;
-}
-#test{
-  display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-    border: 3px solid #73AD21;
-
-
-}
-
 
 /* Classes Section */
 
