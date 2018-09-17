@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import TemplateView
-
+from django.contrib import messages
 from .models import Booking
 from django.http import HttpResponseRedirect
 from .forms import BookingForm
@@ -25,10 +25,10 @@ def CreateBooking(request):
             bform = form.save(commit=False)
             bform.customer = request.user
             bform.save()
+            messages.success(request, 'Your booking has been saved!')
             return HttpResponseRedirect('/')
+        else:
+            messages.warning(request, 'There was an error. Please fill out the form again.')
     else:
         form = BookingForm(request.POST)
     return render(request, 'book.html', {'form': form})
-
-class Booked(generic.CreateView):
-    template_name = 'booked.html'

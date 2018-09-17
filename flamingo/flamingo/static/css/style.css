@@ -1,13 +1,10 @@
 /* general Section */
+
 #id_car_id{ background-color: #1a1a1a; }
-
-a{ color: hotpink; }
-
-h1{ color: #ff66b3; }
-h2{ color: white;}
-p{ color: white; }
-
-li{ font-size: 15px; }
+#id_username{ background-color: #4d4d4d; }
+#id_password{ background-color: #4d4d4d; }
+#id_password1{ background-color: #4d4d4d; }
+#id_password2{ background-color: #4d4d4d; }
 
 input[type=text],
 input[type=password] {
@@ -16,9 +13,16 @@ input[type=password] {
     background-color: #1a1a1a;
 }
 
+a{ color: hotpink; }
+h1{ color: #ff66b3; }
+h2{ color: white;}
+
+p{ color: white; }
+li{ font-size: 15px; }
+
 table{
-  width: 100%;
- color: white;
+    width: 100%;
+    color: white;
 }
 
 html, body{
@@ -33,11 +37,6 @@ html, body{
 #body{
     padding-bottom: 35px;
 }
-
-#id_username{ background-color: #4d4d4d; }
-#id_password{ background-color: #4d4d4d; }
-#id_password1{ background-color: #4d4d4d; }
-#id_password2{ background-color: #4d4d4d; }
 
 #footer{
     color: white;

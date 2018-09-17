@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class Car(models.Model):
     car_id = models.IntegerField("Car", primary_key=True)
     car_name = models.CharField("Car", max_length=50, null=True, blank=True)
-    image = models.ImageField(upload_to='car_images', null=True, blank=True)
+    #image = models.ImageField(upload_to='car_images', null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
     is_available = models.BooleanField("Availablility", default=True)
