@@ -7,8 +7,6 @@
 {% endblock %}
 
 {% block content %}
-{% include 'messages.html' %}
-
 <section id="HomeBooking">
     <div style="padding: 10px">
     {% if user.is_authenticated %}
@@ -117,7 +115,6 @@
             var imagecar1 = '{% static 'img/car1icon.png' %}'
             var imagecar2 = '{% static 'img/car2icon.png' %}'
             var imagecar3 = '{% static 'img/car3icon.png' %}'
-
 
             // Parking markers //
             var markerp1 = new google.maps.Marker({
