@@ -18,15 +18,14 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
 
-#load order - top to bottom
-urlpatterns = [
-    # path(url address, path to view, url name) #
+from django.conf import settings
 
+
+urlpatterns = [
     #home view
       path('', TemplateView.as_view(template_name='home.html'), name='home'),
     #authenticate
       path('admin/', admin.site.urls),
-
     #signup
       path('', include('accounts.urls')),
     #login

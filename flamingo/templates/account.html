@@ -4,17 +4,24 @@
 
 {% block content %}
 <div class="col text-center" style="padding-top: 4%;">
-    <div id="authname" style="padding: 2%;">
-        {% if user.is_authenticated %}
+    {% if user.is_authenticated %}
         <div>
             <h1>Hello {{ user.username }}!</h1>
+            <br>
+            <div class="col text-left">
+                <h1>Your bookings</h1>
+                <p>
+                {% for bookings in Bookings %}
+                Car: {{ bookings.car_id }}<br>
+                Start: {{ bookings.book_start_date }}<br>
+                End: {{ bookings.book_end_time }}<br><br>
+                {% endfor %}
+                </p>
+            </div>
         </div>
-        {% else %}
-        <div>
-            <p>Please log in to access this page.</p>
-        </div>
-        {% endif %}
-    </div>
+    {% else %}
+        <h1>You are not authorized to access this page.</h1>
+    {% endif %}
 </div>
 
 <div>

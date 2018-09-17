@@ -8,12 +8,13 @@
 
 {% block content %}
 <section id="HomeBooking">
-    <div style="padding: 30px">
-        <!-- logged in -->
-        {% if user.is_authenticated %}
+    <div style="padding: 10px">
+    {% if user.is_authenticated %}
         <h1>Welcome {{ user.username }}!</h1>
         <p>Here are available cars ready to hire.</p>
-        
+    </div>
+    
+    <div style="padding: 10px">
         <div id="map"></div>
         <script>
         var map, infoWindow;
@@ -278,7 +279,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
     
         <!-- not logged in -->
-        {% else %}
+    {% else %}
         <div class="col text-center" style="padding-top: 4%;">
             <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
             <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
@@ -292,7 +293,7 @@
                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         </div>
-        {% endif %}
+    {% endif %}
     </div>
 
     <!-- Tab links -->

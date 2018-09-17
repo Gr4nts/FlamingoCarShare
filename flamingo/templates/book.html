@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Create Booking{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Create Booking - UNDER CONSTRUCTION, PLEASE USE ADMIN LOGIN TO BOOK</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div style="color:#cccccc;">
+          <p>Please insert date and time as: 01/01/2018 10:20:30</p>
+        {{ form.as_p }}
+        </div>
+        <br>
+        <input type="submit" value="Book">
+      </form>
+
+<!--
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Book">
+    </form>
+
+
+        <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <button type="submit">Save changes</button>
+        </form>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+
+        <br/>
+        <p>
+            Car: <input type="text" name="car_id"/><br/><br/>
+            Start date: <input type="text" name="book_start_date"/><br/><br/>
+            End date: <input type="text" name="book_end_time"/><br/><br/>
+            <br/>
+            <input type="submit" value="Book" style="background-color: black;"/>
+        </p>
+
+        <br/>
+        <p>
+            <select name="car_id">
+                {% for car in cars %}
+                <option value="{{ car.car_id }}">{{ car.car_name }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Book" style="background-color: black;">
+        </p>
+
+        <p>
+        user id
+        <input id="customer" type="text" name="customer" value="{{ user.username }}">
+
+        car id
+        <select name="car_id">
+            {% for car in cars %}
+            <option value="{{ car.car_id }}">{{ car.car_name }}</option>
+            {% endfor %}
+        </select>
+
+        </p>
+    </form>
+    -->
+</div>
+{% endblock %}

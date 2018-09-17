@@ -1,0 +1,72 @@
+[
+    {
+        "car_id": "1",
+        "car_name": "Toyota Corolla",
+        "description": "Economy #1",
+        "image": "car_images/toyota.jpg",
+        "is_available": "1",
+        "lat": "-37.813361",
+        "lng": "144.955694",
+        "price": "25"
+    },
+    {
+        "car_id": "2",
+        "car_name": "Mazda 3",
+        "description": "Economy #2",
+        "image": "car_images/mazda.jpg",
+        "is_available": "1",
+        "lat": "-37.809206",
+        "lng": "144.965309",
+        "price": "25"
+    },
+    {
+        "car_id": "3",
+        "car_name": "Mitsubishi Mirage",
+        "description": "Economy #3",
+        "image": "car_images/mitsubishi.jpg",
+        "is_available": "1",
+        "lat": "-37.811295",
+        "lng": "144.969483",
+        "price": "25"
+    },
+    {
+        "car_id": "4",
+        "car_name": "Mercedes-Benz C",
+        "description": "Luxury #1",
+        "image": "car_images/mercedes.jpg",
+        "is_available": "1",
+        "lat": "-37.817952",
+        "lng": "144.955743",
+        "price": "50"
+    },
+    {
+        "car_id": "5",
+        "car_name": "Porsche Cayman",
+        "description": "Luxury #2",
+        "image": "car_images/porsche.jpg",
+        "is_available": "1",
+        "lat": "-37.807440",
+        "lng": "144.958671",
+        "price": "50"
+    },
+    {
+        "car_id": "6",
+        "car_name": "Audi A8",
+        "description": "Luxury #3",
+        "image": "car_images/audi.jpg",
+        "is_available": "1",
+        "lat": "-37.817080",
+        "lng": "144.958337",
+        "price": "50"
+    },
+    {
+        "car_id": "7",
+        "car_name": "Jeep Cherokee",
+        "description": "SUV #1",
+        "image": "car_images/jeep.jpg",
+        "is_available": "1",
+        "lat": "-37.806870",
+        "lng": "144.973861",
+        "price": "40"
+    }
+]

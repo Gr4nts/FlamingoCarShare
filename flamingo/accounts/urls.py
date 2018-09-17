@@ -4,5 +4,8 @@ from .views import Account
 
 urlpatterns = [
     path('signup/', views.SignUp.as_view(), name='signup'),
-    path('account/', views.Account.as_view(), name='account'),
+    path('account/', views.Account, name='account'),
+    #path('book/', views.CreateBook.as_view(), name='book'),
+    path('book/', views.CreateBooking, name='book'),
+    path('booked/', views.Booked.as_view(), name='booked'),
 ]
