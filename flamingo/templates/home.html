@@ -10,22 +10,13 @@
 {% include 'messages.html' %}
 
 <section id="HomeBooking">
-<<<<<<< HEAD
-    <div style="padding: 10px">
+    <div >
     {% if user.is_authenticated %}
         <h1>Welcome {{ user.username }}!</h1>
         <p>Here are available cars ready to hire.</p>
     </div>
 
     <div style="padding: 10px">
-=======
-    <div style="height= 500px">
-        <!-- logged in -->
-        {% if user.is_authenticated %}
-        <h1>Welcome {{ user.username }}</h1>
-
-
->>>>>>> homepage-raph
         <div id="map"></div>
         <script>
         var map, infoWindow;
@@ -290,56 +281,32 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
 
         <!-- not logged in -->
-<<<<<<< HEAD
     {% else %}
-        <div class="col text-center" style="padding-top: 4%;">
-            <a  href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#ff3399">Register</button></a>
-            <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg btn-block" style="margin-top:3%">Sign In</button></a>
-            <h1>Welcome!</h1>
-            <p>You are not currently logged in.</p>
-=======
-        {% else %}
-        <div   id= "homeCover" >
-          <h1>FLAMINGO SHARING</h1>
-          <div  id= "test" >
+    <div   id= "homeCover" >
 
-            <a  href="{% url 'signup' %}" ><button type="button" class="btn btn-primary btn-lg " id= "regButton">book</button></a>
->>>>>>> homepage-raph
-            <br>
-            <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg " id= "signButton">Sign In</button></a>
-          </div>
-        </div>
+
+
+       <div  id= "test" >
+         <p id="title">FLAMINGO SHARING</p>
+
+         <a  href="{% url 'signup' %}" ><button type="button" class="btn btn-primary btn-lg " id= "BookButton">Book</button></a>
+         <br>
+         <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg " id= "signButton">Sign In</button></a>
+       </div>
+     </div>
     {% endif %}
     </div>
 
-    <!-- Tab links -->
-    <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'EcoTab')" id="defaultOpen">Economy</button>
-        <button class="tablinks" onclick="openCity(event, 'LuxTab')">Luxury</button>
-        <button class="tablinks" onclick="openCity(event, 'SuvTab')">SUV</button>
-    </div>
+<div class="btn-group">
+  <button class="button">Economy</button>
+  <button class="button">Luxury</button>
+  <button class="button">SUV</button>
 
-    <!-- Tab content -->
-    <div id="EcoTab" class="tabcontent">
-        <h1>Economy</h1>
-        <p>Add car info, image, maybe cost too</p>
-    </div>
+</div>
 
-    <div id="LuxTab" class="tabcontent">
-        <h1>Luxury</h1>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    </div>
 
-    <div id="SuvTab" class="tabcontent">
-        <h1>SUV</h1>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum.".</p>
-    </div>
+    <p style="clear:both"></p>
+
 </section>
 
 <section id="section2" style="padding: 30px; color: white;" >
