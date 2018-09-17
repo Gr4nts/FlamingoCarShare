@@ -21,9 +21,9 @@
                 <strong>Flamingo <span style="background-color: #ff3399; color: white; padding:10px">Sharing</span></strong></a>
             </h1>
         </div>
-      
+
         <!-- navigation -->
-        <header>
+
             <nav class="navbar navbar-inverse navbar-expand-lg">
       			<div class="container-fluid">
       				<button type="button" class="navbar-toggle"  data-toggle="collapse" data-target="#myNavbar">
@@ -32,7 +32,7 @@
                         <span class="icon-bar"></span>
                     </button>
               	    <!--<a class="navbar-brand hidden-lg hidden-md hidden-sm" style="color: white;"> Menu </a>-->
-              	    <div class="collapse navbar-collapse  navbar-left" id="myNavbar">
+              	    <div class="collapse navbar-collapse " id="myNavbar">
               	        <ul class="nav navbar-nav">
                             <li><a style="padding:0; margin:0;" href="{% url 'home' %}"><img src="{% static 'img/homeicon.png' %}" /></a></li>
                             {% block navbar %}
@@ -50,10 +50,10 @@
                             <li><a class="nav-item nav-link" style="color: white;" href="{% url 'login' %}">Login <span class="glyphicon glyphicon-user"></span></a>
                             {% endif %}
                         </ul>
-                    </div>  
+                    </div>
                 </div>
             </nav>
-        </header>
+
 
         <!-- content -->
         <div id="body">
@@ -69,7 +69,7 @@
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 </div>
-    
+
     <!-- bootstrap javascript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -155,6 +155,6 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
-    
+
 </body>
 </html>
