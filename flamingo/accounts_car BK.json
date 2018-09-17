@@ -62,7 +62,7 @@
     {
         "car_id": "7",
         "car_name": "Jeep Cherokee",
-        "description": "SUV #1",
+        "description": "SUV",
         "image": "car_images/jeep.jpg",
         "is_available": "1",
         "lat": "-37.806870",
