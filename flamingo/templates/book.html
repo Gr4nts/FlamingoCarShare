@@ -8,8 +8,8 @@
     <form method="post">
         {% csrf_token %}
         <div style="color:#cccccc;">
-          <p>Please insert date and time as: 01/01/2018 10:20:30</p>
         {{ form.as_p }}
+        <p style="color: #cccccc;">Date and time format: 01/01/2018 10:20:30</p>
         </div>
         <br>
         <input type="submit" value="Book">
