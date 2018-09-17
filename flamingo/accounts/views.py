@@ -5,16 +5,15 @@ from django.views import generic
 from django.views.generic import TemplateView
 from django.contrib import messages
 from .models import Booking
-#from django.http import HttpResponseRedirect
 from .forms import BookingForm
 from django.shortcuts import redirect
+from django.contrib.messages.views import SuccessMessageMixin
 
-class SignUp(generic.CreateView):
-#def SignUp(request):
+class SignUp(SuccessMessageMixin,generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('home')
     template_name = 'signup.html'
-    #messages.success(request, 'You signed up!')
+    success_message = "You have successfully signed up!"
 
 def Account(request):
     Bookings = Booking.objects.filter(customer=request.user)
