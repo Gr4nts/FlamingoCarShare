@@ -26,7 +26,7 @@ def CreateBooking(request):
         if form.is_valid():
             bform = form.save(commit=False)
             bform.customer = request.user
-            #bform.is_available = False
+            bform.car_id.is_available = False
             bform.save()
             messages.success(request, 'Your booking has been saved!')
             return redirect('account')
