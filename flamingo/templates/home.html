@@ -51,6 +51,7 @@
             }
 
             // Parking spot locations //
+            /*
             var park1 = {
                 lat: -37.813361,
                 lng: 144.955694
@@ -78,7 +79,7 @@
             var park7 = {
                 lat: -37.806870,
                 lng: 144.973861
-            };
+            }; */
 
             // Car locations //
             {% for cars in Cars %}
@@ -86,50 +87,36 @@
             var car1 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
-                //lat: -37.813361,
-                //lng: 144.955694
             };
             {% elif cars.car_id == 2 %}
             var car2 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
-                //lat: -37.809206,
-                //lng: 144.965309
             };
             {% elif cars.car_id == 3 %}
             var car3 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
-                //lat: -37.811295,
-                //lng: 144.969483
             };
             {% elif cars.car_id == 4 %}
             var car4 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
-                //lat: -37.817952,
-                //lng: 144.955743
             };
             {% elif cars.car_id == 5 %}
             var car5 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
-                //lat: -37.807440,
-                //lng: 144.958671
             };
             {% elif cars.car_id == 6 %}
             var car6 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
-                //lat: -37.817080,
-                //lng: 144.958337
             };
             {% elif cars.car_id == 7 %}
             var car7 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
-                //lat: -37.806870,
-                //lng: 144.973861
             };
             {% endif %}
             {% endfor %}
@@ -141,6 +128,7 @@
             var imagecar3 = '{% static 'img/car3icon.png' %}'
 
             // Parking markers //
+            /*
             var markerp1 = new google.maps.Marker({
                 position: park1,
                 map: map,
@@ -181,7 +169,7 @@
                 position: park7,
                 map: map,
                 //icon: imagepark
-            });
+            }); */
 
             // Car markers //
             var markerc1 = new google.maps.Marker({
@@ -236,7 +224,7 @@
             // Popups //
             {% for cars in Cars %}
             {% if cars.car_id == 1 %}
-            var contentc1 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var contentc1 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow1 = new google.maps.InfoWindow({
             content: contentc1
             });
@@ -244,7 +232,7 @@
             infowindow1.open(map, markerc1);
             });
             {% elif cars.car_id == 2 %}
-            var contentc2 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var contentc2 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow2 = new google.maps.InfoWindow({
             content: contentc2
             });
@@ -252,7 +240,7 @@
                 infowindow2.open(map, markerc2);
             });
             {% elif cars.car_id == 3 %}
-            var contentc3 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var contentc3 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow3 = new google.maps.InfoWindow({
                 content: contentc3
             });
@@ -260,7 +248,7 @@
                 infowindow3.open(map, markerc3);
             });
             {% elif cars.car_id == 4 %}
-            var contentc4 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var contentc4 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow4 = new google.maps.InfoWindow({
                 content: contentc4
             });
@@ -268,7 +256,7 @@
                 infowindow4.open(map, markerc4);
             });
             {% elif cars.car_id == 5 %}
-            var contentc5 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var contentc5 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow5 = new google.maps.InfoWindow({
                 content: contentc5
             });
@@ -276,7 +264,7 @@
                 infowindow5.open(map, markerc5);
             });
             {% elif cars.car_id == 6 %}
-            var contentc6 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var contentc6 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow6 = new google.maps.InfoWindow({
                 content: contentc6
             });
@@ -284,7 +272,7 @@
                 infowindow6.open(map, markerc6);
             });
             {% elif cars.car_id == 7 %}
-            var contentc7 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var contentc7 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow7 = new google.maps.InfoWindow({
                 content: contentc7
             });
