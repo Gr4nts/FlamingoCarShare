@@ -234,61 +234,65 @@
             });
 
             // Popups //
-            var contentc1 = '<div id="content">Economy car #1</div>';
+            {% for cars in Cars %}
+            {% if cars.car_id == 1 %}
+            var contentc1 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
             var infowindow1 = new google.maps.InfoWindow({
             content: contentc1
             });
             google.maps.event.addListener(markerc1, 'click', function() {
             infowindow1.open(map, markerc1);
             });
-
-            var contentc2 = '<div id="content">Economy car #2</div>';
+            {% elif cars.car_id == 2 %}
+            var contentc2 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
             var infowindow2 = new google.maps.InfoWindow({
             content: contentc2
             });
             google.maps.event.addListener(markerc2, 'click', function() {
                 infowindow2.open(map, markerc2);
             });
-
-            var contentc3 = '<div id="content">Economy car #3</div>';
+            {% elif cars.car_id == 3 %}
+            var contentc3 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
             var infowindow3 = new google.maps.InfoWindow({
                 content: contentc3
             });
             google.maps.event.addListener(markerc3, 'click', function() {
                 infowindow3.open(map, markerc3);
             });
-
-            var contentc4 = '<div id="content">Luxury car #1</div>';
+            {% elif cars.car_id == 4 %}
+            var contentc4 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
             var infowindow4 = new google.maps.InfoWindow({
                 content: contentc4
             });
             google.maps.event.addListener(markerc4, 'click', function() {
                 infowindow4.open(map, markerc4);
             });
-
-            var contentc5 = '<div id="content">Luxury car #2</div>';
+            {% elif cars.car_id == 5 %}
+            var contentc5 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
             var infowindow5 = new google.maps.InfoWindow({
                 content: contentc5
             });
             google.maps.event.addListener(markerc5, 'click', function() {
                 infowindow5.open(map, markerc5);
             });
-
-            var contentc6 = '<div id="content">Luxury car #3</div>';
+            {% elif cars.car_id == 6 %}
+            var contentc6 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
             var infowindow6 = new google.maps.InfoWindow({
                 content: contentc6
             });
             google.maps.event.addListener(markerc6, 'click', function() {
                 infowindow6.open(map, markerc6);
             });
-
-            var contentc7 = '<div id="content">SVU #1</div>';
+            {% elif cars.car_id == 7 %}
+            var contentc7 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
             var infowindow7 = new google.maps.InfoWindow({
                 content: contentc7
             });
             google.maps.event.addListener(markerc7, 'click', function() {
                 infowindow7.open(map, markerc7);
             });
+            {% endif %}
+            {% endfor %}
         }
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
