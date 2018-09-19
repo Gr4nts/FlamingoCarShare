@@ -20,10 +20,7 @@ from django.conf.urls.static import static
 
 from django.conf import settings
 
-
 urlpatterns = [
-    #home view
-      path('', TemplateView.as_view(template_name='home.html'), name='home'),
     #authenticate
       path('admin/', admin.site.urls),
     #signup
@@ -33,4 +30,3 @@ urlpatterns = [
     #detail page
       path('', include('about.urls')),
 ]
-
