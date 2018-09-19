@@ -6,9 +6,10 @@ from django.views.generic import TemplateView
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
+from .models import Car
 from .models import Booking
 from .forms import BookingForm
-#from .models import Car
+#from django.views.generic import DetailView
 
 class SignUp(SuccessMessageMixin,generic.CreateView):
     form_class = UserCreationForm
@@ -33,3 +34,12 @@ def CreateBooking(request):
     else:
         form = BookingForm(request.POST)
     return render(request, 'book.html', {'form': form})
+
+#class CarView(DetailView):
+    #template_name = 'car_details.html'
+    #model = Car
+
+    #def get_context_data(self, **kwargs):
+        #context = super(CarView, self).get_context_data(**kwargs)
+        #context['booking_success'] = 'booking-success' in self.request.GET
+        #return context
