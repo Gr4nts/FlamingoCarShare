@@ -4,10 +4,11 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import TemplateView
 from django.contrib import messages
-from .models import Booking
-from .forms import BookingForm
 from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
+from .models import Booking
+from .forms import BookingForm
+#from .models import Car
 
 class SignUp(SuccessMessageMixin,generic.CreateView):
     form_class = UserCreationForm
@@ -16,7 +17,7 @@ class SignUp(SuccessMessageMixin,generic.CreateView):
     success_message = "You have successfully signed up!"
 
 def Account(request):
-    Bookings = Booking.objects.filter(customer=request.user).select_related('car_id')
+    Bookings = Booking.objects.filter(customer=request.user).order_by('-book_start_date')
     context = { 'Bookings': Bookings }
     return render(request, 'account.html', context)
 
@@ -26,7 +27,6 @@ def CreateBooking(request):
         if form.is_valid():
             bform = form.save(commit=False)
             bform.customer = request.user
-            bform.car_id.is_available = False
             bform.save()
             messages.success(request, 'Your booking has been saved!')
             return redirect('account')

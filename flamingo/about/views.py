@@ -13,6 +13,7 @@ class About(TemplateView):
     template_name = 'about.html'
 
 def Home(request):
+    #Cars = Car.objects.filter(available=True)
     Cars = Car.objects.all()
     context = { 'Cars': Cars }
     return render(request, 'home.html', context)
