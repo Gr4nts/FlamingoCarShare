@@ -224,7 +224,7 @@
             // Popups //
             {% for cars in Cars %}
             {% if cars.car_id == 1 %}
-            var contentc1 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
+            var contentc1 = '<div id="content">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow1 = new google.maps.InfoWindow({
             content: contentc1
             });
@@ -232,7 +232,7 @@
             infowindow1.open(map, markerc1);
             });
             {% elif cars.car_id == 2 %}
-            var contentc2 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
+            var contentc2 = '<div id="content">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow2 = new google.maps.InfoWindow({
             content: contentc2
             });
@@ -240,7 +240,7 @@
                 infowindow2.open(map, markerc2);
             });
             {% elif cars.car_id == 3 %}
-            var contentc3 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
+            var contentc3 = '<div id="content">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow3 = new google.maps.InfoWindow({
                 content: contentc3
             });
@@ -248,7 +248,7 @@
                 infowindow3.open(map, markerc3);
             });
             {% elif cars.car_id == 4 %}
-            var contentc4 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
+            var contentc4 = '<div id="content">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow4 = new google.maps.InfoWindow({
                 content: contentc4
             });
@@ -256,7 +256,7 @@
                 infowindow4.open(map, markerc4);
             });
             {% elif cars.car_id == 5 %}
-            var contentc5 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
+            var contentc5 = '<div id="content">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow5 = new google.maps.InfoWindow({
                 content: contentc5
             });
@@ -264,7 +264,7 @@
                 infowindow5.open(map, markerc5);
             });
             {% elif cars.car_id == 6 %}
-            var contentc6 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
+            var contentc6 = '<div id="content">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow6 = new google.maps.InfoWindow({
                 content: contentc6
             });
@@ -272,7 +272,7 @@
                 infowindow6.open(map, markerc6);
             });
             {% elif cars.car_id == 7 %}
-            var contentc7 = '<div id="content">{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
+            var contentc7 = '<div id="content">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>Available: {{ cars.is_available }}</div>';
             var infowindow7 = new google.maps.InfoWindow({
                 content: contentc7
             });
