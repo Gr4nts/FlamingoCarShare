@@ -7,5 +7,5 @@ class BookingForm(ModelForm):
     class Meta:
         model = Booking
         fields = ['car_id', 'book_start_date', 'book_end_date']
-        def queryset(self, request):
-            return super(BookingForm, self).queryset(request).select_related('car_id')
+        #def queryset(self, request):
+            #return super(BookingForm, self).queryset(request).select_related('car_id')
