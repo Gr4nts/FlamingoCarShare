@@ -1,9 +1,5 @@
 from django.db import models
-#from django.conf import settings
-#from django.utils import timezone
-#import datetime
 from django.contrib.auth.models import User
-
 
 class Car(models.Model):
     car_id = models.IntegerField("Car", primary_key=True)
@@ -25,7 +21,6 @@ class Booking(models.Model):
     car_id = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name="Car")
     book_start_date = models.DateField("Start date", null=True, blank=True)
     book_end_date = models.DateField("End date", null=True, blank=True)
-    #is_available = models.ForeignKey(Car, on_delete=models.CASCADE,default=False)
     def get_absolute_url(self):
         return reverse('booking-details', kwargs={'pk': self.pk})
     def __str__(self):

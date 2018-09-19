@@ -13,8 +13,11 @@
                 <p>
                 {% for bookings in Bookings %}
                 Car: {{ bookings.car_id }}<br>
-                Start: {{ bookings.book_start_date }}<br>
-                End: {{ bookings.book_end_date }}<br><br>
+                Description: {{ bookings.car_id.description }}<br>
+                Available: {{ bookings.car_id.is_available }}<br>
+                Price per day: {{ bookings.car_id.price }}<br>
+                Booking Start Date: {{ bookings.book_start_date }}<br>
+                Booking End Date: {{ bookings.book_end_date }}<br><br>
                 {% endfor %}
                 </p>
             </div>
