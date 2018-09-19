@@ -82,51 +82,56 @@
 
             // Car locations //
             {% for cars in Cars %}
-
+            {% if cars.car_id == 1 %}
             var car1 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
                 //lat: -37.813361,
                 //lng: 144.955694
             };
-
+            {% elif cars.car_id == 2 %}
             var car2 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
                 //lat: -37.809206,
                 //lng: 144.965309
             };
-
+            {% elif cars.car_id == 3 %}
             var car3 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
                 //lat: -37.811295,
                 //lng: 144.969483
             };
+            {% elif cars.car_id == 4 %}
             var car4 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
                 //lat: -37.817952,
                 //lng: 144.955743
             };
+            {% elif cars.car_id == 5 %}
             var car5 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
                 //lat: -37.807440,
                 //lng: 144.958671
             };
+            {% elif cars.car_id == 6 %}
             var car6 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
                 //lat: -37.817080,
                 //lng: 144.958337
             };
+            {% elif cars.car_id == 7 %}
             var car7 = {
                 lat: {{ cars.lat }},
                 lng: {{ cars.lng }}
                 //lat: -37.806870,
                 //lng: 144.973861
             };
+            {% endif %}
             {% endfor %}
 
             // Marker icons //
