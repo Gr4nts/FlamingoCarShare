@@ -1,17 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-#class Available(models.Model):
-    #avail_id = models.AutoField(primary_key=True)
-    #CHOICES = ((True, 'Yes'),(False, 'No') )
-    #available = models.BooleanField("Is Available", choices = CHOICES, default=True)
-    #car = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name="Car")
-
-    #def get_absolute_url(self):
-        #return reverse('available-details', kwargs={'pk': self.pk})
-    #def __str__(self):
-        #return str(self.available)
-
 class Car(models.Model):
     car_id = models.IntegerField("Car", primary_key=True)
     car_name = models.CharField("Model", max_length=50, null=True, blank=True)
@@ -21,7 +10,7 @@ class Car(models.Model):
     lat = models.CharField(max_length=50, null=True, blank=True)
     lng = models.CharField(max_length=50, null=True, blank=True)
     CHOICES = ((True, 'Yes'),(False, 'No') )
-    available = models.BooleanField("Is Available", choices = CHOICES, default=True)
+    #available = models.BooleanField("Is Available", choices = CHOICES, default=True)
 
     def get_absolute_url(self):
         return reverse('car-details', kwargs={'pk': self.pk})
@@ -31,8 +20,8 @@ class Car(models.Model):
 class Booking(models.Model):
     booking_id = models.AutoField("Booking", primary_key=True)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Customer")
-    book_start_date = models.DateField("Start date", null=True, blank=True)
-    book_end_date = models.DateField("End date", null=True, blank=True)
+    book_start_date = models.DateField("Start date", auto_now_add=True) #, null=True, blank=True)
+    book_end_date = models.DateField("End date", auto_now_add=True) #null=True, blank=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name="Cars")
     #available = models.ForeignKey(Available, on_delete=models.CASCADE, default=False, verbose_name="Car Available")
 

@@ -4,8 +4,8 @@ from .models import Booking
 #from .models import Available
 
 class CarModelAdmin(admin.ModelAdmin):
-    list_display = ['car_name', 'description', 'price', 'available']
-    list_filter = ['price', 'available']
+    list_display = ['car_name', 'description', 'price'] #, 'available']
+    list_filter = ['price'] #, 'available']
 
 class BookingModelAdmin(admin.ModelAdmin):
     list_display = ['customer', 'car', 'book_start_date', 'book_end_date']
