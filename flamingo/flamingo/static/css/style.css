@@ -14,7 +14,7 @@ input[type=password] {
 }
 
 a{ color: hotpink; }
-h1{ color: #ff66b3; }
+h1{ color: #ffb3d9; }
 h2{ color: white;}
 
 p{ color: white; }
@@ -89,28 +89,25 @@ html, body{
 }
 
 #HomeBooking {
-    background-color: #555;
+    background-color: #505062;
     margin-top:75px;
-   
 }
-#homeCover{
 
+#homeCover{
 background-image: url('/static/img/tempBackground.jpg');
 background-size: cover;
 text-align: center;
 min-height:700px;
-
-
 }
-#BookButton{
 
+#BookButton{
   display: inline-block;
   background-color:#ff3399;
   margin-top:15%;
   width: 150px;
-
   font-size: 25px;
 }
+
 #signButton{
   display: inline-block;
 width: 150px;
