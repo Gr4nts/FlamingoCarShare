@@ -91,7 +91,7 @@ html, body{
 #HomeBooking {
     background-color: #555;
     margin-top:75px;
-    border: 2px solid green;
+   
 }
 #homeCover{
 
@@ -99,7 +99,7 @@ background-image: url('/static/img/tempBackground.jpg');
 background-size: cover;
 text-align: center;
 min-height:700px;
-border: 2px solid white;
+
 
 }
 #BookButton{
@@ -123,7 +123,7 @@ width: 150px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-  border: 3px solid red;
+
 }
 
 /* Classes Section */
