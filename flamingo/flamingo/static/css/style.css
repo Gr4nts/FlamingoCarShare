@@ -1,6 +1,6 @@
 /* general Section */
 
-#id_car_id{ background-color: #1a1a1a; }
+#id_car{ background-color: #1a1a1a; }
 #id_username{ background-color: #4d4d4d; }
 #id_password{ background-color: #4d4d4d; }
 #id_password1{ background-color: #4d4d4d; }
@@ -65,7 +65,7 @@ html, body{
     height: 700px;
     width: auto;
     margin: auto;
-    border: 4px solid pink;
+    border: 4px solid hotpink;
 }
 
 #myBtn {

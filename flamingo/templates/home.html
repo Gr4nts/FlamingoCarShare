@@ -7,8 +7,6 @@
 {% endblock %}
 
 {% block content %}
-{% include 'messages.html' %}
-
 <section id="HomeBooking">
     <div >
     {% if user.is_authenticated %}
@@ -53,6 +51,7 @@
             }
 
             // Parking spot locations //
+            /*
             var park1 = {
                 lat: -37.813361,
                 lng: 144.955694
@@ -80,37 +79,53 @@
             var park7 = {
                 lat: -37.806870,
                 lng: 144.973861
-            };
+            }; */
 
             // Car locations //
+            {% for cars in Cars %}
+            {% if cars.car_id == 1 %}
             var car1 = {
-                lat: -37.813361,
-                lng: 144.955694
+                lat: {{ cars.lat }},
+                lng: {{ cars.lng }}
             };
+
+            {% elif cars.car_id == 2 %}
             var car2 = {
-                lat: -37.809206,
-                lng: 144.965309
+                lat: {{ cars.lat }},
+                lng: {{ cars.lng }}
             };
+
+            {% elif cars.car_id == 3 %}
             var car3 = {
-                lat: -37.811295,
-                lng: 144.969483
+                lat: {{ cars.lat }},
+                lng: {{ cars.lng }}
             };
+
+            {% elif cars.car_id == 4 %}
             var car4 = {
-                lat: -37.817952,
-                lng: 144.955743
+                lat: {{ cars.lat }},
+                lng: {{ cars.lng }}
             };
+
+            {% elif cars.car_id == 5 %}
             var car5 = {
-                lat: -37.807440,
-                lng: 144.958671
+                lat: {{ cars.lat }},
+                lng: {{ cars.lng }}
             };
+
+            {% elif cars.car_id == 6 %}
             var car6 = {
-                lat: -37.817080,
-                lng: 144.958337
+                lat: {{ cars.lat }},
+                lng: {{ cars.lng }}
             };
+
+            {% elif cars.car_id == 7 %}
             var car7 = {
-                lat: -37.806870,
-                lng: 144.973861
+                lat: {{ cars.lat }},
+                lng: {{ cars.lng }}
             };
+            {% endif %}
+            {% endfor %}
 
             // Marker icons //
             var imagepark = '{% static 'img/parkicon.png' %}'
@@ -118,156 +133,152 @@
             var imagecar2 = '{% static 'img/car2icon.png' %}'
             var imagecar3 = '{% static 'img/car3icon.png' %}'
 
-
             // Parking markers //
+            /*
             var markerp1 = new google.maps.Marker({
                 position: park1,
                 map: map,
-                icon: imagepark
+                //icon: imagepark
             });
 
             var markerp2 = new google.maps.Marker({
                 position: park2,
                 map: map,
-                icon: imagepark
+                //icon: imagepark
             });
 
             var markerp3 = new google.maps.Marker({
                 position: park3,
                 map: map,
-                icon: imagepark
+                //icon: imagepark
             });
 
             var markerp4 = new google.maps.Marker({
                 position: park4,
                 map: map,
-                icon: imagepark
+                //icon: imagepark
             });
 
             var markerp5 = new google.maps.Marker({
                 position: park5,
                 map: map,
-                icon: imagepark
+                //icon: imagepark
             });
 
             var markerp6 = new google.maps.Marker({
                 position: park6,
                 map: map,
-                icon: imagepark
+                //icon: imagepark
             });
 
             var markerp7 = new google.maps.Marker({
                 position: park7,
                 map: map,
-                icon: imagepark
-            });
+                //icon: imagepark
+            }); */
 
             // Car markers //
             var markerc1 = new google.maps.Marker({
                 position: car1,
                 map: map,
                 icon: imagecar1,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+                //zIndex: google.maps.Marker.MAX_ZINDEX + 1
             });
 
             var markerc2 = new google.maps.Marker({
                 position: car2,
                 map: map,
                 icon: imagecar1,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+                //zIndex: google.maps.Marker.MAX_ZINDEX + 1
             });
 
             var markerc3 = new google.maps.Marker({
                 position: car3,
                 map: map,
                 icon: imagecar1,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+                //zIndex: google.maps.Marker.MAX_ZINDEX + 1
             });
 
             var markerc4 = new google.maps.Marker({
                 position: car4,
                 map: map,
                 icon: imagecar2,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+                //zIndex: google.maps.Marker.MAX_ZINDEX + 1
             });
 
             var markerc5 = new google.maps.Marker({
                 position: car5,
                 map: map,
                 icon: imagecar2,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+                //zIndex: google.maps.Marker.MAX_ZINDEX + 1
             });
 
             var markerc6 = new google.maps.Marker({
                 position: car6,
                 map: map,
                 icon: imagecar2,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+                //zIndex: google.maps.Marker.MAX_ZINDEX + 1
             });
 
             var markerc7 = new google.maps.Marker({
                 position: car7,
                 map: map,
                 icon: imagecar3,
-                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+                //zIndex: google.maps.Marker.MAX_ZINDEX + 1
             });
 
             // Popups //
-            var contentc1 = '<div id="content">Economy car #1</div>';
-            var infowindow1 = new google.maps.InfoWindow({
-            content: contentc1
-            });
+            {% for cars in Cars %}
+            {% if cars.car_id == 1 %}
+            var contentc1 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var infowindow1 = new google.maps.InfoWindow({ content: contentc1 });
             google.maps.event.addListener(markerc1, 'click', function() {
-            infowindow1.open(map, markerc1);
+              infowindow1.open(map, markerc1);
             });
 
-            var contentc2 = '<div id="content">Economy car #2</div>';
-            var infowindow2 = new google.maps.InfoWindow({
-            content: contentc2
-            });
+            {% elif cars.car_id == 2 %}
+            var contentc2 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var infowindow2 = new google.maps.InfoWindow({ content: contentc2 });
             google.maps.event.addListener(markerc2, 'click', function() {
                 infowindow2.open(map, markerc2);
             });
 
-            var contentc3 = '<div id="content">Economy car #3</div>';
-            var infowindow3 = new google.maps.InfoWindow({
-                content: contentc3
-            });
+            {% elif cars.car_id == 3 %}
+            var contentc3 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var infowindow3 = new google.maps.InfoWindow({ content: contentc3 });
             google.maps.event.addListener(markerc3, 'click', function() {
                 infowindow3.open(map, markerc3);
             });
 
-            var contentc4 = '<div id="content">Luxury car #1</div>';
-            var infowindow4 = new google.maps.InfoWindow({
-                content: contentc4
-            });
+            {% elif cars.car_id == 4 %}
+            var contentc4 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var infowindow4 = new google.maps.InfoWindow({ content: contentc4 });
             google.maps.event.addListener(markerc4, 'click', function() {
-                infowindow4.open(map, markerc4);
+              infowindow4.open(map, markerc4);
             });
 
-            var contentc5 = '<div id="content">Luxury car #2</div>';
-            var infowindow5 = new google.maps.InfoWindow({
-                content: contentc5
-            });
+            {% elif cars.car_id == 5 %}
+            var contentc5 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var infowindow5 = new google.maps.InfoWindow({ content: contentc5 });
             google.maps.event.addListener(markerc5, 'click', function() {
                 infowindow5.open(map, markerc5);
             });
 
-            var contentc6 = '<div id="content">Luxury car #3</div>';
-            var infowindow6 = new google.maps.InfoWindow({
-                content: contentc6
-            });
+            {% elif cars.car_id == 6 %}
+            var contentc6 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var infowindow6 = new google.maps.InfoWindow({ content: contentc6 });
             google.maps.event.addListener(markerc6, 'click', function() {
                 infowindow6.open(map, markerc6);
             });
 
-            var contentc7 = '<div id="content">SVU #1</div>';
-            var infowindow7 = new google.maps.InfoWindow({
-                content: contentc7
-            });
+            {% elif cars.car_id == 7 %}
+            var contentc7 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}</div>';
+            var infowindow7 = new google.maps.InfoWindow({ content: contentc7 });
             google.maps.event.addListener(markerc7, 'click', function() {
                 infowindow7.open(map, markerc7);
             });
+            {% endif %}
+            {% endfor %}
         }
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -277,19 +288,18 @@
                 'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
         }
-        </script>
+      </script>
         <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
-
-        <!-- not logged in -->
     {% else %}
     <div   id= "homeCover" >
-
-
-
        <div  id= "test" >
          <p id="title">FLAMINGO SHARING</p>
+<<<<<<< HEAD
 
          <a  href="{% url 'signup' %}" ><button type="button" class="btn btn-primary btn-lg " id= "BookButton">Register</button></a>
+=======
+         <a  href="{% url 'signup' %}" ><button type="button" class="btn btn-primary btn-lg " id= "BookButton">Book</button></a>
+>>>>>>> d-grace
          <br>
          <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg " id= "signButton">Sign In</button></a>
        </div>
@@ -301,20 +311,26 @@
   <button class="button">Economy</button>
   <button class="button">Luxury</button>
   <button class="button">SUV</button>
-
 </div>
 
+<!--
+    <div id="LuxTab" class="tabcontent">
+        <h1>Luxury</h1>
+        <p>"Lorem"</p>
+    </div>
+
+    <div id="SuvTab" class="tabcontent">
+        <h1>SUV</h1>
+        <p>"Lorem"</p>
+    </div>
 
     <p style="clear:both"></p>
-
+-->
 </section>
 
 <section id="section2" style="padding: 30px; color: white;" >
         <h1>How To Use</h1>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum."
+        <p>"Lorem"
     <a href="{% url 'howtouse' %}">How to use</a><p>
 </section>
 {% endblock %}
