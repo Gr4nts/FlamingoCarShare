@@ -28,7 +28,9 @@
               	    <!--<a class="navbar-brand hidden-lg hidden-md hidden-sm" style="color: white;"> Menu </a>-->
               	    <div class="collapse navbar-collapse " id="myNavbar">
               	        <ul class="nav navbar-nav">
-                            <li><a style="padding:0; margin:0;" href="{% url 'home' %}"><img src="{% static 'img/homeicon.png' %}" /></a></li>
+                          <a class="navbar-brand" href="{% url 'home' %}">
+                            <img src="{% static 'img/homeicon.png' %}" width="30" height="30"/>
+                          </a>
                             <li><a class="nav-item nav-link" style="color: white;" href="{% url 'book' %}">Book</a></li>
                             <li><a class="nav-item nav-link" style="color: white;" href="{% url 'prices' %}">Prices</a></li>
                             <li><a class="nav-item nav-link" style="color: white;" href="{% url 'about' %}">About</a></li>

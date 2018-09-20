@@ -2,7 +2,7 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div>
+<div class="col text-center" style="margin-top: 75px;">
     <h1>Login</h1>
     <br>
     <form method="post">
@@ -12,9 +12,6 @@
         <br>
         <button type="submit">Login</button>
     </form>
-</div>
-
-<div>
     <br>
     <p>New user? <a href="{% url 'signup' %}">SIGN UP</a> for an account.</p>
 </div>
