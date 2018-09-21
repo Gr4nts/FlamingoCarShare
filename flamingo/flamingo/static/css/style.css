@@ -34,6 +34,10 @@ html, body{
 }
 
 /* ID Section */
+#section2{
+  height: 250px;
+}
+
 #title{
  font-family: Impact, Charcoal, sans-serif;
   font-weight: bold;
@@ -45,12 +49,24 @@ html, body{
 
 #footer{
     color: white;
+    margin-top: 10px;
     background-color: #6b5b95;
     text-align: center;
-    height: 30px;
-    width: 97.3%;
+    height: 50px;
+    width: 100%;
+    border: 1px solid red;
     position: absolute;
-    bottom:0;
+}
+
+#fv2{
+  color: white;
+  position: static;
+  background-color: #6b5b95;
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  border: 1px solid red;
+
 }
 
 #foot1{
@@ -91,7 +107,7 @@ html, body{
 #HomeBooking {
     background-color: #555;
     margin-top:75px;
-   
+
 }
 #homeCover{
 
@@ -147,7 +163,7 @@ width: 150px;
 
 .container-fluid>.navbar-header {
     float: left;
-    margin-right: 10px;
+
 }
 
 .navbar-collapse {
