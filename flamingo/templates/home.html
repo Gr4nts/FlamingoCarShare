@@ -129,9 +129,9 @@
 
             // Marker icons //
             var imagepark = '{% static 'img/parkicon.png' %}'
-            var imagecar1 = '{% static 'img/car1icon.png' %}'
-            var imagecar2 = '{% static 'img/car2icon.png' %}'
-            var imagecar3 = '{% static 'img/car3icon.png' %}'
+            var imagecar1 = '{% static 'img/EcoMin.png' %}'
+            var imagecar3 = '{% static 'img/SuvMin.png' %}'
+            var imagecar2 = '{% static 'img/LuxMin.png' %}'
 
             // Parking markers //
             /*
@@ -303,14 +303,16 @@
     </div>
 
 <div class="btn-group">
-  <button class="button">Economy</button>
-  <button class="button">Luxury</button>
-  <button class="button">SUV</button>
+  <button class="button">Economy  <img src="{% static 'img/EcoMin.png' %}" ></button>
+  <button class="button">Luxury <img src="{% static 'img/LuxMin.png' %}" ></button>
+  <button class="button">SUV <img src="{% static 'img/SuvMin.png' %}" ></button>
 </div>
 </section>
 
-<section id="section2" style="padding: 30px; color: white;" >
+<section id="section2" >
         <h1>How To Use</h1>
         <p>Register, book car, access the car, drive<p>
 </section>
+
+
 {% endblock %}
