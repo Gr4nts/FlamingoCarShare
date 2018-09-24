@@ -149,6 +149,10 @@ width: 150px;
 
 }
 
+#collapsibleNavbar{
+  text-align: left;
+}
+
 /* Classes Section */
 
 .container{
