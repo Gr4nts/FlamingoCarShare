@@ -8,7 +8,7 @@ input[type=password] {
 }
 
 a{ color: hotpink; }
-h1{ color: #ff66b3; }
+h1{ color: #ffb3d9; }
 h2{ color: white;}
 
 p{ color: white; }
@@ -20,7 +20,6 @@ table{
 }
 
 html, body{
-
     min-height:100%;
     margin: 0;
     padding: 0;
@@ -112,37 +111,34 @@ html, body{
 }
 
 #HomeBooking {
-    background-color: #555;
+    background-color: #505062;
     margin-top:75px;
-
 }
+
 #homeCover{
-
-background-image: url('/static/img/t2.jpg');
-background-size: cover;
-text-align: center;
-min-height:700px;
-
-
+  background-image: url('/static/img/t2.jpg');
+  background-size: cover;
+  text-align: center;
+  min-height:700px;
 }
-#BookButton{
 
+#BookButton{
   display: inline-block;
   background-color:#ff3399;
   margin-top:15%;
   width: 150px;
-
   font-size: 25px;
 }
+
 #signButton{
-  display: inline-block;
-width: 150px;
+    display: inline-block;
+    width: 150px;
     margin-top:1%;
     font-size: 24px;
 }
 #test{
-  display: block;
-  margin-top: 10%;
+    display: block;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -158,10 +154,7 @@ width: 150px;
 .container{
     background-color: #29293d;
     min-height:100%;
-
 }
-
-
 
 /*
  .navbar-nav {
@@ -172,14 +165,13 @@ width: 150px;
 }
 
 .container-fluid>.navbar-header {
-
-
 }
 
 .navbar-collapse {
     align-content: right;
 }
 */
+
 .btn-group .button {
     background-color: #ff87bd;
     border: 1px solid  white;

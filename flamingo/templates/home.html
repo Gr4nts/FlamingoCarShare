@@ -10,11 +10,12 @@
 <section id="HomeBooking">
     <div >
     {% if user.is_authenticated %}
+      <div class="col text-center">
         <h1>Welcome {{ user.username }}!</h1>
-        <p>Here are available cars ready to hire.</p>
+      </div>
     </div>
 
-    <div style="padding: 10px">
+    <div style="padding: 10px 10px 0px 10px;">
         <div id="map"></div>
         <script>
         var map, infoWindow;
@@ -301,13 +302,16 @@
      </div>
     {% endif %}
     </div>
+</section>
 
+<div class="col text-center">
 <div class="btn-group">
   <button class="button">Economy  <img src="{% static 'img/EcoMin.png' %}" ></button>
   <button class="button">Luxury <img src="{% static 'img/LuxMin.png' %}" ></button>
   <button class="button">SUV <img src="{% static 'img/SuvMin.png' %}" ></button>
 </div>
-</section>
+</div>
+<!--</section>-->
 
 <section id="section2" >
       
