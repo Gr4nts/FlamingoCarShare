@@ -8,30 +8,23 @@
 
 {% block content %}
 <section id="HomeBooking">
-    <div>
+
     {% if user.is_authenticated %}
-      <div class="col text-center">
-        <h1>Welcome {{ user.username }}!</h1>
-      </div>
-    </div>
+
 
     <!--{% include "map.html" %}{% include "sidepanel.html" %}-->
     <!--<div class="container">-->
-    <div>
-      <!--<div class="row justify-content-md-center">-->
-        <div class="row">
 
+      <!--<div class="row justify-content-md-center">-->
+        <div class="row" style=" margin: 3px;">
+
+          <div class="col-sm-9 text-center" style="padding:0;">
+            {% include "map.html" %}
+          </div>
           <div class="col-sm-3" style="padding:0;">
             {% include "sidepanel.html" %}
           </div>
-
-          <div class="col-sm-9" style="padding:0;">
-            {% include "map.html" %}
-          </div>
-
         </div>
-    </div>
-
 
     {% else %}
     <div id= "homeCover">
@@ -54,6 +47,10 @@
 
 <!--</section>-->
 
-<section id="section2">
-</section>
+<div id="section2">
+
+</div>
+
+
+
 {% endblock %}

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="container">
+<!--    <div class="container">-->
         <!-- navigation -->
         {% include 'nav.html' %}
 
@@ -28,18 +28,18 @@
         </div>
 
         <!-- footer -->
-        <div id="fv2">
-            <div id="foot1">
-              <a href="{% url 'admin:index' %}" style="color:pink;"> Admin </a>
-              <a href="{% url 'password_reset' %}" style="color:pink;"> *Lost password? </a>
-            </div>
-            <div id="foot2" style="color:white;">
-              © 2018 Copyright: <a href="{% url 'home' %}" style="color:pink;"> Team Flamingo</a>
-            </div>
+        <footer >
+            <div class="wrapper">
+              <nav >
+                <ul id= footer>
+                  <li id= footer><a href="{% url 'admin:index' %}" style="color:pink;"> *Admin </a></li>
+                  <li id= footer><a href="{% url 'password_reset' %}" style="color:pink;"> *Lost password? </a></li>
+                  <li id= footer>© 2018 Copyright: <a href="{% url 'home' %}" style="color:pink;"> Team Flamingo</a></li>
+                </ul>
+              <nav>
         </div>
-
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-    </div>
+    </footer>
 
     <!-- bootstrap javascript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
