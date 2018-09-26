@@ -106,7 +106,7 @@ html, body{
 
 #HomeBooking {
     background-color: #505062;
-    margin-top:75px;
+    margin-top: 10px;
 }
 
 #homeCover{
@@ -169,7 +169,7 @@ html, body{
 
 .btn-group .button {
     background-color: #ff87bd;
-    border: 1px solid  white;
+    border: 1px solid white;
     color: white;
     margin-top: 2px;
     padding: 15px 20px;

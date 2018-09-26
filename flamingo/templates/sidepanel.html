@@ -1,0 +1,9 @@
+<div style="background-color: #29293d; border: 4px solid #505062; height: 700px; width: auto;">
+  {% if user.is_authenticated %}
+    <h1>Book a car</h1>
+
+  {% else %}
+    <h1>You are not logged in</h1>
+    <p>Please log in to continue</p>
+  {% endif %}
+</div>
