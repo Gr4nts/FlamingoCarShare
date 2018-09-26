@@ -2,41 +2,31 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 
-{% block navbar %}
-    <li><a class="nav-item nav-link" style="color: white;" href="#section2">How to use</a></li>
-{% endblock %}
-
 {% block content %}
 <section id="HomeBooking">
-
-    {% if user.is_authenticated %}
-
-
-    <!--{% include "map.html" %}{% include "sidepanel.html" %}-->
-    <!--<div class="container">-->
-
-      <!--<div class="row justify-content-md-center">-->
-        <div class="row" style=" margin: 3px;">
-
-          <div class="col-sm-9 text-center" style="padding:0;">
-            {% include "map.html" %}
-          </div>
-          <div class="col-sm-3" style="padding:0;">
-            {% include "sidepanel.html" %}
-          </div>
-        </div>
-
-    {% else %}
-    <div id= "homeCover">
-       <div id= "test">
-         <p id="title">FLAMINGO SHARING</p>
-         <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg" id="BookButton">Register</button></a>
-         <br>
-         <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg" id="signButton">Log in</button></a>
-       </div>
+  {% if user.is_authenticated %}
+  <!--{% include "map.html" %}{% include "sidepanel.html" %}-->
+  <!--<div class="container">-->
+  <!--<div class="row justify-content-md-center">-->
+  <div class="row" style="margin: 3px;">
+    <div class="col-sm-9 text-center" style="padding:0;">
+      {% include "map.html" %}
     </div>
-    {% endif %}
+    <div class="col-sm-3" style="padding:0;">
+      {% include "sidepanel.html" %}
     </div>
+  </div>
+
+  {% else %}
+  <div id="homeCover">
+    <div id="test">
+      <p id="title">FLAMINGO SHARING</p>
+      <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg" id="BookButton">Register</button></a>
+      <br>
+      <a href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg" id="signButton">Log in</button></a>
+    </div>
+  </div>
+  {% endif %}
 </section>
 
 <div class="col text-center"><div class="btn-group">
@@ -48,9 +38,5 @@
 <!--</section>-->
 
 <div id="section2">
-
 </div>
-
-
-
 {% endblock %}
