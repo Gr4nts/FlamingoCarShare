@@ -4,15 +4,19 @@
   margin: 0; /* for footer */
   padding-bottom: 0;
 }
+
 footer{
   width: 100%;
- background-color: #6b5b95;
+  background-color: #6b5b95;
+  position: fixed;
+  bottom: 0;
+  /*padding: 1rem;*/
+  padding-top: 10px;
+  text-align: center;
+}
 
- position: fixed;
-bottom: 0;
-   padding: 1rem;
-
-   text-align: center;
+ul{
+  padding-inline-start: 0px;
 }
 
 input[type=text],
@@ -35,9 +39,9 @@ table{
 }
 
 html, body{
-   overflow: auto;
+    overflow: auto;
     min-height:100%;
-    padding-bottom: 100px;
+    padding-bottom: 20px;
      /* for footer */
     background-color: black;
     /*position: relative;*/
@@ -61,7 +65,7 @@ html, body{
 }
 
 #title{
- font-family: Impact, Charcoal, sans-serif;
+  font-family: Impact, Charcoal, sans-serif;
   font-weight: bold;
   font-size: 75px;
 }
@@ -74,21 +78,23 @@ html, body{
 
 #footer{
     display: inline-block;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     list-style: none;
     text-align: center;
 }
 
-#foot2{
-    font-size:10px;
-}
-
 #map{
-
     height: 700px;
     width: auto;
     margin: auto;
     border: 4px solid black;
+}
+
+#sidepanel{
+  background-color: #1a1a1a;
+  height: 700px;
+  width: auto;
+  border:4px solid black;
 }
 
 #myBtn {
@@ -148,7 +154,7 @@ html, body{
 }
 
 #collapsibleNavbar{
-  text-align: left;
+    text-align: left;
 }
 
 /* Classes Section */
