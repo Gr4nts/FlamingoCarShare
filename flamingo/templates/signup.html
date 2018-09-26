@@ -23,10 +23,13 @@
             <td> <p><input type="password" name="password2" required id="id_password2"></p> </td>
           </tr>
         </table>
+
         <br>
-        <button type="submit">Sign up</button>
+        <button type="submit" class="btn btn-outline-success">Sign up</button>
+
         <br><br>
         <p>Already have an account? <a href="{% url 'login' %}">LOG IN</a> here.</p>
+
         <p style="color: #cccccc;">Username must have 150 characters or fewer. Letters, digits and @/./+/-/_ only.
         <br>Your password can't be too similar to your other personal information.
         <br>Your password must contain at least 8 characters.
