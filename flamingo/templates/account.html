@@ -7,9 +7,13 @@
 <div class="col text-center">
     {% if user.is_authenticated %}
         <div>
-            <h1>Hello {{ user.username }}!</h1>
+            <h1>Hello {{ user.firstname }}!</h1>
             <br>
             <div class="col text-left">
+                <h1>Profile</h1>
+                <p>
+
+                </p>
                 <h1>Your bookings</h1>
                 <p>
                 {% for bookings in Bookings %}
