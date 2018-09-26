@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1219cd3a-90ef-4db6-92ae-bf51c05aa07b" name="Default Changelist" comment="" />
+    <list default="true" id="1219cd3a-90ef-4db6-92ae-bf51c05aa07b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/flamingo/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/flamingo/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flamingo/flamingo/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/flamingo/flamingo/static/css/style.css" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +15,7 @@
     <session id="-727057001">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -48,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flamingo/templates/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="595">
+              <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -58,10 +61,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flamingo/about/admin.py">
+        <entry file="file://$PROJECT_DIR$/flamingo/accounts/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="153">
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flamingo/accounts/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flamingo/accounts/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -85,8 +108,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/flamingo/templates/account.html" />
-        <option value="$PROJECT_DIR$/flamingo/accounts/models.py" />
         <option value="$PROJECT_DIR$/flamingo/templates/signup.html" />
+        <option value="$PROJECT_DIR$/flamingo/accounts/models.py" />
       </list>
     </option>
   </component>
@@ -162,6 +185,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="957" y="0" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19037199" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -247,8 +271,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flamingo/templates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="595">
+          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
