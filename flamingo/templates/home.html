@@ -8,7 +8,7 @@
 
 {% block content %}
 <section id="HomeBooking">
-    <div >
+    <div>
     {% if user.is_authenticated %}
       <div class="col text-center">
         <h1>Welcome {{ user.username }}!</h1>
@@ -129,7 +129,7 @@
             {% endfor %}
 
             // Marker icons //
-            var imagepark = '{% static 'img/parkicon.png' %}'
+            //var imagepark = '{% static 'img/parkicon.png' %}'
             var imagecar1 = '{% static 'img/EcoMin.png' %}'
             var imagecar3 = '{% static 'img/SuvMin.png' %}'
             var imagecar2 = '{% static 'img/LuxMin.png' %}'
@@ -290,33 +290,29 @@
             infoWindow.open(map);
         }
       </script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
     {% else %}
-    <div   id= "homeCover" >
-       <div  id= "test" >
+    <div id= "homeCover">
+       <div id= "test">
          <p id="title">FLAMINGO SHARING</p>
-         <a  href="{% url 'signup' %}" ><button type="button" class="btn btn-primary btn-lg " id= "BookButton">Register</button></a>
+         <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg" id="BookButton">Register</button></a>
          <br>
-         <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg " id= "signButton">Log in</button></a>
+         <a  href="{% url 'login' %}"><button type="button" class="btn btn-secondary btn-lg" id="signButton">Log in</button></a>
        </div>
-     </div>
+    </div>
     {% endif %}
     </div>
 </section>
 
 <div class="col text-center">
 <div class="btn-group">
-  <button class="button">Economy  <img src="{% static 'img/EcoMin.png' %}" ></button>
-  <button class="button">Luxury <img src="{% static 'img/LuxMin.png' %}" ></button>
-  <button class="button">SUV <img src="{% static 'img/SuvMin.png' %}" ></button>
+  <button class="button">Economy  <img src="{% static 'img/EcoMin.png' %}"></button>
+  <button class="button">Luxury <img src="{% static 'img/LuxMin.png' %}"></button>
+  <button class="button">SUV  <img src="{% static 'img/SuvMin.png' %}"></button>
 </div>
 </div>
 <!--</section>-->
 
-<section id="section2" >
-      
-
+<section id="section2">
 </section>
-
-
 {% endblock %}
