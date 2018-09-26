@@ -106,7 +106,8 @@ html, body{
 
 #HomeBooking {
     background-color: #505062;
-    margin-top:75px;
+    /*margin-top:75px;*/
+    margin-top: 5px;
 }
 
 #homeCover{
