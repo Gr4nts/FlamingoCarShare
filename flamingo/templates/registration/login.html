@@ -2,13 +2,22 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div class="col text-center" style="margin-top: 75px;">
+<!--<div class="col text-center" style="margin-top: 75px;">-->
+<div class="col text-center">
     <h1>Login</h1>
     <br>
     <form method="post">
         {% csrf_token %}
-        <p><label for="id_username">Username:</label> <input type="text" name="username" autofocus required id="id_username"></p>
-        <p><label for="id_password">Password:</label> <input type="password" name="password" required id="id_password"></p>
+        <table style="width:300px; margin:auto;">
+          <tr>
+            <td> <p><label for="id_username">Username:</label></p> </td>
+            <td> <p><input type="text" name="username" autofocus required id="id_username"></p> </td>
+          </tr>
+          <tr>
+            <td> <p><label for="id_password">Password:</label></p> </td>
+            <td> <p><input type="password" name="password" required id="id_password"></p> </td>
+          </tr>
+        </table>
         <br>
         <button type="submit">Login</button>
     </form>

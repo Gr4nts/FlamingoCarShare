@@ -20,10 +20,12 @@ table{
 }
 
 html, body{
+    height:100%; /* for footer */
     min-height:100%;
-    margin: 0;
-    padding: 0;
+    margin: 0; /* for footer */
+    padding: 0; /* for footer */
     background-color: black;
+    /*position: relative;*/
 }
 
 /* ID Section */
@@ -40,7 +42,6 @@ html, body{
   background-color: #333333;
   background-image: url('/static/img/HowTo.png');
   background-size: contain;
-
   background-repeat: no-repeat;
 }
 
@@ -49,30 +50,23 @@ html, body{
   font-weight: bold;
   font-size: 75px;
 }
+
 #body{
-    padding-bottom: 35px;
+    padding-bottom: 37px; /* for footer */
 }
 
-#footer{
-    color: white;
-    margin-top: 10px;
-    background-color: #6b5b95;
-    text-align: center;
-    height: 50px;
-    width: 100%;
-    border: 1px solid red;
-    position: absolute;
-}
-
+/* footer sections */
 #fv2{
   color: white;
-  position: static;
   background-color: #6b5b95;
   text-align: center;
-  height: 50px;
-  width: 100%;
-  border: 1px solid red;
-
+  height: 32px;
+  width:100%;
+  /*border: 1px solid red;*/
+  position: absolute;
+  bottom: 0px;
+  left:0;
+  right:0;
 }
 
 #foot1{
@@ -112,7 +106,8 @@ html, body{
 
 #HomeBooking {
     background-color: #505062;
-    margin-top:75px;
+    /*margin-top:75px;*/
+    margin-top: 5px;
 }
 
 #homeCover{
@@ -136,13 +131,13 @@ html, body{
     margin-top:1%;
     font-size: 24px;
 }
+
 #test{
     display: block;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-
 }
 
 #collapsibleNavbar{
@@ -153,7 +148,8 @@ html, body{
 
 .container{
     background-color: #29293d;
-    min-height:100%;
+    min-height: 100%; /* for footer */
+    position: relative; /* for footer */
 }
 
 /*
