@@ -30,11 +30,11 @@ html, body{
 
 /* ID Section */
 
-#id_car{ background-color: #1a1a1a; }
-#id_username{ background-color: #4d4d4d; }
-#id_password{ background-color: #4d4d4d; }
-#id_password1{ background-color: #4d4d4d; }
-#id_password2{ background-color: #4d4d4d; }
+#id_car{ color: white; background-color: #1a1a1a; }
+#id_username{ color: white; background-color: #4d4d4d; }
+#id_password{ color: white; background-color: #4d4d4d; }
+#id_password1{ color: white; background-color: #4d4d4d; }
+#id_password2{ color: white; background-color: #4d4d4d; }
 
 #section2{
   height: 360px;
