@@ -71,7 +71,8 @@ html, body{
 }
 
 #body{
-    padding-bottom: 37px; /* for footer */
+    /*padding-bottom: 37px;*/ /* for footer */
+    margin-top: 50px;
 }
 
 /* footer sections */
