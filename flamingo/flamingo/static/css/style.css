@@ -1,5 +1,20 @@
 /* general Section */
 
+*{
+  margin: 0; /* for footer */
+  padding-bottom: 0;
+}
+footer{
+  width: 100%;
+ background-color: #6b5b95;
+
+ position: fixed;
+bottom: 0;
+   padding: 1rem;
+
+   text-align: center;
+}
+
 input[type=text],
 input[type=password] {
     border: 2px solid #ff66b3;
@@ -20,10 +35,10 @@ table{
 }
 
 html, body{
-    height:100%; /* for footer */
+   overflow: auto;
     min-height:100%;
-    margin: 0; /* for footer */
-    padding: 0; /* for footer */
+    padding-bottom: 100px;
+     /* for footer */
     background-color: black;
     /*position: relative;*/
 }
@@ -56,21 +71,12 @@ html, body{
 }
 
 /* footer sections */
-#fv2{
-  color: white;
-  background-color: #6b5b95;
-  text-align: center;
-  height: 32px;
-  width:100%;
-  /*border: 1px solid red;*/
-  position: absolute;
-  bottom: 0px;
-  left:0;
-  right:0;
-}
 
-#foot1{
-    font-size:10px;
+#footer{
+    display: inline-block;
+    margin-left: 20px;
+    list-style: none;
+    text-align: center;
 }
 
 #foot2{
@@ -78,6 +84,7 @@ html, body{
 }
 
 #map{
+
     height: 700px;
     width: auto;
     margin: auto;
@@ -106,7 +113,7 @@ html, body{
 
 #HomeBooking {
     background-color: #505062;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 #homeCover{
@@ -114,6 +121,7 @@ html, body{
   background-size: cover;
   text-align: center;
   min-height:700px;
+  border: 2px solid white;
 }
 
 #BookButton{

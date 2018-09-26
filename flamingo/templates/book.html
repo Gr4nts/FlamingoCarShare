@@ -3,13 +3,13 @@
 
 {% block content %}
 <!--<div style="margin-top: 75px;">-->
-<div>
+<div style="margin-top: 50px;">
   {% if user.is_authenticated %}
     <h1>Book a car</h1>
 
     <p>Here you can book a car for a day or longer</p>
     <br>
-    
+
     <form method="post">
         {% csrf_token %}
         <div style="color:#cccccc;">
