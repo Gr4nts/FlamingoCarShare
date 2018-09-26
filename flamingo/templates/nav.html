@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="navbar bg-dark navbar-dark navbar-fixed-top">
-    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/homeicon.png' %}" width="30" height="30"/>Flamingo Sharing</a>
+    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/homeicon.png' %}" width="30" height="30"/> Flamingo Sharing</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
       <li><a class="nav-item nav-link" style="color: white;" href="{% url 'about' %}">About</a></li>
 
       {% if user.is_authenticated %}
-      <li><a class="nav-item nav-link" style="color: white;" href="{% url 'account' %}">{{ user.username }} <span class="glyphicon glyphicon-user"></span></a>
+      <li><a class="nav-item nav-link" style="color: #e699ff;" href="{% url 'account' %}">{{ user.username }} <span class="glyphicon glyphicon-user"></span></a>
       <li><a class="nav-item nav-link" style="color: white;" href="{% url 'logout' %}">Logout</a></li>
 
       {% else %}
