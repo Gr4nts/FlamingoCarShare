@@ -15,7 +15,23 @@
       </div>
     </div>
 
-    {% include "map.html" %}
+    <!--{% include "map.html" %}{% include "sidepanel.html" %}-->
+    <!--<div class="container">-->
+    <div>
+      <!--<div class="row justify-content-md-center">-->
+        <div class="row">
+
+          <div class="col-sm-3" style="padding:0;">
+            {% include "sidepanel.html" %}
+          </div>
+
+          <div class="col-sm-9" style="padding:0;">
+            {% include "map.html" %}
+          </div>
+
+        </div>
+    </div>
+
 
     {% else %}
     <div id= "homeCover">
