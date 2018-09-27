@@ -20,7 +20,8 @@ ul{
 }
 
 input[type=text],
-input[type=password] {
+input[type=password]
+input[type=date] {
     border: 2px solid #ff66b3;
     border-radius: 2px;
     background-color: #1a1a1a;
@@ -50,11 +51,18 @@ html, body{
 /* ID Section */
 
 #id_car{ color: white; background-color: #1a1a1a; }
+#id_firstname{ color: white; background-color: #4d4d4d; }
+#id_lastname{ color: white; background-color: #4d4d4d; }
+#id_email{ color: white; background-color: #4d4d4d; }
+#id_licensenumber{ color: white; background-color: #4d4d4d; }
+#id_countryofissue{ color: white; background-color: #4d4d4d; }
+#id_state{ color: white; background-color: #4d4d4d; }
+#id_issuedate{ color: white; background-color: #4d4d4d; }
+#id_expirydate{ color: white; background-color: #4d4d4d; }
 #id_username{ color: white; background-color: #4d4d4d; }
 #id_password{ color: white; background-color: #4d4d4d; }
 #id_password1{ color: white; background-color: #4d4d4d; }
 #id_password2{ color: white; background-color: #4d4d4d; }
-
 #section2{
   height: 360px;
   background-position: center;
