@@ -2,7 +2,7 @@
 <div id="map"></div>
 
 <script>
-    var map;
+    var map, infoWindow;
 
     function initMap() {
         var options = {
@@ -59,7 +59,7 @@
         {% endfor %}
 
         // Popups //
-        lastWindow=null;
+        //lastWindow=null;
 
         {% for cars in Cars %}
         var content{{ cars.car_id }} = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
