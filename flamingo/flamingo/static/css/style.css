@@ -1,5 +1,24 @@
 /* general Section */
 
+*{
+  margin: 0; /* for footer */
+  padding-bottom: 0;
+}
+
+footer{
+  width: 100%;
+  background-color: #6b5b95;
+  position: fixed;
+  bottom: 0;
+  /*padding: 1rem;*/
+  padding-top: 10px;
+  text-align: center;
+}
+
+ul{
+  padding-inline-start: 0px;
+}
+
 input[type=text],
 input[type=password]
 input[type=date] {
@@ -21,10 +40,10 @@ table{
 }
 
 html, body{
-    height:100%; /* for footer */
+    overflow: auto;
     min-height:100%;
-    margin: 0; /* for footer */
-    padding: 0; /* for footer */
+    padding-bottom: 20px;
+     /* for footer */
     background-color: black;
     /*position: relative;*/
 }
@@ -54,42 +73,37 @@ html, body{
 }
 
 #title{
- font-family: Impact, Charcoal, sans-serif;
+  font-family: Impact, Charcoal, sans-serif;
   font-weight: bold;
   font-size: 75px;
 }
 
 #body{
-    padding-bottom: 37px; /* for footer */
+    /*padding-bottom: 37px;*/ /* for footer */
+    margin-top: 50px;
 }
 
 /* footer sections */
-#fv2{
-  color: white;
-  background-color: #6b5b95;
-  text-align: center;
-  height: 32px;
-  width:100%;
-  /*border: 1px solid red;*/
-  position: absolute;
-  bottom: 0px;
-  left:0;
-  right:0;
-}
 
-#foot1{
-    font-size:10px;
-}
-
-#foot2{
-    font-size:10px;
+#footer{
+    display: inline-block;
+    /*margin-left: 20px;*/
+    list-style: none;
+    text-align: center;
 }
 
 #map{
     height: 700px;
     width: auto;
     margin: auto;
-    border: 4px solid hotpink;
+    border: 4px solid black;
+}
+
+#sidepanel{
+  background-color: #1a1a1a;
+  height: 700px;
+  width: auto;
+  border:4px solid black;
 }
 
 #myBtn {
@@ -114,7 +128,7 @@ html, body{
 
 #HomeBooking {
     background-color: #505062;
-    margin-top:75px;
+    margin-top: 50px;
 }
 
 #homeCover{
@@ -122,6 +136,7 @@ html, body{
   background-size: cover;
   text-align: center;
   min-height:700px;
+  border: 2px solid white;
 }
 
 #BookButton{
@@ -148,7 +163,7 @@ html, body{
 }
 
 #collapsibleNavbar{
-  text-align: left;
+    text-align: left;
 }
 
 /* Classes Section */
@@ -177,7 +192,7 @@ html, body{
 
 .btn-group .button {
     background-color: #ff87bd;
-    border: 1px solid  white;
+    border: 1px solid white;
     color: white;
     margin-top: 2px;
     padding: 15px 20px;

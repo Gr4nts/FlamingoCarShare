@@ -1,13 +1,14 @@
 {% load static %}
+{% load static %}
+<div id="map"></div>
 
-<div style="padding: 10px 10px 0px 10px;">
-    <div id="map"></div>
-    <script>
+<script>
     var map, infoWindow;
+
     function initMap() {
         var options = {
-            zoom:14,
-            center:{lat:-37.8136,lng:144.9631}
+            zoom: 14,
+            center: {lat:-37.8136, lng:144.9631}
         }
 
         // New map //
@@ -37,8 +38,7 @@
         }
 
         // Parking spot locations //
-        /*
-        var park1 = {
+        /* var park1 = {
             lat: -37.813361,
             lng: 144.955694
         };
@@ -53,18 +53,6 @@
         var park4 = {
             lat: -37.817952,
             lng: 144.955743
-        };
-        var park5 = {
-            lat: -37.807440,
-            lng: 144.958671
-        };
-        var park6 = {
-            lat: -37.817080,
-            lng: 144.958337
-        };
-        var park7 = {
-            lat: -37.806870,
-            lng: 144.973861
         }; */
 
         // Car locations //
@@ -115,13 +103,12 @@
 
         // Marker icons //
         //var imagepark = '{% static 'img/parkicon.png' %}'
-        var imagecar1 = '{% static 'img/EcoMin.png' %}'
-        var imagecar3 = '{% static 'img/SuvMin.png' %}'
-        var imagecar2 = '{% static 'img/LuxMin.png' %}'
+        var imagecar1 = '{% static 'img/eco2icon.png' %}'
+        var imagecar3 = '{% static 'img/suv2icon.png' %}'
+        var imagecar2 = '{% static 'img/lux2icon.png' %}'
 
         // Parking markers //
-        /*
-        var markerp1 = new google.maps.Marker({
+        /* var markerp1 = new google.maps.Marker({
             position: park1,
             map: map,
             //icon: imagepark
@@ -147,18 +134,6 @@
 
         var markerp5 = new google.maps.Marker({
             position: park5,
-            map: map,
-            //icon: imagepark
-        });
-
-        var markerp6 = new google.maps.Marker({
-            position: park6,
-            map: map,
-            //icon: imagepark
-        });
-
-        var markerp7 = new google.maps.Marker({
-            position: park7,
             map: map,
             //icon: imagepark
         }); */
@@ -275,4 +250,5 @@
         infoWindow.open(map);
     }
   </script>
+
   <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
