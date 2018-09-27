@@ -1,14 +1,35 @@
 /* general Section */
 
+*{
+  margin: 0; /* for footer */
+  padding-bottom: 0;
+}
+
+footer{
+  width: 100%;
+  background-color: #6b5b95;
+  position: fixed;
+  bottom: 0;
+  /*padding: 1rem;*/
+  padding-top: 10px;
+  text-align: center;
+}
+
+ul{
+  padding-inline-start: 0px;
+}
+
 input[type=text],
-input[type=password] {
+input[type=password],
+input[type=date],
+ input[type=email]{
     border: 2px solid #ff66b3;
     border-radius: 2px;
     background-color: #1a1a1a;
 }
 
 a{ color: hotpink; }
-h1{ color: #ff66b3; }
+h1{ color: #ffb3d9; }
 h2{ color: white;}
 
 p{ color: white; }
@@ -20,75 +41,70 @@ table{
 }
 
 html, body{
-
+    overflow: auto;
     min-height:100%;
-    margin: 0;
-    padding: 0;
+    padding-bottom: 20px;
+     /* for footer */
     background-color: black;
+    /*position: relative;*/
 }
 
 /* ID Section */
 
-#id_car{ background-color: #1a1a1a; }
-#id_username{ background-color: #4d4d4d; }
-#id_password{ background-color: #4d4d4d; }
-#id_password1{ background-color: #4d4d4d; }
-#id_password2{ background-color: #4d4d4d; }
-
+#id_car{ color: white; background-color: #1a1a1a; }
+#id_firstname{ color: white; background-color: #4d4d4d; }
+#id_lastname{ color: white; background-color: #4d4d4d; }
+#id_email{ color: white; background-color: #4d4d4d; }
+#id_licensenumber{ color: white; background-color: #4d4d4d; }
+#id_countryofissue{ color: white; background-color: #4d4d4d; }
+#id_state{ color: white; background-color: #4d4d4d; }
+#id_issuedate{ color: white; background-color: #4d4d4d; }
+#id_expirydate{ color: white; background-color: #4d4d4d; }
+#id_username{ color: white; background-color: #4d4d4d; }
+#id_password{ color: white; background-color: #4d4d4d; }
+#id_password1{ color: white; background-color: #4d4d4d; }
+#id_password2{ color: white; background-color: #4d4d4d; }
 #section2{
   height: 360px;
   background-position: center;
   background-color: #333333;
   background-image: url('/static/img/HowTo.png');
   background-size: contain;
-
   background-repeat: no-repeat;
 }
 
 #title{
- font-family: Impact, Charcoal, sans-serif;
+  font-family: Impact, Charcoal, sans-serif;
   font-weight: bold;
   font-size: 75px;
 }
+
 #body{
-    padding-bottom: 35px;
+    /*padding-bottom: 37px;*/ /* for footer */
+    margin-top: 50px;
 }
+
+/* footer sections */
 
 #footer{
-    color: white;
-    margin-top: 10px;
-    background-color: #6b5b95;
+    display: inline-block;
+    /*margin-left: 20px;*/
+    list-style: none;
     text-align: center;
-    height: 50px;
-    width: 100%;
-    border: 1px solid red;
-    position: absolute;
-}
-
-#fv2{
-  color: white;
-  position: static;
-  background-color: #6b5b95;
-  text-align: center;
-  height: 50px;
-  width: 100%;
-  border: 1px solid red;
-
-}
-
-#foot1{
-    font-size:10px;
-}
-
-#foot2{
-    font-size:10px;
 }
 
 #map{
     height: 700px;
     width: auto;
     margin: auto;
-    border: 4px solid hotpink;
+    border: 4px solid black;
+}
+
+#sidepanel{
+  background-color: #1a1a1a;
+  height: 700px;
+  width: auto;
+  border:4px solid black;
 }
 
 #myBtn {
@@ -112,56 +128,52 @@ html, body{
 }
 
 #HomeBooking {
-    background-color: #555;
-    margin-top:75px;
-
+    background-color: #505062;
+    margin-top: 50px;
 }
+
 #homeCover{
-
-background-image: url('/static/img/t2.jpg');
-background-size: cover;
-text-align: center;
-min-height:700px;
-
-
+  background-image: url('/static/img/t2.jpg');
+  background-size: cover;
+  text-align: center;
+  min-height:700px;
+  border: 2px solid white;
 }
-#BookButton{
 
+#BookButton{
   display: inline-block;
   background-color:#ff3399;
   margin-top:15%;
   width: 150px;
-
   font-size: 25px;
 }
+
 #signButton{
-  display: inline-block;
-width: 150px;
+    display: inline-block;
+    width: 150px;
     margin-top:1%;
     font-size: 24px;
 }
+
 #test{
-  display: block;
-  margin-top: 10%;
+    display: block;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-
 }
 
 #collapsibleNavbar{
-  text-align: left;
+    text-align: left;
 }
 
 /* Classes Section */
 
 .container{
     background-color: #29293d;
-    min-height:100%;
-
+    min-height: 100%; /* for footer */
+    position: relative; /* for footer */
 }
-
-
 
 /*
  .navbar-nav {
@@ -172,17 +184,16 @@ width: 150px;
 }
 
 .container-fluid>.navbar-header {
-
-
 }
 
 .navbar-collapse {
     align-content: right;
 }
 */
+
 .btn-group .button {
     background-color: #ff87bd;
-    border: 1px solid  white;
+    border: 1px solid white;
     color: white;
     margin-top: 2px;
     padding: 15px 20px;

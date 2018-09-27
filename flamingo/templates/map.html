@@ -1,0 +1,254 @@
+{% load static %}
+{% load static %}
+<div id="map"></div>
+
+<script>
+    var map, infoWindow;
+
+    function initMap() {
+        var options = {
+            zoom: 14,
+            center: {lat:-37.8136, lng:144.9631}
+        }
+
+        // New map //
+        var map = new google.maps.Map(document.getElementById('map'), options);
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation //
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+                },
+                function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                }
+            );
+        }
+        else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        // Parking spot locations //
+        /* var park1 = {
+            lat: -37.813361,
+            lng: 144.955694
+        };
+        var park2 = {
+            lat: -37.809206,
+            lng: 144.965309
+        };
+        var park3 = {
+            lat: -37.811295,
+            lng: 144.969483
+        };
+        var park4 = {
+            lat: -37.817952,
+            lng: 144.955743
+        }; */
+
+        // Car locations //
+        {% for cars in Cars %}
+        {% if cars.car_id == 1 %}
+        var car1 = {
+            lat: {{ cars.lat }},
+            lng: {{ cars.lng }}
+        };
+
+        {% elif cars.car_id == 2 %}
+        var car2 = {
+            lat: {{ cars.lat }},
+            lng: {{ cars.lng }}
+        };
+
+        {% elif cars.car_id == 3 %}
+        var car3 = {
+            lat: {{ cars.lat }},
+            lng: {{ cars.lng }}
+        };
+
+        {% elif cars.car_id == 4 %}
+        var car4 = {
+            lat: {{ cars.lat }},
+            lng: {{ cars.lng }}
+        };
+
+        {% elif cars.car_id == 5 %}
+        var car5 = {
+            lat: {{ cars.lat }},
+            lng: {{ cars.lng }}
+        };
+
+        {% elif cars.car_id == 6 %}
+        var car6 = {
+            lat: {{ cars.lat }},
+            lng: {{ cars.lng }}
+        };
+
+        {% elif cars.car_id == 7 %}
+        var car7 = {
+            lat: {{ cars.lat }},
+            lng: {{ cars.lng }}
+        };
+        {% endif %}
+        {% endfor %}
+
+        // Marker icons //
+        //var imagepark = '{% static 'img/parkicon.png' %}'
+        var imagecar1 = '{% static 'img/eco2icon.png' %}'
+        var imagecar3 = '{% static 'img/suv2icon.png' %}'
+        var imagecar2 = '{% static 'img/lux2icon.png' %}'
+
+        // Parking markers //
+        /* var markerp1 = new google.maps.Marker({
+            position: park1,
+            map: map,
+            //icon: imagepark
+        });
+
+        var markerp2 = new google.maps.Marker({
+            position: park2,
+            map: map,
+            //icon: imagepark
+        });
+
+        var markerp3 = new google.maps.Marker({
+            position: park3,
+            map: map,
+            //icon: imagepark
+        });
+
+        var markerp4 = new google.maps.Marker({
+            position: park4,
+            map: map,
+            //icon: imagepark
+        });
+
+        var markerp5 = new google.maps.Marker({
+            position: park5,
+            map: map,
+            //icon: imagepark
+        }); */
+
+        // Car markers //
+        var markerc1 = new google.maps.Marker({
+            position: car1,
+            map: map,
+            icon: imagecar1,
+            //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+        });
+
+        var markerc2 = new google.maps.Marker({
+            position: car2,
+            map: map,
+            icon: imagecar1,
+            //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+        });
+
+        var markerc3 = new google.maps.Marker({
+            position: car3,
+            map: map,
+            icon: imagecar1,
+            //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+        });
+
+        var markerc4 = new google.maps.Marker({
+            position: car4,
+            map: map,
+            icon: imagecar2,
+            //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+        });
+
+        var markerc5 = new google.maps.Marker({
+            position: car5,
+            map: map,
+            icon: imagecar2,
+            //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+        });
+
+        var markerc6 = new google.maps.Marker({
+            position: car6,
+            map: map,
+            icon: imagecar2,
+            //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+        });
+
+        var markerc7 = new google.maps.Marker({
+            position: car7,
+            map: map,
+            icon: imagecar3,
+            //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+        });
+
+        // Popups //
+        {% for cars in Cars %}
+        {% if cars.car_id == 1 %}
+        var contentc1 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
+        var infowindow1 = new google.maps.InfoWindow({ content: contentc1 });
+        google.maps.event.addListener(markerc1, 'click', function() {
+          infowindow1.open(map, markerc1);
+        });
+
+        {% elif cars.car_id == 2 %}
+        var contentc2 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
+        var infowindow2 = new google.maps.InfoWindow({ content: contentc2 });
+        google.maps.event.addListener(markerc2, 'click', function() {
+            infowindow2.open(map, markerc2);
+        });
+
+        {% elif cars.car_id == 3 %}
+        var contentc3 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
+        var infowindow3 = new google.maps.InfoWindow({ content: contentc3 });
+        google.maps.event.addListener(markerc3, 'click', function() {
+            infowindow3.open(map, markerc3);
+        });
+
+        {% elif cars.car_id == 4 %}
+        var contentc4 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
+        var infowindow4 = new google.maps.InfoWindow({ content: contentc4 });
+        google.maps.event.addListener(markerc4, 'click', function() {
+          infowindow4.open(map, markerc4);
+        });
+
+        {% elif cars.car_id == 5 %}
+        var contentc5 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
+        var infowindow5 = new google.maps.InfoWindow({ content: contentc5 });
+        google.maps.event.addListener(markerc5, 'click', function() {
+            infowindow5.open(map, markerc5);
+        });
+
+        {% elif cars.car_id == 6 %}
+        var contentc6 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
+        var infowindow6 = new google.maps.InfoWindow({ content: contentc6 });
+        google.maps.event.addListener(markerc6, 'click', function() {
+            infowindow6.open(map, markerc6);
+        });
+
+        {% elif cars.car_id == 7 %}
+        var contentc7 = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
+        var infowindow7 = new google.maps.InfoWindow({ content: contentc7 });
+        google.maps.event.addListener(markerc7, 'click', function() {
+            infowindow7.open(map, markerc7);
+        });
+        {% endif %}
+        {% endfor %}
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>

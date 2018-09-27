@@ -2,11 +2,14 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<div class="col text-center" style="margin-top: 75px;">
+<!--<div class="col text-center" style="margin-top: 75px;">-->
+<div class="col text-center">
     <h1>Sign up</h1>
     <br>
+
     <form method="post">
         {% csrf_token %}
+<<<<<<< HEAD
         <p><label for="id_username">Username:</label> <input type="text" name="username" maxlength="150" autofocus required id="id_username"></p>
         <p><label for="id_password1">Password:</label> <input type="password" name="password1" required id="id_password1"></p>
         <p><label for="id_password2">Password confirm:</label> <input type="password" name="password2" required id="id_password2">
@@ -17,10 +20,79 @@
         <p style="color: #cccccc;">Your password cannot be a commonly used password.</p>
         <p style="color: #cccccc;">Your password cannot be entirely numeric.</p>
         <p style="color: #cccccc;">Enter the same password as before, for verification.</p>
+=======
+
+        <table style="width:400px; margin:auto;">
+          <tr>
+            <td> <p><label for="id_firstname">First Name:</label></p> </td>
+            <td> <p><input type="text" name="firstname" maxlength="150" autofocus required id="id_firstname"></p> </td>
+          </tr>
+
+            <tr>
+            <td> <p><label for="id_lastname">Last name:</label></p> </td>
+            <td> <p><input type="text" name="lastname" maxlength="150" autofocus required id="id_lastname"></p> </td>
+          </tr>
+
+            <tr>
+            <td> <p><label for="id_email">Email:</label></p> </td>
+            <td> <p><input type="email" name="email" maxlength="150" autofocus required id="id_email"></p> </td>
+          </tr>
+
+            <tr>
+            <td> <p><label for="id_licensenumber">License Number:</label></p> </td>
+            <td> <p><input type="text" name="licensenumber" maxlength="150" autofocus required id="id_licensenumber"></p> </td>
+          </tr>
+
+            <tr>
+            <td> <p><label for="id_countryofissue">Country of Issue:</label></p> </td>
+            <td> <p><input type="text" name="countryofissue" maxlength="150" autofocus required id="id_countryofissue"></p> </td>
+          </tr>
+
+            <tr>
+            <td> <p><label for="id_state">State:</label></p> </td>
+            <td> <p><input type="text" name="state" maxlength="3" placeholder="e.g. VIC"  autofocus required id="id_state"></p> </td
+          </tr>
+
+          <tr>
+            <td> <p><label for="id_issuedate">Issue Date:</label></p> </td>
+            <td> <p><input type="date" name="issuedate" maxlength="150" autofocus required id="id_issuedate"></p> </td>
+          </tr>
+
+          <tr>
+            <td> <p><label for="id_expirydate">Password:</label></p> </td>
+            <td> <p><input type="date" name="expirydate" required id="id_expirydate"></p> </td>
+          </tr>
+
+          <tr>
+            <td> <p><label for="id_username">Username:</label></p> </td>
+            <td> <p><input type="text" name="username" maxlength="150" autofocus required id="id_username"></p> </td>
+          </tr>
+
+          <tr>
+            <td> <p><label for="id_password1">Password:</label></p> </td>
+            <td> <p><input type="password" name="password1" required id="id_password1"></p> </td>
+          </tr>
+
+          <tr>
+            <td> <p><label for="id_password2">Password confirm:</label></p> </td>
+            <td> <p><input type="password" name="password2" required id="id_password2"></p> </td>
+          </tr>
+        </table>
+
+>>>>>>> fec9c45d313160947a1b787f236fabf757c91f2c
         <br>
-        <button type="submit">Sign up</button>
+        <button type="submit" class="btn btn-outline-success">Sign up</button>
+
+        <br><br>
+        <p>Already have an account? <a href="{% url 'login' %}">LOG IN</a> here.</p>
+
+        <p style="color: #cccccc;">Username must have 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+        <br>Your password can't be too similar to your other personal information.
+        <br>Your password must contain at least 8 characters.
+        <br>Your password can't be a commonly used password.
+        <br>Your password can't be entirely numeric.
+        <br>Enter the same password as before, for verification.</p>
     </form>
-    <br>
-    <p>Already have an account? <a href="{% url 'login' %}">LOG IN</a> here.</p>
+    
 </div>
 {% endblock %}
