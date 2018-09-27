@@ -20,8 +20,9 @@ ul{
 }
 
 input[type=text],
-input[type=password]
-input[type=date] {
+input[type=password],
+input[type=date],
+ input[type=email]{
     border: 2px solid #ff66b3;
     border-radius: 2px;
     background-color: #1a1a1a;
