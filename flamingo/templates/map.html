@@ -2,7 +2,7 @@
 <div id="map"></div>
 
 <script>
-    var map/*, infoWindow*/;
+    var map;
 
     function initMap() {
         var options = {
@@ -44,7 +44,6 @@
         {% endfor %}
 
         // Marker icons //
-        //var imagepark = '{% static 'img/parkicon.png' %}'
         var imagecar1 = '{% static 'img/EcoMin.png' %}'
         var imagecar2 = '{% static 'img/LuxMin.png' %}'
         var imagecar3 = '{% static 'img/SuvMin.png' %}'
@@ -59,8 +58,9 @@
         });
         {% endfor %}
 
-        lastWindow=null;
         // Popups //
+        lastWindow=null;
+
         {% for cars in Cars %}
         var content{{ cars.car_id }} = '<div id="content" style="padding:5px;">{{ cars.car_name }}<br>{{ cars.description }}<br>Price per day: {{ cars.price }}<br>If booking longer than a day: <a href="{% url 'book' %}">Go here</a></div>';
         var infowindow{{ cars.car_id }} = new google.maps.InfoWindow({ content: content{{ cars.car_id }} });
