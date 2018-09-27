@@ -14,6 +14,18 @@
         var map = new google.maps.Map(document.getElementById('map'), options);
         var infoWindow = new google.maps.InfoWindow();
 
+        //User icon
+          var uimage = {
+            //url: "https://maps.gstatic.com/mapfiles/ms2/micons/grn-pushpin.png",
+            url: '{% static 'img/usericon.png' %}',
+            scaledSize: new google.maps.Size(25, 32)
+          };
+
+          umarker = new google.maps.Marker({
+            map: map,
+            icon: uimage,
+          });
+
         // Try HTML5 geolocation //
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -23,7 +35,9 @@
                 };
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('You are here.');
-                infoWindow.open(map);
+                //infoWindow.open(map);
+                infoWindow.open(map, umarker);
+                umarker.setPosition(pos);
                 map.setCenter(pos);
                 },
                 function() {
