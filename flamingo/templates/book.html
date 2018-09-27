@@ -12,13 +12,14 @@
 
     <form method="post">
         {% csrf_token %}
+
         <div style="color:#cccccc;">
           {{ form.as_p }}
           <p style="color: #cccccc;">Date format: "DD/MM/YYYY"</p>
         </div>
         <br>
 
-        <button type="submit" class="btn btn-outline-danger">Book</button>
+        <button type="submit" class="btn btn-danger">Book</button>
       </form>
 
   {% else %}
