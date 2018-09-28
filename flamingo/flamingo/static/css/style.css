@@ -1,4 +1,13 @@
 /* general Section */
+html, body{
+    overflow: auto;
+    min-height:100%;
+    padding-bottom: 20px;
+     /* for footer */
+    background-color: #222222;
+    font-family: appFont;
+    /*position: relative;*/
+}
 
 *{
   margin: 0; /* for footer */
@@ -7,10 +16,9 @@
 
 footer{
   width: 100%;
-  background-color: #6b5b95;
-  position: fixed;
+  background-color: white;
   bottom: 0;
-  /*padding: 1rem;*/
+  margin-top: 10%;
   padding-top: 10px;
   text-align: center;
 }
@@ -32,21 +40,18 @@ a{ color: hotpink; }
 h1{ color: #ffb3d9; }
 h2{ color: white;}
 
+#index-banner{
+    color: white;
+    font-family: headerFont;
+    font-size: 100px;
+}
+
 p{ color: white; }
 li{ font-size: 15px; }
 
 table{
     width: 100%;
     color: white;
-}
-
-html, body{
-    overflow: auto;
-    min-height: 100%;
-    padding-bottom: 20px;
-     /* for footer */
-    background-color: black;
-    /*position: relative;*/
 }
 
 /* ID Section */
@@ -64,7 +69,6 @@ html, body{
 #id_password{ color: white; background-color: #4d4d4d; }
 #id_password1{ color: white; background-color: #4d4d4d; }
 #id_password2{ color: white; background-color: #4d4d4d; }
-
 #section2{
   height: 360px;
   background-position: center;
@@ -134,26 +138,30 @@ html, body{
 }
 
 #homeCover{
-  background-image: url('/static/img/t2.jpg');
+  background-image: url('/static/img/melbourne_skyline2.jpg');
   background-size: cover;
   text-align: center;
   min-height:700px;
-  border: 2px solid white;
+  border: 1px solid black;
 }
 
 #BookButton{
   display: inline-block;
-  background-color:#ff3399;
-  margin-top:15%;
+  background-color: white;
+  color: #222222;
+  margin-top:5%;
   width: 150px;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 #signButton{
     display: inline-block;
+    background-color: white;
+    color: #222222;
     width: 150px;
-    margin-top:1%;
-    font-size: 24px;
+    margin-top:30px;
+    font-size: 22px;
+
 }
 
 #test{
@@ -171,7 +179,7 @@ html, body{
 /* Classes Section */
 
 .container{
-    background-color: #29293d;
+    background-color: #222222;
     min-height: 100%; /* for footer */
     position: relative; /* for footer */
 }
@@ -209,4 +217,14 @@ html, body{
 
 .btn-group .button:hover {
     background-color: #ff3390;
+}
+
+@font-face {
+    font-family: appFont;
+    src: url('../fonts/Gotcha Gothic Light.ttf');
+}
+
+@font-face {
+    font-family: headerFont;
+    src: url('../fonts/Gotcha Gothic Stamp Basic.ttf');
 }
