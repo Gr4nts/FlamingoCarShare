@@ -14,9 +14,8 @@
         var map = new google.maps.Map(document.getElementById('map'), options);
         var infoWindow = new google.maps.InfoWindow();
 
-        //User icon
+        // User icon //
         var uimage = {
-            //url: "https://maps.gstatic.com/mapfiles/ms2/micons/grn-pushpin.png",
             url: '{% static 'img/usericon.png' %}',
             scaledSize: new google.maps.Size(25, 32)
         };
@@ -34,7 +33,6 @@
                 };
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('You are here');
-                //infoWindow.open(map);
                 infoWindow.open(map, umarker);
                 umarker.setPosition(pos);
                 map.setCenter(pos);
@@ -44,7 +42,7 @@
                 }
             );
         }
-        // Browser doesn't support Geolocation
+        // Browser doesn't support Geolocation //
         else {
             handleLocationError(false, infoWindow, map.getCenter());
         }
@@ -73,7 +71,7 @@
         {% endfor %}
 
         // Popups //
-        /*lastWindow=null;*/
+        //lastWindow=null;
 
         {% for cars in Cars %}
         var content{{ cars.car_id }} = '\
@@ -88,12 +86,8 @@
               If booking longer than a day: <a href="{% url 'book' %}">Click here</a>\
             </p>\
           </div>';
-        /*var infowindow{{ cars.car_id }} = new google.maps.InfoWindow({ content: content{{ cars.car_id }} });*/
 
         google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
-          /*if (lastWindow) lastWindow.close();
-          infowindow{{ cars.car_id }}.open(map, markerc{{ cars.car_id }});
-          lastWindow=infowindow{{ cars.car_id }};*/
             document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
         });
         {% endfor %}
