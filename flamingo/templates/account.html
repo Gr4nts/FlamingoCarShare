@@ -19,8 +19,8 @@
                 {% if Bookings %}
                   <p>
                     {% for bookings in Bookings %}
-                    Car: <a href="{{ bookings.car.get_absolute_url }}">{{ bookings.car }}</a><br>
-                    Booking Dates: {{ bookings.book_start_date }} - {{ bookings.book_end_date }}<br><br>
+                    Booking {{ bookings.booking_id }}: <a href="{{ bookings.get_absolute_url }}">{{ bookings.book_start_date }} - {{ bookings.book_end_date }}</a><br>
+                    <br>
                     {% endfor %}
                   </p>
                 {% else %}

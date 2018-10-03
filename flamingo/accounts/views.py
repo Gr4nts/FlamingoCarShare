@@ -39,7 +39,6 @@ class CarView(generic.DetailView):
     template_name = 'car_details.html'
     model = Car
 
-    #def get_context_data(self, **kwargs):
-        #context = super(CarView, self).get_context_data(**kwargs)
-        #context['booking_success'] = 'booking-success' in self.request.GET
-        #return context
+class BookingView(generic.DetailView):
+    template_name = 'booking_details.html'
+    model = Booking
