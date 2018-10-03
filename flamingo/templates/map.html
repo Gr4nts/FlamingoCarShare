@@ -87,23 +87,40 @@
           </div>\
           <div id="bookcar" style="display:none;">\
             <h1 class="col text-center">Book</h1>\
-              <form>\
-                <input type="hidden" name="car_id" value="{{ cars.car_id }}">\
-                <input type="hidden" name="customer" value="{{ user.username }}">\
-                <p class="col text-center" style="color:hotpink;">{{ cars.car_name }}</p>\
+              <form method="post">\
+                {% csrf_token %}\
+                <p class="col text-center" style="color:hotpink;"">{{ cars.car_name }}</p>\
+                <select disabled name="car" required id="id_car" style="color:hotpink; display:none;">\
+                  <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>\
+                </select>\
+                <input type="hidden" name="hidden1">\
+                <input type="hidden" name="item1">\
                 <br>\
-                <p>Book date:</p>\
-                <p><input type="date" name="date"></p>\
+                <p><label for="id_book_start_date">Book date:</label></p>\
+                <p><input type="date" name="book_start_date" id="id_book_start_date"></p>\
                 <br>\
-                <p>Book time:</p>\
-                <p><input type="time" name="time"></p>\
+                <p><label for="id_start_time">Book time:</label></p>\
+                <p><input type="time" name="start_time" id="id_start_time"></p>\
                 <br>\
-                <button type="submit" class="btn btn-danger">Book</button>\
               </form>\
-              <br><br><br>\
-            <button class="btn btn-default" onclick="Swap()">Go back</button>\
+              <button type="submit" class="btn btn-danger">Book</button>\
           </div>\
           ';
+
+
+
+
+          /*<input type="hidden" name="car" required id="id_car" value="{{ cars.car_id }}">\
+          <input type="hidden" name="customer" required id="id_customer" value="{{ user.username }}">\
+          <input type="hidden" name="book_end_date" required id="id_book_end_date" value="00-00-0000">\
+          <input type="hidden" name="end_time" required id="id_end_time" value="00:00">\
+          <br>\
+          <p><label for="id_book_start_date">Book date:</label></p>\
+          <p><input type="date" name="book_start_date" required id="id_book_start_date"></p>\
+          <br>\
+          <p><label for="id_start_time">Book time:</label></p>\
+          <p><input type="time" name="start_time" required id="id_start_time"></p>\
+          <br><br>\*/
 
         google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
             document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
@@ -111,21 +128,18 @@
         {% endfor %}
     }
 
-    function Swap()
-    {
+    function Swap() {
       d1 = document.getElementById('viewcar');
       d2 = document.getElementById('bookcar');
-      if( d2.style.display == "none" )
-      {
+      if( d2.style.display == "none" ) {
         d1.style.display = "none";
         d2.style.display = "block";
       }
-      else
-      {
+      else {
         d1.style.display = "block";
         d2.style.display = "none";
       }
-  }
+    }
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
