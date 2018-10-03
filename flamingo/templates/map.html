@@ -75,19 +75,19 @@
 
         {% for cars in Cars %}
         var content{{ cars.car_id }} = '\
-          <div id="content1" style="padding:10px;display:block;">\
+          <div id="viewcar" style="display:block;">\
+            <h1>{{ cars.car_name }}</h1>\
             <p>\
-              {{ cars.car_name }}\
-              <br>\
               {{ cars.description }}\
               <br>\
               Price per day: {{ cars.price }}\
               <br><br>\
-              If booking longer than a day: <a href="{% url 'book' %}">Click here</a>\
+              <button class="btn btn-danger" onclick="Swap()">Book</button>\
             </p>\
           </div>\
-          <div id="content2" style="padding:10px;display:none;">\
-            <p>Hello</p>\
+          <div id="bookcar" style="display:none;">\
+            <h1>Book car</h1>\
+            <button class="btn btn-danger" onclick="Swap()">Go back</button>\
           </div>\
           ';
 
@@ -97,10 +97,10 @@
         {% endfor %}
     }
 
-    function Swap(div1,div2)
+    function Swap()
     {
-      d1 = document.getElementById(div1);
-      d2 = document.getElementById(div2);
+      d1 = document.getElementById('viewcar');
+      d2 = document.getElementById('bookcar');
       if( d2.style.display == "none" )
       {
         d1.style.display = "none";
