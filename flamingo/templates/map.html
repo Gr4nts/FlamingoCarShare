@@ -75,7 +75,7 @@
 
         {% for cars in Cars %}
         var content{{ cars.car_id }} = '\
-          <div id="content1" style="padding:10px;">\
+          <div id="content1" style="padding:10px;display:block;">\
             <p>\
               {{ cars.car_name }}\
               <br>\
@@ -86,7 +86,7 @@
               If booking longer than a day: <a href="{% url 'book' %}">Click here</a>\
             </p>\
           </div>\
-          <div>\
+          <div id="content2" style="padding:10px;display:none;">\
             <p>Hello</p>\
           </div>\
           ';
