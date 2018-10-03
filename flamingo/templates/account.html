@@ -14,14 +14,11 @@
                 <p>
 
                 </p>
-                
+
                 <h1>Your bookings</h1>
                 <p>
                 {% for bookings in Bookings %}
-                Car: {{ bookings.car }}<br>
-                Description: {{ bookings.car.description }}<br>
-                <!--Available: {{ bookings.car.available }}<br>-->
-                Price per day: {{ bookings.car.price }}<br>
+                Car: <a href="{{ bookings.car.get_absolute_url }}">{{ bookings.car }}</a><br>
                 Booking Dates: {{ bookings.book_start_date }} - {{ bookings.book_end_date }}<br><br>
                 {% endfor %}
                 </p>

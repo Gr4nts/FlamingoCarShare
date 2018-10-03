@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+#from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 class Car(models.Model):
     car_id = models.IntegerField("Car", primary_key=True)

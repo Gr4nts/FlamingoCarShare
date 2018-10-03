@@ -35,9 +35,9 @@ def CreateBooking(request):
         form = BookingForm(request.POST)
     return render(request, 'book.html', {'form': form})
 
-#class CarView(DetailView):
-    #template_name = 'car_details.html'
-    #model = Car
+class CarView(generic.DetailView):
+    template_name = 'car_details.html'
+    model = Car
 
     #def get_context_data(self, **kwargs):
         #context = super(CarView, self).get_context_data(**kwargs)
