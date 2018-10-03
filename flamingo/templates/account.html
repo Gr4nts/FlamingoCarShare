@@ -7,21 +7,25 @@
 <div class="col text-center">
     {% if user.is_authenticated %}
         <div>
-            <h1>Hello {{ user.firstname }}!</h1>
+            <h1>Hello {{ user.username }}!</h1>
             <br>
             <div class="col text-left">
                 <h1>Profile</h1>
                 <p>
-
+                  <p>Your profile</p>
                 </p>
 
                 <h1>Your bookings</h1>
-                <p>
-                {% for bookings in Bookings %}
-                Car: <a href="{{ bookings.car.get_absolute_url }}">{{ bookings.car }}</a><br>
-                Booking Dates: {{ bookings.book_start_date }} - {{ bookings.book_end_date }}<br><br>
-                {% endfor %}
-                </p>
+                {% if Bookings %}
+                  <p>
+                    {% for bookings in Bookings %}
+                    Car: <a href="{{ bookings.car.get_absolute_url }}">{{ bookings.car }}</a><br>
+                    Booking Dates: {{ bookings.book_start_date }} - {{ bookings.book_end_date }}<br><br>
+                    {% endfor %}
+                  </p>
+                {% else %}
+                  <p>You have no bookings</p>
+                {% endif %}
             </div>
         </div>
         <div>
