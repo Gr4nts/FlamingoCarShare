@@ -70,9 +70,7 @@
         });
         {% endfor %}
 
-        // Popups //
-        //lastWindow=null;
-
+        // sidepanel input //
         {% for cars in Cars %}
         var content{{ cars.car_id }} = '\
           <div id="viewcar" style="display:block;">\
@@ -90,44 +88,30 @@
               <form method="post">\
                 {% csrf_token %}\
                 <p class="col text-center" style="color:hotpink;"">{{ cars.car_name }}</p>\
-                <select disabled name="car" required id="id_car" style="color:hotpink; display:none;">\
+                <br>\
+                <select style="color:hotpink; display:none;" disabled required name="car" id="id_car">\
                   <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>\
                 </select>\
-                <input type="hidden" name="hidden1">\
-                <input type="hidden" name="item1">\
-                <br>\
                 <p><label for="id_book_start_date">Book date:</label></p>\
                 <p><input type="date" name="book_start_date" id="id_book_start_date"></p>\
                 <br>\
                 <p><label for="id_start_time">Book time:</label></p>\
                 <p><input type="time" name="start_time" id="id_start_time"></p>\
                 <br>\
+                <button type="submit" class="btn btn-danger">Book</button>\
               </form>\
-              <button type="submit" class="btn btn-danger">Book</button>\
+            <p>UNDER CONSTRUCTION</p>\
           </div>\
           ';
 
-
-
-
-          /*<input type="hidden" name="car" required id="id_car" value="{{ cars.car_id }}">\
-          <input type="hidden" name="customer" required id="id_customer" value="{{ user.username }}">\
-          <input type="hidden" name="book_end_date" required id="id_book_end_date" value="00-00-0000">\
-          <input type="hidden" name="end_time" required id="id_end_time" value="00:00">\
-          <br>\
-          <p><label for="id_book_start_date">Book date:</label></p>\
-          <p><input type="date" name="book_start_date" required id="id_book_start_date"></p>\
-          <br>\
-          <p><label for="id_start_time">Book time:</label></p>\
-          <p><input type="time" name="start_time" required id="id_start_time"></p>\
-          <br><br>\*/
-
+        // markers change sidepanel //
         google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
             document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
         });
         {% endfor %}
     }
 
+    // sidepanel DIV change //
     function Swap() {
       d1 = document.getElementById('viewcar');
       d2 = document.getElementById('bookcar');

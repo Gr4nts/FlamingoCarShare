@@ -35,14 +35,7 @@ def CreateBooking(request):
     else:
         form = BookingForm(request.POST)
     #return render(request, 'book.html', {'form': form})
-    return render(request, 'map.html', {'form': form})
-
-    """
-    context = {}
-    context.update(csrf(request))
-    context["form"] = BookingForm()
-    return render(request, "map.html", context)
-    """
+    return render(request, 'map.html', {'bform': bform})
 
 class CarView(generic.DetailView):
     template_name = 'car_details.html'
