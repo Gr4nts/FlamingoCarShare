@@ -76,26 +76,31 @@
         {% for cars in Cars %}
         var content{{ cars.car_id }} = '\
           <div id="viewcar" style="display:block;">\
-            <h1>{{ cars.car_name }}</h1>\
+            <h1 class="col text-center">{{ cars.car_name }}</h1>\
             <p>\
               {{ cars.description }}\
               <br>\
               Price per day: {{ cars.price }}\
-              <br><br>\
+              <br><br><br>\
               <button class="btn btn-danger" onclick="Swap()">Book this car</button>\
             </p>\
           </div>\
           <div id="bookcar" style="display:none;">\
-            <h1>Book car</h1>\
+            <h1 class="col text-center">Book</h1>\
               <form>\
-                <p>Car:</p>\
-                <input type="text" name="car_id"><br>\
+                <input type="hidden" name="car_id" value="{{ cars.car_id }}">\
+                <input type="hidden" name="customer" value="{{ user.username }}">\
+                <p class="col text-center" style="color:hotpink;">{{ cars.car_name }}</p>\
+                <br>\
                 <p>Book date:</p>\
-                <input type="date" name="date"><br>\
+                <p><input type="date" name="date"></p>\
+                <br>\
                 <p>Book time:</p>\
-                <input type="time" name="time"><br><br>\
+                <p><input type="time" name="time"></p>\
+                <br>\
                 <button type="submit" class="btn btn-danger">Book</button>\
-              </form><br>\
+              </form>\
+              <br><br><br>\
             <button class="btn btn-default" onclick="Swap()">Go back</button>\
           </div>\
           ';
