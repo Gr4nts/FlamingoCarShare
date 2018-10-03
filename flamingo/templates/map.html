@@ -75,7 +75,7 @@
 
         {% for cars in Cars %}
         var content{{ cars.car_id }} = '\
-          <div id="content" style="padding:10px;">\
+          <div id="content1" style="padding:10px;">\
             <p>\
               {{ cars.car_name }}\
               <br>\
@@ -85,13 +85,33 @@
               <br><br>\
               If booking longer than a day: <a href="{% url 'book' %}">Click here</a>\
             </p>\
-          </div>';
+          </div>\
+          <div>\
+            <p>Hello</p>\
+          </div>\
+          ';
 
         google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
             document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
         });
         {% endfor %}
     }
+
+    function Swap(div1,div2)
+    {
+      d1 = document.getElementById(div1);
+      d2 = document.getElementById(div2);
+      if( d2.style.display == "none" )
+      {
+        d1.style.display = "none";
+        d2.style.display = "block";
+      }
+      else
+      {
+        d1.style.display = "block";
+        d2.style.display = "none";
+      }
+  }
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
