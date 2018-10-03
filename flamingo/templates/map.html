@@ -82,12 +82,21 @@
               <br>\
               Price per day: {{ cars.price }}\
               <br><br>\
-              <button class="btn btn-danger" onclick="Swap()">Book</button>\
+              <button class="btn btn-danger" onclick="Swap()">Book this car</button>\
             </p>\
           </div>\
           <div id="bookcar" style="display:none;">\
             <h1>Book car</h1>\
-            <button class="btn btn-danger" onclick="Swap()">Go back</button>\
+              <form>\
+                <p>Car:</p>\
+                <input type="text" name="car_id"><br>\
+                <p>Book date:</p>\
+                <input type="date" name="date"><br>\
+                <p>Book time:</p>\
+                <input type="time" name="time"><br><br>\
+                <button type="submit" class="btn btn-danger">Book</button>\
+              </form><br>\
+            <button class="btn btn-default" onclick="Swap()">Go back</button>\
           </div>\
           ';
 
