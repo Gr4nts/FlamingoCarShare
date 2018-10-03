@@ -19,7 +19,7 @@
                 {% if Bookings %}
                   <p>
                     {% for bookings in Bookings %}
-                    Booking {{ bookings.booking_id }}: <a href="{{ bookings.get_absolute_url }}">{{ bookings.book_start_date }} - {{ bookings.book_end_date }}</a><br>
+                    Booking {{ bookings.booking_id }}: <a href="{{ bookings.get_absolute_url }}">{{ bookings.book_start_date }}, {{ bookings.start_time }}</a><br>
                     <br>
                     {% endfor %}
                   </p>

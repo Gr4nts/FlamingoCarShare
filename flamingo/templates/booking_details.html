@@ -8,7 +8,7 @@
   <p>
     Customer: {{ booking.customer }}
     <br>
-    Booking Date: {{ booking.book_start_date }} - {{ booking.book_end_date }}
+    Booking Date: {{ booking.book_start_date }}, {{ bookings.start_time }}
     <br>
     Car: <a href="{{ booking.car.get_absolute_url }}">{{ booking.car }}</a><br>
     <br><br>
