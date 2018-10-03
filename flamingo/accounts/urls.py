@@ -8,7 +8,10 @@ urlpatterns = [
     path('account/', views.Account, name='account'),
     path('book/', views.CreateBooking, name='book'),
 
-    path(r'^car/(?P<pk>\d+)/$', views.CarView.as_view(), name='car-details'),
-    path(r'^booking/(?P<pk>\d+)/$', views.BookingView.as_view(), name='booking-details'),
+    #path(r'^car/(?P<pk>\d+)/$', views.CarView.as_view(), name='car-details'),
+    #path(r'^booking/(?P<pk>\d+)/$', views.BookingView.as_view(), name='booking-details'),
+
+    path('car/<int:pk>', views.CarView.as_view(), name='car-details'),
+    path('book/<int:pk>', views.BookingView.as_view(), name='booking-details'),
 
 ] #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
