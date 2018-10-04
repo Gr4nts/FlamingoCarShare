@@ -9,10 +9,13 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .models import Car
 from .models import Booking
 from .forms import BookingForm
+from .forms import CustomUserCreationForm
+from .models import CustomUser
+
 #from django.views.generic import DetailView
 
 class SignUp(SuccessMessageMixin,generic.CreateView):
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm
     success_url = reverse_lazy('home')
     template_name = 'signup.html'
     success_message = "You have successfully signed up!"
