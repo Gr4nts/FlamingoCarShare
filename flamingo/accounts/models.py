@@ -1,5 +1,21 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+
+class CustomUser(AbstractUser):
+    #Add additional fields here
+    first_name = models.CharField("First Name", max_length=50, null=True, blank=True)
+    last_name = models.CharField("Last Name", max_length=50, null=True, blank=True)
+    email = models.CharField("Email", max_length=50, null=True, blank=True)
+    license_number = models.IntegerField("License Number", null=True, blank=True)
+    country_of_issue = models.CharField("Country Of Issue", max_length=50, null=True, blank=True)
+    state = models.CharField("State", max_length=50, null=True, blank=True)
+    issue_date = models.DateField("Issue Date", null=True, blank=True)
+    expiry_date = models.DateField("Expiry Date", null=True, blank=True)
+
+
+    def __str__(self):
+        return self.email
+
 
 class Car(models.Model):
     car_id = models.IntegerField("Car", primary_key=True)
@@ -19,7 +35,7 @@ class Car(models.Model):
 
 class Booking(models.Model):
     booking_id = models.AutoField("Booking", primary_key=True)
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Customer")
+    customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name="Customer")
     book_start_date = models.DateField("Start date", null=True) #, null=True, blank=True)
     book_end_date = models.DateField("End date", null=True) #null=True, blank=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name="Cars")
