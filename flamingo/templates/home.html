@@ -5,9 +5,6 @@
 {% block content %}
 <section id="HomeBooking">
   {% if user.is_authenticated %}
-  <!--{% include "map.html" %}{% include "sidepanel.html" %}-->
-  <!--<div class="container">-->
-  <!--<div class="row justify-content-md-center">-->
   <div class="row" style="">
     <div class="col-sm-9 text-center" style="padding:0;">
       {% include "map.html" %}
@@ -15,8 +12,6 @@
     <div class="col-sm-3" style="padding:0;">
       {% include "sidepanel.html" %}
     </div>
-
-
   </div>
 
   {% else %}
@@ -31,11 +26,12 @@
   {% endif %}
 </section>
 
+<div class="col text-center">
 <div class="col text-center btn-group">
   <button class="button">Economy</button>
-  <button class="button">Luxury </button>
-  <button class="button">SUV  </button>
-</div>
+  <button class="button">Luxury</button>
+  <button class="button">SUV</button>
+</div></div>
 
 <!--</section>-->
 

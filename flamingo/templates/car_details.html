@@ -2,7 +2,7 @@
 {% block title %}Car: {{ car.car_name }}{% endblock %}
 
 {% block content %}
-<div style="padding:10px;">
+<div class="container">
   <h1>{{ car.car_name }}</h1>
 
   <p>
@@ -14,7 +14,6 @@
     <br>
     Lat: {{ car.lat }} Lng: {{ car.lng }}
     <br><br>
-    <!--If booking longer than a day: <a href="{% url 'book' %}">Click here</a>-->
   </p>
 </div>
 {% endblock %}

@@ -29,13 +29,11 @@ def CreateBooking(request):
             bform = form.save(commit=False)
             bform.customer = request.user
             bform.save()
-            #form.save()
             messages.success(request, 'Your booking has been saved!')
             return redirect('account')
     else:
         form = BookingForm(request.POST)
-    #return render(request, 'book.html', {'form': form})
-    return render(request, 'map.html', {'bform': bform})
+    return render(request, 'map.html', {'form': form})
 
 class CarView(generic.DetailView):
     template_name = 'car_details.html'

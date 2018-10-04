@@ -11,8 +11,9 @@ class Car(models.Model):
     price = models.IntegerField("Price per day", null=True, blank=True)
     lat = models.CharField(max_length=50, null=True, blank=True)
     lng = models.CharField(max_length=50, null=True, blank=True)
-    CHOICES = ((True, 'Yes'),(False, 'No') )
+    #CHOICES = ((True, 'Yes'),(False, 'No') )
     #available = models.BooleanField("Is Available", choices = CHOICES, default=True)
+    icon = models.IntegerField("Car Image Icon", null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('car-details', kwargs={'pk': self.pk})

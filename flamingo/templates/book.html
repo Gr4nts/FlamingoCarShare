@@ -10,14 +10,9 @@
     <p>Here you can book a car for a day or longer</p>
     <br>
 
-    <form method="post">
+    <!--<form method="post">
         {% csrf_token %}
-<<<<<<< HEAD
         <div style="color:#cccccc;">
-=======
-
-        <!--<div style="color:#cccccc;">
->>>>>>> f-grace
           {{ form.as_p }}
           <p style="color: #cccccc;">Date format: "DD/MM/YYYY"</p>
         </div>
@@ -38,10 +33,8 @@
         <option value="{{ cars.car_id }}" selected>{{ cars.car_name }}</option>
         </select>
 
-
-
         <button type="submit" class="btn btn-outline-danger">Book</button>
-      </form>
+      </form>-->
 
   {% else %}
     <h1>You are not logged in</h1>
