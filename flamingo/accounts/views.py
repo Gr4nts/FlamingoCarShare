@@ -29,17 +29,18 @@ def CreateBooking(request):
             bform = form.save(commit=False)
             bform.customer = request.user
             bform.save()
+            #form.save()
             messages.success(request, 'Your booking has been saved!')
             return redirect('account')
     else:
         form = BookingForm(request.POST)
-    return render(request, 'book.html', {'form': form})
+    #return render(request, 'book.html', {'form': form})
+    return render(request, 'map.html', {'bform': bform})
 
-#class CarView(DetailView):
-    #template_name = 'car_details.html'
-    #model = Car
+class CarView(generic.DetailView):
+    template_name = 'car_details.html'
+    model = Car
 
-    #def get_context_data(self, **kwargs):
-        #context = super(CarView, self).get_context_data(**kwargs)
-        #context['booking_success'] = 'booking-success' in self.request.GET
-        #return context
+class BookingView(generic.DetailView):
+    template_name = 'booking_details.html'
+    model = Booking

@@ -13,7 +13,21 @@
 
         // New map //
         var map = new google.maps.Map(document.getElementById('map'), options);
+<<<<<<< HEAD
         infoWindow = new google.maps.InfoWindow;
+=======
+        var infoWindow = new google.maps.InfoWindow();
+
+        // User icon //
+        var uimage = {
+            url: '{% static 'img/usericon.png' %}',
+            scaledSize: new google.maps.Size(25, 32)
+        };
+        umarker = new google.maps.Marker({
+            map: map,
+            icon: uimage,
+        });
+>>>>>>> f-grace
 
         // Try HTML5 geolocation //
         if (navigator.geolocation) {
@@ -23,8 +37,14 @@
                     lng: position.coords.longitude
                 };
                 infoWindow.setPosition(pos);
+<<<<<<< HEAD
                 infoWindow.setContent('Location found.');
                 infoWindow.open(map);
+=======
+                infoWindow.setContent('You are here');
+                infoWindow.open(map, umarker);
+                umarker.setPosition(pos);
+>>>>>>> f-grace
                 map.setCenter(pos);
                 },
                 function() {
@@ -32,6 +52,10 @@
                 }
             );
         }
+<<<<<<< HEAD
+=======
+        // Browser doesn't support Geolocation //
+>>>>>>> f-grace
         else {
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
@@ -146,6 +170,7 @@
             //zIndex: google.maps.Marker.MAX_ZINDEX + 1
         });
 
+<<<<<<< HEAD
         var markerc2 = new google.maps.Marker({
             position: car2,
             map: map,
@@ -237,9 +262,62 @@
         var infowindow7 = new google.maps.InfoWindow({ content: contentc7 });
         google.maps.event.addListener(markerc7, 'click', function() {
             infowindow7.open(map, markerc7);
+=======
+        // sidepanel input //
+        {% for cars in Cars %}
+        var content{{ cars.car_id }} = '\
+          <div id="viewcar" style="display:block;">\
+            <h1 class="col text-center">{{ cars.car_name }}</h1>\
+            <p>\
+              {{ cars.description }}\
+              <br>\
+              Price per day: {{ cars.price }}\
+              <br><br><br>\
+              <button class="btn btn-danger" onclick="Swap()">Book this car</button>\
+            </p>\
+          </div>\
+          <div id="bookcar" style="display:none;">\
+            <h1 class="col text-center">Book</h1>\
+              <form method="post">\
+                {% csrf_token %}\
+                <p class="col text-center" style="color:hotpink;"">{{ cars.car_name }}</p>\
+                <br>\
+                <select style="color:hotpink; display:none;" disabled required name="car" id="id_car">\
+                  <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>\
+                </select>\
+                <p><label for="id_book_start_date">Book date:</label></p>\
+                <p><input type="date" name="book_start_date" id="id_book_start_date"></p>\
+                <br>\
+                <p><label for="id_start_time">Book time:</label></p>\
+                <p><input type="time" name="start_time" id="id_start_time"></p>\
+                <br>\
+                <button type="submit" class="btn btn-danger">Book</button>\
+              </form>\
+            <p>UNDER CONSTRUCTION</p>\
+          </div>\
+          ';
+
+        // markers change sidepanel //
+        google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
+            document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
+>>>>>>> f-grace
         });
         {% endif %}
         {% endfor %}
+    }
+
+    // sidepanel DIV change //
+    function Swap() {
+      d1 = document.getElementById('viewcar');
+      d2 = document.getElementById('bookcar');
+      if( d2.style.display == "none" ) {
+        d1.style.display = "none";
+        d2.style.display = "block";
+      }
+      else {
+        d1.style.display = "block";
+        d2.style.display = "none";
+      }
     }
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {

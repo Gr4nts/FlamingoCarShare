@@ -2,7 +2,6 @@
 {% block title %}Create Booking{% endblock %}
 
 {% block content %}
-<!--<div style="margin-top: 75px;">-->
 <div>
   <div class="container">
   {% if user.is_authenticated %}
@@ -13,11 +12,33 @@
 
     <form method="post">
         {% csrf_token %}
+<<<<<<< HEAD
         <div style="color:#cccccc;">
+=======
+
+        <!--<div style="color:#cccccc;">
+>>>>>>> f-grace
           {{ form.as_p }}
           <p style="color: #cccccc;">Date format: "DD/MM/YYYY"</p>
         </div>
+        <br>-->
+
+        <!--<input type="hidden" name="car" id="id_car" value="{{ cars.car_id }}">-->
+        <!--<input type="hidden" name="book_end_date" id="id_book_end_date" value="00-00-0000">
+        <input type="hidden" name="end_time" id="id_end_time" value="00:00">-->
         <br>
+
+        <p><label for="id_book_start_date">Book date:</label></p>
+        <p><input type="date" name="book_start_date" id="id_book_start_date"></p>
+        <br>
+        <p><label for="id_start_time">Book time:</label></p>
+        <p><input type="time" name="start_time" id="id_start_time"></p>
+        <br>
+        <select name="car" required id="id_car">
+        <option value="{{ cars.car_id }}" selected>{{ cars.car_name }}</option>
+        </select>
+
+
 
         <button type="submit" class="btn btn-outline-danger">Book</button>
       </form>

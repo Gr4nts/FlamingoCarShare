@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+#from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 class Car(models.Model):
     car_id = models.IntegerField("Car", primary_key=True)
@@ -20,8 +22,10 @@ class Car(models.Model):
 class Booking(models.Model):
     booking_id = models.AutoField("Booking", primary_key=True)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Customer")
-    book_start_date = models.DateField("Start date", null=True) #, null=True, blank=True)
-    book_end_date = models.DateField("End date", null=True) #null=True, blank=True)
+    book_start_date = models.DateField("Start date", null=True, blank=True)
+    book_end_date = models.DateField("End date", null=True, blank=True)
+    start_time = models.TimeField("Start time", null=True, blank=True)
+    end_time = models.TimeField("End time", null=True, blank=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name="Cars")
     #available = models.ForeignKey(Available, on_delete=models.CASCADE, default=False, verbose_name="Car Available")
 

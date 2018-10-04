@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Car: {{ car.car_name }}{% endblock %}
+
+{% block content %}
+<div style="padding:10px;">
+  <h1>{{ car.car_name }}</h1>
+
+  <p>
+    ID: {{ car.car_id }}
+    <br>
+    Description: {{ car.description }}
+    <br>
+    Price per day: {{ car.price }}
+    <br>
+    Lat: {{ car.lat }} Lng: {{ car.lng }}
+    <br><br>
+    <!--If booking longer than a day: <a href="{% url 'book' %}">Click here</a>-->
+  </p>
+</div>
+{% endblock %}
