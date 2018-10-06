@@ -30,10 +30,13 @@ def CreateBooking(request):
             bform.customer = request.user
             bform.save()
             messages.success(request, 'Your booking has been saved!')
-            return redirect('account')
+            return redirect('bookdone')
     else:
         form = BookingForm(request.POST)
-    return render(request, 'map.html', {'form': form})
+    return render(request, 'book.html', {'form': form})
+
+class BookDone(TemplateView):
+    template_name = 'bookdone.html'
 
 class CarView(generic.DetailView):
     template_name = 'car_details.html'

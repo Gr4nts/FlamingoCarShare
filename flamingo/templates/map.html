@@ -1,5 +1,4 @@
 {% load static %}
-{% load static %}
 <div id="map"></div>
 
 <script>
@@ -83,27 +82,8 @@
               <br>\
               Price per day: {{ cars.price }}\
               <br><br><br>\
-              <button class="btn btn-danger" onclick="Swap()">Book this car</button>\
+              <a href="#" class="btn btn-danger" onClick="MyWindow=window.open(\'{% url 'book' %}\',\'MyWindow\',\'width=400,height=400\'); return false;">Book this car</a>\
             </p>\
-          </div>\
-          <div id="bookcar" style="display:none;">\
-            <h1 class="col text-center">Book</h1>\
-              <form method="post">\
-                {% csrf_token %}\
-                <p class="col text-center" style="color:hotpink;"">{{ cars.car_name }}</p>\
-                <br>\
-                <select style="color:hotpink; display:none;" disabled required name="car" id="id_car">\
-                  <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>\
-                </select>\
-                <p><label for="id_book_start_date">Book date:</label></p>\
-                <p><input type="date" name="book_start_date" id="id_book_start_date"></p>\
-                <br>\
-                <p><label for="id_start_time">Book time:</label></p>\
-                <p><input type="time" name="start_time" id="id_start_time"></p>\
-                <br>\
-                <button type="submit" class="btn btn-danger">Book</button>\
-              </form>\
-            <p>UNDER CONSTRUCTION</p>\
           </div>\
           ';
 
@@ -115,7 +95,7 @@
     }
 
     // sidepanel DIV change //
-    function Swap() {
+    /*function Swap() {
       d1 = document.getElementById('viewcar');
       d2 = document.getElementById('bookcar');
       if( d2.style.display == "none" ) {
@@ -126,7 +106,7 @@
         d1.style.display = "block";
         d2.style.display = "none";
       }
-    }
+    }*/
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
