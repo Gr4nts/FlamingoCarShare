@@ -3,10 +3,9 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
 <section id="HomeBooking">
   {% if user.is_authenticated %}
-  <div class="row" style="">
+  <div class="row">
     <div class="col-sm-9 text-center" style="padding:0;">
       {% include "map.html" %}
       </div>

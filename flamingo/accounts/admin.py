@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from .models import Car
 from .models import Booking
-
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser
 
@@ -25,8 +24,4 @@ class BookingModelAdmin(admin.ModelAdmin):
 
 admin.site.register(Car,CarModelAdmin)
 admin.site.register(Booking,BookingModelAdmin)
-<<<<<<< HEAD
-#admin.site.register(Available,AvailableModelAdmin)
 admin.site.register(CustomUser, CustomUserAdmin)
-=======
->>>>>>> d-grace

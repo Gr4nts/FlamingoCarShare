@@ -13,49 +13,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <!--<script>
-    window.onunload = refreshParent;
-    function refreshParent() {
-        window.opener.location.reload();
-    }
-    </script>-->
 </head>
 
 <div class="container">
-<!--<div id="bookcar">-->
-<!--<div id="bookcar">-->
   <h1 class="col text-center">Book</h1>
-  <p>
     <form method="post">
-      {% csrf_token %}
       <p class="col text-center" style="color:hotpink;">Car {{ cars.car_name }}</p>
+      {% csrf_token %}
+
+      <!--<p>{{ form.as_p }}</p>-->
+
+      <p><label for="id_car">Model: </label></p>
+      <p>{{ form.car }}</p>
+
+      <!--<select style="color:hotpink; display:none;" disabled required name="car" id="id_car">
+        <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>
+      </select>--->
+      
       <br>
-      {{ form.as_p }}
+      <p><label for="id_book_start_date">Start date: </label></p>
+      <p><input type="date" name="book_start_date" id="id_book_start_date"></p>
+      <br>
+      <p><label for="id_start_time">Start time: </label></p>
+      <p><input type="time" name="start_time" id="id_start_time"></p>
+
       <br>
       <button type="submit" class="btn btn-danger">Book</button>
-      <!--<button type="submit" class="btn btn-danger" onclick="window.open('/account'); window.close();" />Book</button>-->
     </form>
-  </p>
-<!--</div>-->
 </div>
-
-<!--
-<div id="bookcar" style="display:none;">\
-  <h1 class="col text-center">Book</h1>\
-    <form method="post">\
-      {% csrf_token %}\
-      <p class="col text-center" style="color:hotpink;"">{{ cars.car_name }}</p>\
-      <br>\
-      <select style="color:hotpink; display:none;" disabled required name="car" id="id_car">\
-        <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>\
-      </select>\
-      <p><label for="id_book_start_date">Book date:</label></p>\
-      <p><input type="date" name="book_start_date" id="id_book_start_date"></p>\
-      <br>\
-      <p><label for="id_start_time">Book time:</label></p>\
-      <p><input type="time" name="start_time" id="id_start_time"></p>\
-      <br>\
-      <button type="submit" class="btn btn-danger">Book</button>\
-    </form>\
-</div>-->

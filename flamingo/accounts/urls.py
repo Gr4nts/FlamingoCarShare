@@ -10,5 +10,4 @@ urlpatterns = [
     path('bookdone/', views.BookDone.as_view(), name='bookdone'),
     path('car/<int:pk>', views.CarView.as_view(), name='car-details'),
     path('booking/<int:pk>', views.BookingView.as_view(), name='booking-details'),
-
-] #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

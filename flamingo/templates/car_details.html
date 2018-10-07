@@ -4,22 +4,29 @@
 
 {% block content %}
 <div class="container">
-  <h1>{{ car.car_name }}</h1>
-
-  <p>
-    <img src="/static/img/{{ car.image }}" />
+  <div class="row">
+    <h1>{{ car.car_name }}</h1>
     <br>
-    ID: {{ car.car_id }}
-    <br>
-    Description: {{ car.description }}
-    <br>
-    Price per day: {{ car.price }}
-    <br>
-    Lat: {{ car.lat }} Lng: {{ car.lng }}
-    <br><br>
-  </p>
-
-  <div id="carmap"></div>
+    <div class="col-sm-6">
+      <p>
+        <img src="/static/img/{{ car.image }}" />
+        <br><br>
+        ID: {{ car.car_id }}
+        <br>
+        Description: {{ car.description }}
+        <br>
+        Price per day: {{ car.price }}
+        <br>
+        Lat: {{ car.lat }} Lng: {{ car.lng }}
+        <br><br>
+      </p>
+    </div>
+    <div class="col-sm-6 text-center">
+      <p>Current Location</p>
+      <br>
+      <div id="carmap"></div>
+    </div>
+</div>
 
   <script>
     var map;

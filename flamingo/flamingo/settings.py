@@ -36,9 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #'django.contrib.auth.middleware',
+
     'accounts',
     'about',
-
 ]
 
 MIDDLEWARE = [
@@ -49,6 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    #'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'flamingo.urls'
@@ -147,4 +152,4 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-AUTH_USER_MODEL = 'accounts.CustomUser' 
+AUTH_USER_MODEL = 'accounts.CustomUser'

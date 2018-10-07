@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
-from django.views.generic import TemplateView
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
@@ -11,8 +10,6 @@ from .models import Booking
 from .forms import BookingForm
 from .forms import CustomUserCreationForm
 from .models import CustomUser
-
-#from django.views.generic import DetailView
 
 class SignUp(SuccessMessageMixin,generic.CreateView):
     form_class = CustomUserCreationForm
@@ -38,7 +35,7 @@ def CreateBooking(request):
         form = BookingForm(request.POST)
     return render(request, 'book.html', {'form': form})
 
-class BookDone(TemplateView):
+class BookDone(generic.TemplateView):
     template_name = 'bookdone.html'
 
 class CarView(generic.DetailView):

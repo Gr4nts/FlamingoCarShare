@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>{% block title %}Book{% endblock %}</title>
+    <title>{% block title %}Booking Done{% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,10 +17,10 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <script>
-    window.onunload = refreshParent;
-    function refreshParent() {
+      window.onunload = refreshParent;
+      function refreshParent() {
         window.opener.location.href = "{% url 'account' %}";
-    }
+      }
     </script>
 </head>
 
@@ -29,6 +29,6 @@
   <p>You may now close the window.</p>
   <br>
   <div class="col text-center">
-  <input type="button" class="btn btn-warning" value="close" onclick="window.close();">
+    <input type="button" class="btn btn-warning" value="close" onclick="window.close();">
   </div>
 </div>
