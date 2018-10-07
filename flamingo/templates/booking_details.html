@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Booking {{ booking.booking_id }}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Booking {{ booking.booking_id }}</h1>
+
+  <p>
+    Customer: {{ booking.customer }}
+    <br>
+    Booking Date: {{ booking.book_start_date }}, {{ booking.start_time }}
+    <br>
+    Car: <a href="{{ booking.car.get_absolute_url }}">{{ booking.car }}</a><br>
+    <br><br>
+  </p>
+</div>
+{% endblock %}

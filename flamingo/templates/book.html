@@ -1,31 +1,61 @@
-{% extends 'base.html' %}
-{% block title %}Create Booking{% endblock %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}Book{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-{% block content %}
-<!--<div style="margin-top: 75px;">-->
-<div>
-  <div class="container">
-  {% if user.is_authenticated %}
-    <h1>Book a car</h1>
+    <!--<script>
+    window.onunload = refreshParent;
+    function refreshParent() {
+        window.opener.location.reload();
+    }
+    </script>-->
+</head>
 
-    <p>Here you can book a car for a day or longer</p>
-    <br>
-
+<div class="container">
+<!--<div id="bookcar">-->
+<!--<div id="bookcar">-->
+  <h1 class="col text-center">Book</h1>
+  <p>
     <form method="post">
-        {% csrf_token %}
-        <div style="color:#cccccc;">
-          {{ form.as_p }}
-          <p style="color: #cccccc;">Date format: "DD/MM/YYYY"</p>
-        </div>
-        <br>
-
-        <button type="submit" class="btn btn-outline-danger">Book</button>
-      </form>
-
-  {% else %}
-    <h1>You are not logged in</h1>
-    <p>Please log in to continue</p>
-  {% endif %}
+      {% csrf_token %}
+      <p class="col text-center" style="color:hotpink;">Car {{ cars.car_name }}</p>
+      <br>
+      {{ form.as_p }}
+      <br>
+      <button type="submit" class="btn btn-danger">Book</button>
+      <!--<button type="submit" class="btn btn-danger" onclick="window.open('/account'); window.close();" />Book</button>-->
+    </form>
+  </p>
+<!--</div>-->
 </div>
-</div>
-{% endblock %}
+
+<!--
+<div id="bookcar" style="display:none;">\
+  <h1 class="col text-center">Book</h1>\
+    <form method="post">\
+      {% csrf_token %}\
+      <p class="col text-center" style="color:hotpink;"">{{ cars.car_name }}</p>\
+      <br>\
+      <select style="color:hotpink; display:none;" disabled required name="car" id="id_car">\
+        <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>\
+      </select>\
+      <p><label for="id_book_start_date">Book date:</label></p>\
+      <p><input type="date" name="book_start_date" id="id_book_start_date"></p>\
+      <br>\
+      <p><label for="id_start_time">Book time:</label></p>\
+      <p><input type="time" name="start_time" id="id_start_time"></p>\
+      <br>\
+      <button type="submit" class="btn btn-danger">Book</button>\
+    </form>\
+</div>-->

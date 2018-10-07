@@ -3,31 +3,28 @@
 {% block title %}Account{% endblock %}
 
 {% block content %}
-<!--<div class="col text-center" style="margin-top: 75px;">-->
-<div class="col text-center">
+<div class="container">
     {% if user.is_authenticated %}
         <div>
-            <h1>Hello {{ user.firstname }}!</h1>
+            <h1 class="col text-center">Hello {{ user.username }}!</h1>
             <br>
-            <div class="col text-left">
+            <div>
                 <h1>Profile</h1>
-                <p>
-
-                </p>
+                  <p>
+                    Your profile
+                  </p>
                 <h1>Your bookings</h1>
-                <p>
-                {% for bookings in Bookings %}
-                Car: {{ bookings.car }}<br>
-                Description: {{ bookings.car.description }}<br>
-                <!--Available: {{ bookings.car.available }}<br>-->
-                Price per day: {{ bookings.car.price }}<br>
-                Booking Dates: {{ bookings.book_start_date }} - {{ bookings.book_end_date }}<br><br>
-                {% endfor %}
-                </p>
+                {% if Bookings %}
+                  <p>
+                    {% for bookings in Bookings %}
+                    Booking {{ bookings.booking_id }}: <a href="{{ bookings.get_absolute_url }}">{{ bookings.book_start_date }}, {{ bookings.start_time }}</a><br>
+                    <br>
+                    {% endfor %}
+                  </p>
+                {% else %}
+                  <p>You have no bookings</p>
+                {% endif %}
             </div>
-        </div>
-        <div>
-            <p>Here you can view the bookings made. You will be able to adjust the bookings in the future. You will also be able to edit your user information in the future too.</p>
         </div>
     {% else %}
         <h1>You are not authorized to access this page.</h1>

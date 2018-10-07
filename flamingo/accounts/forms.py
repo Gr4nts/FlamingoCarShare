@@ -7,6 +7,7 @@ from .models import Booking
 class BookingForm(ModelForm):
     class Meta:
         model = Booking
+<<<<<<< HEAD
         fields = ['car', 'book_start_date', 'book_end_date']
 
 class CustomUserCreationForm(UserCreationForm):
@@ -20,3 +21,7 @@ class CustomUserChangeForm(UserChangeForm):
         model = CustomUser
         fields = ['username', 'first_name', 'last_name', 'email', 'license_number',
                   'country_of_issue', 'state', 'issue_date', 'expiry_date', ]
+=======
+        #fields = '__all__'
+        fields = ['book_start_date', 'start_time', 'car']
+>>>>>>> d-grace
