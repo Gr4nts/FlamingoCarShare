@@ -7,7 +7,17 @@ from .models import Booking
 class BookingForm(ModelForm):
     class Meta:
         model = Booking
-        fields = ['car', 'book_start_date', 'book_end_date']
+        #fields = '__all__'
+        fields = ['car', 'book_start_date', 'start_time']
+
+        #def __init__(self, data=None, files=None, request=None, recipient_list=None, *args, **kwargs):
+            #super().__init__(data=data, files=files, request=request, recipient_list=recipient_list, *args, **kwargs)
+        """
+        def __init__(self, *args, **kwargs):
+            super(BookingForm, self).__init__(*args, **kwargs)
+            self.fields['id_book_start_date'].widget.attrs['type'] = 'date'
+            self.fields['id_start_time'].widget.attrs['type'] = 'time'
+        """
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):

@@ -1,0 +1,63 @@
+Car:			1
+Model:			Toyota Corolla
+Image:			car_images/toyota.jpg
+Description:	Economy #1
+Price per day:	25
+Lat:			-37.811542
+Lng:			144.950734
+CarImage Icon:	1
+
+Car:			2
+Model:			Mazda 3
+Image:			car_images/mazda.jpg
+Description:	Economy #2
+Price per day:	25
+Lat:			-37.810207
+Lng:			144.969099
+CarImage Icon:	1
+
+Car:			3
+Model:			Mitsubishi Mirage
+Image:			car_images/mitsubishi.jpg
+Description:	Economy #3
+Price per day:	25
+Lat:			-37.815187
+Lng:			144.975092
+CarImage Icon:	1
+
+Car:			4
+Model:			Mercedes-Benz C
+Image:			car_images/mercedes.jpg
+Description:	Luxury #1
+Price per day:	50
+Lat:			-37.821588
+Lng:			144.952750
+CarImage Icon:	2
+
+Car:			5
+Model:			Porsche Cayman
+Image:			car_images/porsche.jpg
+Description:	Luxury #2
+Price per day:	50
+Lat:			-37.806748
+Lng:			144.955651
+CarImage Icon:	2
+
+Car:			6
+Model:			Audi A8
+Image:			car_images/audi.jpg
+Description:	Luxury #3
+Price per day:	50
+Lat:			-37.813001
+Lng:			144.959481
+CarImage Icon:	2
+
+Car:			7
+Model:			Jeep Cherokee
+Image:			car_images/jeep.jpg
+Description:	SUV
+Price per day:	40
+Lat:			-37.806870
+Lng:			144.973861
+CarImage Icon:	3
+
