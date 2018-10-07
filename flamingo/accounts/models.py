@@ -6,7 +6,7 @@ from django.urls import reverse
 class Car(models.Model):
     car_id = models.IntegerField("Car", primary_key=True)
     car_name = models.CharField("Model", max_length=50, null=True, blank=True)
-    #image = models.ImageField(upload_to='car_images', null=True, blank=True)
+    image = models.CharField(max_length=50, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     price = models.IntegerField("Price per day", null=True, blank=True)
     lat = models.CharField(max_length=50, null=True, blank=True)

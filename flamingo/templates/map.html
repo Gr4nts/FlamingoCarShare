@@ -74,18 +74,16 @@
 
         // sidepanel input //
         {% for cars in Cars %}
-        var content{{ cars.car_id }} = '\
-          <div id="viewcar" style="display:block;">\
+        var content{{ cars.car_id }} = '<div id="viewcar" style="display:block;">\
             <h1 class="col text-center">{{ cars.car_name }}</h1>\
-            <p>\
+            <div class="col text-center"><img src="/static/img/{{ cars.image }}" height="200" width="300" /></div>\
+              <p><br>\
               {{ cars.description }}\
               <br>\
               Price per day: {{ cars.price }}\
-              <br><br><br>\
+              </p><br><br>\
               <a href="#" class="btn btn-danger" onClick="MyWindow=window.open(\'{% url 'book' %}\',\'MyWindow\',\'width=400,height=400\'); return false;">Book this car</a>\
-            </p>\
-          </div>\
-          ';
+          </div>';
 
         // markers change sidepanel //
         google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
