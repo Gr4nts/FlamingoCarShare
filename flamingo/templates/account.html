@@ -6,12 +6,23 @@
 <div class="container">
     {% if user.is_authenticated %}
         <div>
-            <h1 class="col text-center">Hello {{ user.username }}!</h1>
+            
             <br>
             <div>
                 <h1>Profile</h1>
                   <p>
-                    Your profile information is displayed here.
+                    Your profile information is displayed here.<br>
+					First Name: {{user.first_name}}<br>
+					Last Name: {{user.last_name}}<br>
+					Email: {{user.email}}<br>
+					<br>
+					Registration Details<br><br>
+					
+					License Number: {{user.license_number}}<br>
+					Country of Issue: {{user.country_of_issue}}<br>
+					State: {{user.state}}<br>
+					Issue Date: {{user.issue_date}}<br>
+					Expiry Date: {{user.expiry_date}}<br>
                   </p>
                 <h1>Your bookings</h1>
                 {% if Bookings %}
