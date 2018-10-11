@@ -11,6 +11,10 @@
         {% csrf_token %}
 
         <table style="width:400px; margin:auto;">
+		  <tr>
+            <td> <p><label>USER DETAILS</label></p> </td>
+          </tr>
+		  
           <tr>
             <td> <p><label for="id_first_name">First Name:</label></p> </td>
             <td> <p><input type="text" name="first_name" maxlength="150" autofocus required id="id_first_name"></p> </td>
@@ -25,6 +29,14 @@
             <td> <p><label for="id_email">Email:</label></p> </td>
             <td> <p><input type="email" name="email" maxlength="150" autofocus required id="id_email"></p> </td>
           </tr>
+		  
+		  <tr>
+            <td> <p><label></label></p> </td>
+          </tr>
+		  
+		  <tr>
+            <td> <p><label>LICENSE REGISTRATION DETAILS</label></p> </td>
+          </tr>
 
           <tr>
             <td> <p><label for="id_license_number">License Number:</label></p> </td>
@@ -33,7 +45,7 @@
 
           <tr>
             <td> <p><label for="id_country_of_issue">Country of Issue:</label></p> </td>
-            <td> <p><input type="text" name="countryofissue" maxlength="150" autofocus required id="id_country_of_issue"></p> </td>
+            <td> <p><input type="text" name="country_of_issue" maxlength="150" autofocus required id="id_country_of_issue"></p> </td>
           </tr>
 
           <tr>
