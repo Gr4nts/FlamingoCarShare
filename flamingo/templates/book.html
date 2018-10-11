@@ -29,13 +29,19 @@
       <!--<select style="color:hotpink; display:none;" disabled required name="car" id="id_car">
         <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>
       </select>--->
-      
+
       <br>
       <p><label for="id_book_start_date">Start date: </label></p>
       <p><input type="date" name="book_start_date" id="id_book_start_date"></p>
       <br>
+      <p><label for="id_book_end_date">End date: </label></p>
+      <p><input type="date" name="book_end_date" id="id_book_end_date"></p>
+      <br>
       <p><label for="id_start_time">Start time: </label></p>
       <p><input type="time" name="start_time" id="id_start_time"></p>
+      <br>
+      <p><label for="id_end_time">End time: </label></p>
+      <p><input type="time" name="end_time" id="id_end_time"></p>
 
       <br>
       <button type="submit" class="btn btn-danger">Book</button>

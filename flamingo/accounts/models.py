@@ -40,6 +40,9 @@ class Booking(models.Model):
     start_time = models.TimeField("Start time", null=True, blank=True)
     end_time = models.TimeField("End time", null=True, blank=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name="Cars")
+    status = models.CharField("Status", max_length=20, null=True, blank=True, default="Pending")
+    status_button = models.CharField(max_length=20, null=True, blank=True, default="primary")
+    status_options = models.TextField(null=True, blank=True, default="Status(button): Pending (primary), Paid(success), Cancelled(danger)")
 
     def get_absolute_url(self):
         return reverse('booking-details', kwargs={'pk': self.pk})
