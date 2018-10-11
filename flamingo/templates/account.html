@@ -6,7 +6,7 @@
 <div class="container">
     {% if user.is_authenticated %}
         <div>
-            
+
             <br>
             <div>
                 <h1>Profile</h1>
@@ -17,7 +17,7 @@
 					Email: {{user.email}}<br>
 					<br>
 					Registration Details<br><br>
-					
+
 					License Number: {{user.license_number}}<br>
 					Country of Issue: {{user.country_of_issue}}<br>
 					State: {{user.state}}<br>
@@ -28,7 +28,7 @@
                 {% if Bookings %}
                   <p>
                     {% for bookings in Bookings %}
-                    Booking {{ bookings.booking_id }}: <a href="{{ bookings.get_absolute_url }}">{{ bookings.book_start_date }}, {{ bookings.start_time }}</a><br>
+                    <a href="{{ bookings.get_absolute_url }}">{{ bookings.book_start_date }}, {{ bookings.start_time }} - {{ bookings.book_end_date }}, {{ bookings.end_time }}</a><br>
                     <br>
                     {% endfor %}
                   </p>

@@ -19,7 +19,7 @@ class CarModelAdmin(admin.ModelAdmin):
 
 class BookingModelAdmin(admin.ModelAdmin):
     list_display = ['customer', 'car', 'book_start_date', 'start_time']
-    list_filter = ['customer', 'car']
+    list_filter = ['customer', 'status', 'car']
     date_hierarchy = 'book_start_date'
 
 admin.site.register(Car,CarModelAdmin)
