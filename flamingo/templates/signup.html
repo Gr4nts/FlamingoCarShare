@@ -17,7 +17,7 @@
 		  
           <tr>
             <td> <p><label for="id_first_name">First Name:</label></p> </td>
-            <td> <p><input type="text" name="first_name" maxlength="150" autofocus required id="id_first_name"></p> </td>
+            <td> <p><input type="text" name="first_name" maxlength="150" autocomplete="on" required id="id_first_name"></p> </td>
           </tr>
 
           <tr>
@@ -27,7 +27,7 @@
 
           <tr>
             <td> <p><label for="id_email">Email:</label></p> </td>
-            <td> <p><input type="email" name="email" maxlength="150" autofocus required id="id_email"></p> </td>
+            <td> <p><input type="email" name="email" maxlength="150" placeholder="e.g.example@mail.com" autofocus required id="id_email"></p> </td>
           </tr>
 		  
 		  <tr>
@@ -45,7 +45,7 @@
 
           <tr>
             <td> <p><label for="id_country_of_issue">Country of Issue:</label></p> </td>
-            <td> <p><input type="text" name="country_of_issue" maxlength="150" autofocus required id="id_country_of_issue"></p> </td>
+            <td> <p><input type="text" name="country_of_issue" maxlength="150" placeholder="e.g.Australia" autofocus required id="id_country_of_issue"></p> </td>
           </tr>
 
           <tr>
@@ -70,17 +70,17 @@
 
           <tr>
             <td> <p><label for="id_password1">Password:</label></p> </td>
-            <td> <p><input type="password" name="password1" required id="id_password1"></p> </td>
+            <td> <p><input type="password" name="password1" placeholder="e.g.Password1" required id="id_password1"></p> </td>
           </tr>
 
           <tr>
             <td> <p><label for="id_password2">Password confirm:</label></p> </td>
-            <td> <p><input type="password" name="password2" required id="id_password2"></p> </td>
+            <td> <p><input type="password" name="password2" placeholder="e.g.Password1" required id="id_password2"></p> </td>
           </tr>
         </table>
 
         <br>
-        <button type="submit" class="btn btn-outline-success">Sign up</button>
+        <button type="submit" autofocus autocomplete="on" class="btn btn-outline-success">Sign up</button>
 
         <br><br>
         <p>Already have an account? <a href="{% url 'login' %}">LOG IN</a> here.</p>

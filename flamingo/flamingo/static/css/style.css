@@ -61,14 +61,14 @@ table{
 /* ID Section */
 
 #id_car{ color: white; background-color: #1a1a1a; }
-#id_firstname{ color: white; background-color: #4d4d4d; }
-#id_lastname{ color: white; background-color: #4d4d4d; }
+#id_first_name{ color: white; background-color: #4d4d4d; }
+#id_last_name{ color: white; background-color: #4d4d4d; }
 #id_email{ color: white; background-color: #4d4d4d; }
-#id_licensenumber{ color: white; background-color: #4d4d4d; }
-#id_countryofissue{ color: white; background-color: #4d4d4d; }
+#id_license_number{ color: white; background-color: #4d4d4d; }
+#id_country_of_issue{ color: white; background-color: #4d4d4d; }
 #id_state{ color: white; background-color: #4d4d4d; }
-#id_issuedate{ color: white; background-color: #4d4d4d; }
-#id_expirydate{ color: white; background-color: #4d4d4d; }
+#id_issue_date{ color: white; background-color: #4d4d4d; }
+#id_expiry_date{ color: white; background-color: #4d4d4d; }
 #id_username{ color: white; background-color: #4d4d4d; }
 #id_password{ color: white; background-color: #4d4d4d; }
 #id_password1{ color: white; background-color: #4d4d4d; }
