@@ -16,6 +16,8 @@
     <br><br>
     Status: <button type="button" class="btn btn-{{ booking.status_button }}">{{ booking.status }}</button>
     <br><br>
+    <a href="{% url 'delete' pk=booking.pk %}">Delete booking</a>
+    <br>
   </p>
 
 		<!-- Paypal button starts here -->
@@ -81,8 +83,5 @@
 	</script>
 	<!-- Paypal ends here -->
 
-  <p><br>
-    <button type="button" class="btn btn-light" style="color:black;" href="{% url 'delete' pk=booking.pk %}">Delete booking</button>
-  </p>
 </div>
 {% endblock %}

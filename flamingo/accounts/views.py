@@ -43,7 +43,7 @@ def DeleteBooking(request, pk):
     booking = Booking.objects.get(pk=pk)
     booking.delete()
     messages.success(request, 'You have deleted your booking.')
-    return redirect('account')
+    return redirect('/')
 
 class CarView(generic.DetailView):
     model = Car
