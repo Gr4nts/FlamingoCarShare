@@ -16,7 +16,8 @@
     <br><br>
     Status: <button type="button" class="btn btn-{{ booking.status_button }}">{{ booking.status }}</button>
     <br><br>
-    <a href="{% url 'delete' pk=booking.pk %}">Delete booking</a>
+    <a class="btn btn-default" href="{% url 'edit' pk=booking.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-default" href="{% url 'delete' pk=booking.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
     <br>
   </p>
 

@@ -42,8 +42,13 @@ input[type=time],
 input[type=email]{
     color: white;
     border: 2px solid #ff66b3;
-    border-radius: 2px;
     background-color: #1a1a1a;
+}
+
+option,select{
+  color: white;
+  border: 2px solid #ff66b3;
+  background-color: #1a1a1a;
 }
 
 a{ color: hotpink; }
@@ -96,7 +101,7 @@ table{
 }
 
 #body{
-    padding-bottom: 29px; /*???? for footer */
+    padding-bottom: 35px; /* for footer */
     margin-top: 50px;
 }
 
