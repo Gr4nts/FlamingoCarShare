@@ -20,15 +20,6 @@
     <form method="post">
       <p class="col text-center" style="color:hotpink;">{{ car.car_name }}</p>
       {% csrf_token %}
-
-      <!--<p>{{ form.as_p }}</p>-->
-
-      <!--<p><label for="id_car">Model: </label></p>
-      <p>{{ form.car }}</p>-->
-
-      <!--<select style="color:hotpink; display:none;" disabled required name="car" id="id_car">
-        <option selected value="{{ cars.car_id }}">{{ cars.car_name }}</option>
-      </select>-->
       <select name="car" required id="id_car" style="display:none;">
           <option value="{{ car.car_id }}" selected>{{ car.car_name }}</option>
       </select>
