@@ -42,7 +42,7 @@ class Booking(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name="Cars")
     status = models.CharField("Status", max_length=20, null=True, blank=True, default="Pending")
     status_button = models.CharField(max_length=20, null=True, blank=True, default="primary")
-    status_options = models.TextField(null=True, blank=True, default="Status(button): Pending (primary), Paid(success), Cancelled(danger)")
+    status_options = models.TextField(null=True, blank=True, default="Status(button): Pending (primary), Paid(success), Cancelled(danger)", max_length=20)
 
     def get_absolute_url(self):
         return reverse('booking-details', kwargs={'pk': self.pk})
