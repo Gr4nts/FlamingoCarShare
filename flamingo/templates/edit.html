@@ -8,8 +8,8 @@
     <form method="post">
       {% csrf_token %}
       <p><label for="id_car">Model: </label></p>
-      <p>Current model: {{ booking.car }}</p>
       {{ form.car }}
+      <p>Current model: {{ booking.car }}</p>
       <br><br>
       <p><label for="id_book_start_date">Start date: </label></p>
       <p><input type="date" name="book_start_date" id="id_book_start_date"></p>
