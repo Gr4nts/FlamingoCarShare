@@ -39,6 +39,20 @@ def CreateBooking(request, pk):
 class BookDone(generic.TemplateView):
     template_name = 'bookdone.html'
 
+def EditBooking(request, pk):
+    booking = Booking.objects.get(pk=pk)
+    if request.method == "POST":
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            bform = form.save(commit=False)
+            bform.customer = request.user
+            bform.save()
+            messages.success(request, 'Your booking has been update.')
+            return redirect('account')
+    else:
+        form = BookingForm(instance=booking)
+    return render(request, 'edit.html', {'form': form, 'booking' : booking})
+
 def DeleteBooking(request, pk):
     booking = Booking.objects.get(pk=pk)
     booking.delete()

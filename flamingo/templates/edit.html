@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Edit Booking{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="col text-center">Edit booking</h1>
+
+    <form method="post">
+      {% csrf_token %}
+      <p><label for="id_car">Model: </label></p>
+      <p>Current model: {{ booking.car }}</p>
+      {{ form.car }}
+      <br><br>
+      <p><label for="id_book_start_date">Start date: </label></p>
+      <p><input type="date" name="book_start_date" id="id_book_start_date"></p>
+      <p>Current start date: {{ booking.book_start_date }}</p>
+      <br>
+      <p><label for="id_book_end_date">End date: </label></p>
+      <p><input type="date" name="book_end_date" id="id_book_end_date"></p>
+      <p>Current end date: {{ booking.book_end_date }}</p>
+      <br><br>
+      <p><label for="id_start_time">Start time: </label></p>
+      <p><input type="time" name="start_time" id="id_start_time"></p>
+      <p>Current start time: {{ booking.start_time }}</p>
+      <br>
+      <p><label for="id_end_time">End time: </label></p>
+      <p><input type="time" name="end_time" id="id_end_time"></p>
+      <p>Current end time: {{ booking.end_time }}</p>
+      <br><br>
+      <button type="submit" class="btn btn-danger">Edit</button>
+    </form>
+</div>
+{% endblock %}
