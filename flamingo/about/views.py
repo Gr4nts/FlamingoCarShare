@@ -12,5 +12,8 @@ class About(TemplateView):
 def Home(request):
     #Cars = Car.objects.filter(available=True)
     Cars = Car.objects.all()
-    context = { 'Cars': Cars }
+    Cars1 = Car.objects.filter(icon=1)
+    Cars2 = Car.objects.filter(icon=2)
+    Cars3 = Car.objects.filter(icon=3)
+    context = { 'Cars': Cars, 'Cars1': Cars1, 'Cars2': Cars2, 'Cars3': Cars3 }
     return render(request, 'home.html', context)
