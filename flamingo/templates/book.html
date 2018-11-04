@@ -21,24 +21,28 @@
     <form method="post">
       {% csrf_token %}
       <p class="col text-center" style="color:hotpink;">{{ car.car_name }}</p>
+      <p class="col text-center" style="color:white;">Price: <strong style="color:hotpink;">${{ car.price }}</strong> /day</p>
 
       <select name="car" required id="id_car" style="display:none;">
           <option value="{{ car.car_id }}" selected>{{ car.car_name }}</option>
       </select>
-      <br>
+      <br><br>
 
-      <p><label for="id_book_start_date">Start date: </label></p>
-      <p><input type="date" name="book_start_date" id="id_book_start_date"></p>
-      <br>
-      <p><label for="id_book_end_date">End date: </label></p>
-      <p><input type="date" name="book_end_date" id="id_book_end_date"></p>
-      <br><br>
-      <p><label for="id_start_time">Start time: </label></p>
-      <p><input type="time" name="start_time" id="id_start_time"></p>
-      <br>
-      <p><label for="id_end_time">End time: </label></p>
-      <p><input type="time" name="end_time" id="id_end_time"></p>
-      <br><br>
-      <button type="submit" class="btn btn-danger">Book</button>
+      <table style="width:300px; margin:auto;">
+        <tr>
+          <td> <p><label for="id_book_start_date" style="padding:10px;">Start date:</label><input type="date" name="book_start_date" id="id_book_start_date"></p> </td>
+          <td> <p><label for="id_book_end_date" style="padding:10px;">End date:</label><input type="date" name="book_end_date" id="id_book_end_date"></p> </td>
+        </tr>
+        <tr>
+          <td> <p><label for="id_start_time" style="padding:10px;">Start time: </label><input type="time" name="start_time" id="id_start_time"></p> </td>
+          <td> <p><label for="id_end_time" style="padding:10px;">End time: </label><input type="time" name="end_time" id="id_end_time"></p> </td>
+        </tr>
+        <tr> <td><p> </p></td> </tr>
+        <tr> <td><p> </p></td> </tr>
+        <tr> <td><p> </p></td> </tr>
+        <tr>
+          <td><button type="submit" class="btn btn-danger">Book</button> </td>
+        </tr>
+      </table>
     </form>
 </div>
