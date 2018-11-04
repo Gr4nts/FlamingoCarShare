@@ -21,68 +21,66 @@
     <br>
   </p>
 
-		<!-- Paypal button starts here -->
-	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+  <!-- Paypal button starts here -->
+  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
-	<style>
-		/* Media query for mobile viewport */
-		@media screen and (max-width: 400px) {
-			#paypal-button-container {
-				width: 100%;
-			}
-		}
-		/* Media query for desktop viewport */
-		@media screen and (min-width: 400px) {
-			#paypal-button-container {
-				width: 250px;
-				display: inline-block;
-			}
-		}
-	</style>
+  <style>
+    /* Media query for mobile viewport */
+    @media screen and (max-width: 400px) {
+        #paypal-button-container {
+        width: 100%;
+      }
+    }
+	  
+    /* Media query for desktop viewport */
+    @media screen and (min-width: 400px) {
+      #paypal-button-container {
+        width: 250px;
+        display: inline-block;
+      }
+    }
+  </style>
 
-	<div id="paypal-button-container"></div>
-	<script>
-		paypal.Button.render({
-			// Set your environment
-			env: 'sandbox', // sandbox | production
+  <div id="paypal-button-container"></div>
+  <script>
+    paypal.Button.render({
+      // Set your environment
+      env: 'sandbox', // sandbox | production
 
-			// Specify the style of the button
-			style: {
-				label: 'checkout',  // checkout | credit | pay | buynow | generic
-				size:  'responsive', // small | medium | large | responsive
-				shape: 'pill',   // pill | rect
-				color: 'gold'   // gold | blue | silver | black
-			},
+      // Specify the style of the button
+      style: {
+        label: 'checkout',  // checkout | credit | pay | buynow | generic
+        size:  'responsive', // small | medium | large | responsive
+        shape: 'pill',   // pill | rect
+        color: 'gold'   // gold | blue | silver | black
+      },
 
-			// PayPal Client IDs - replace with your own
-			// Create a PayPal app: https://developer.paypal.com/developer/applications/create
-			client: {
-				sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
-				production: '<insert production client id>'
-			},
+      // PayPal Client IDs - replace with your own
+      // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+      client: {
+        sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+        production: '<insert production client id>'
+      },
 
-			// Wait for the PayPal button to be clicked
-			payment: function(data, actions) {
-				return actions.payment.create({
-					payment: {
-						transactions: [
-							{
-								amount: { total: '0.01', currency: 'AUD' }
-							}
-						]
-					}
-				});
-			},
+      // Wait for the PayPal button to be clicked
+      payment: function(data, actions) {
+        return actions.payment.create({
+          payment: {
+            transactions: [ {
+	        amount: { total: '0.01', currency: 'AUD' }
+	      } ]
+	  }
+	});
+      },
 
-			// Wait for the payment to be authorized by the customer
-			onAuthorize: function(data, actions) {
-				return actions.payment.execute().then(function() {
-					window.alert('Payment Complete!');
-				});
-			}
-		}, '#paypal-button-container');
-	</script>
-	<!-- Paypal ends here -->
-
+      // Wait for the payment to be authorized by the customer
+      onAuthorize: function(data, actions) {
+        return actions.payment.execute().then(function() {
+          window.alert('Payment Complete!');
+          });
+      }
+    }, '#paypal-button-container');
+  </script>
+  <!-- Paypal ends here -->
 </div>
 {% endblock %}
