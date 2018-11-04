@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## FlamingoCarShare
 
 Flamingo Car Share is a web/mobile application for running a car share service.
@@ -23,3 +24,5 @@ book a vehicle of their choice for a time and place, and return the vehicle when
 * Gabriel Gacuya - Product Owner/Technical Writer/Developer
 * Andrew Nguyen - Technical Writer/Developer
 * Grant McKenzie - Website Designer/Developer
+=======
+>>>>>>> master
