@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}Booking {{ booking.booking_id }}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Booking {{ booking.booking_id }}</h1>
+
+  <p><br>
+    <strong style="color:hotpink;">Name:</strong> {{ booking.customer }}<br>
+    <strong style="color:hotpink;">Car:</strong> <a href="{{ booking.car.get_absolute_url }}">{{ booking.car }}</a>
+    <br><br>
+    <strong style="color:hotpink;">Price:</strong> ${{ booking.car.price }}
+    <br><br>
+    <strong style="color:hotpink;">Start date:</strong> {{ booking.book_start_date }}, {{ booking.start_time }}<br>
+    <strong style="color:hotpink;">End date:</strong> {{ booking.book_end_date }}, {{ booking.end_time }}
+    <br><br>
+    <strong style="color:hotpink;">Status:</strong><br>
+    <button type="button" class="btn btn-{{ booking.status_button }}">{{ booking.status }}</button>
+    <br><br><br>
+    <a class="btn btn-default" href="{% url 'edit' pk=booking.pk %}" title="Edit this booking"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-default" href="{% url 'delete' pk=booking.pk %}" title="Delete this booking"><span class="glyphicon glyphicon-remove"></span></a>
+    <br><br><br>
+  </p>
+
+  <!-- Paypal button starts here -->
+  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+  <style>
+    /* Media query for mobile viewport */
+    @media screen and (max-width: 400px) {
+        #paypal-button-container {
+        width: 100%;
+      }
+    }
+
+    /* Media query for desktop viewport */
+    @media screen and (min-width: 400px) {
+      #paypal-button-container {
+        width: 250px;
+        display: inline-block;
+      }
+    }
+  </style>
+
+  <div id="paypal-button-container"></div>
+  <script>
+    paypal.Button.render({
+      // Set your environment
+      env: 'sandbox', // sandbox | production
+
+      // Specify the style of the button
+      style: {
+        label: 'checkout',  // checkout | credit | pay | buynow | generic
+        size:  'responsive', // small | medium | large | responsive
+        shape: 'pill',   // pill | rect
+        color: 'gold'   // gold | blue | silver | black
+      },
+
+      // PayPal Client IDs - replace with your own
+      // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+      client: {
+        sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+        production: '<insert production client id>'
+      },
+
+      // Wait for the PayPal button to be clicked
+      payment: function(data, actions) {
+        return actions.payment.create({
+          payment: {
+            transactions: [ {
+	             amount: { total: '{{ booking.car.price }}', currency: 'AUD' }
+	          } ]
+	        }
+	      });
+      },
+
+      // Wait for the payment to be authorized by the customer
+      onAuthorize: function(data, actions) {
+        return actions.payment.execute().then(function() {
+          //window.alert('Payment Complete!');
+          window.alert('Your payment of ${{ booking.car.price }} has been completed!');
+          });
+      }
+    }, '#paypal-button-container');
+  </script>
+  <!-- Paypal ends here -->
+</div>
+{% endblock %}

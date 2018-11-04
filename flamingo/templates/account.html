@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Account{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+        <div>
+            <br>
+            <div>
+            	<h1>Profile</h1>
+                <p>
+		            <strong style="color:hotpink;">First Name:</strong> {{user.first_name}}<br>
+		            <strong style="color:hotpink;">Last Name:</strong> {{user.last_name}}<br>
+		            <strong style="color:hotpink;">Email:</strong> {{user.email}}<br>
+		            <br>
+		            <strong>Registration Details</strong>
+                <br><br>
+		            <strong style="color:hotpink;">License Number:</strong> {{user.license_number}}<br>
+		            <strong style="color:hotpink;">Country of Issue:</strong> {{user.country_of_issue}}<br>
+		            <strong style="color:hotpink;">State:</strong> {{user.state}}<br>
+		            <strong style="color:hotpink;">Issue Date:</strong> {{user.issue_date}}<br>
+		            <strong style="color:hotpink;">Expiry Date:</strong> {{user.expiry_date}}<br>
+                </p>
+
+                <h1>Your bookings</h1>
+                {% if Bookings %}
+                <br><p>
+                  {% for bookings in Bookings %}
+                  <a href="{{ bookings.get_absolute_url }}">{{ bookings.book_start_date }}, {{ bookings.start_time }} - {{ bookings.book_end_date }}, {{ bookings.end_time }}</a><br>
+                  <br>
+                  {% endfor %}
+                </p>
+                {% else %}
+                <p>You have no bookings</p>
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <h1>You are not authorized to access this page.</h1>
+    {% endif %}
+</div>
+{% endblock %}
