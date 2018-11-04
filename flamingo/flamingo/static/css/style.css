@@ -1,0 +1,257 @@
+/* general Section */
+
+html, body{
+    overflow: auto;
+    min-height:100%;
+    /*padding-bottom: 20px;*/
+     /* for footer */
+    background-color: #222222;
+    font-family: appFont;
+    position: relative;
+    height:100%;
+    margin: 0; /* for footer */
+    padding: 0; /* for footer */
+}
+
+*{
+  margin: 0; /* for footer */
+  padding-bottom: 0;
+}
+
+footer{
+  width: 100%;
+  background-color: white;
+  bottom: 0;
+  /*margin-top: 10%;*/
+  padding-top: 5px;
+  text-align: center;
+  height: 30px;
+  position: fixed;
+  /*left:0;*/
+  /*right:0;*/
+}
+
+ul{
+  padding-inline-start: 0px;
+}
+
+input[type=text],
+input[type=password],
+input[type=date],
+input[type=time],
+input[type=email]{
+    color: white;
+    border: 2px solid #ff66b3;
+    background-color: #1a1a1a;
+}
+
+option,select{
+  color: white;
+  border: 2px solid #ff66b3;
+  background-color: #1a1a1a;
+}
+
+a{ color: hotpink; }
+h1{ color: #ffb3d9; }
+h2{ color: white; }
+
+p{ color: white; }
+li{ font-size: 15px; }
+
+table{
+    width: 100%;
+    color: white;
+}
+
+/* ID Section */
+
+#id_car{ color: white; background-color: #1a1a1a; }
+#id_first_name{ color: white; background-color: #4d4d4d; }
+#id_last_name{ color: white; background-color: #4d4d4d; }
+#id_email{ color: white; background-color: #4d4d4d; }
+#id_license_number{ color: white; background-color: #4d4d4d; }
+#id_country_of_issue{ color: white; background-color: #4d4d4d; }
+#id_state{ color: white; background-color: #4d4d4d; }
+#id_issue_date{ color: white; background-color: #4d4d4d; }
+#id_expiry_date{ color: white; background-color: #4d4d4d; }
+#id_username{ color: white; background-color: #4d4d4d; }
+#id_password{ color: white; background-color: #4d4d4d; }
+#id_password1{ color: white; background-color: #4d4d4d; }
+#id_password2{ color: white; background-color: #4d4d4d; }
+
+#index-banner{
+    color: white;
+    font-family: headerFont;
+    font-size: 100px;
+}
+
+#section2{
+  height: 360px;
+  background-position: center;
+  background-color: #333333;
+  background-image: url('/static/img/HowTo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#title{
+  font-family: Impact, Charcoal, sans-serif;
+  font-weight: bold;
+  font-size: 75px;
+}
+
+#body{
+    padding-bottom: 35px; /* for footer */
+    margin-top: 50px;
+}
+
+/* footer sections */
+
+#footer{
+    display: inline-block;
+    /*margin-left: 20px;*/
+    list-style: none;
+    text-align: center;
+}
+
+#map{
+    height: 700px;
+    width: auto;
+    margin: auto;
+    border: 4px solid black;
+
+}
+
+#carmap{
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    border: 4px solid hotpink;
+}
+
+#sidepanel{
+  background-color: #1a1a1a;
+  height: 700px;
+  width: auto;
+  border:4px solid black;
+  padding:10px;
+  padding-left: 100px;
+  margin-left: 5px;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #605E52;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}
+
+#HomeBooking {
+    background-color: #505062;
+    margin-top: 50px;
+}
+
+#homeCover{
+  background-image: url('/static/img/melbourne_skyline2.jpg');
+  background-size: cover;
+  text-align: center;
+  min-height:700px;
+  border: 1px solid black;
+}
+
+#BookButton{
+  display: inline-block;
+  background-color: white;
+  color: #222222;
+  margin-top:5%;
+  width: 150px;
+  font-size: 22px;
+}
+
+#signButton{
+    display: inline-block;
+    background-color: white;
+    color: #222222;
+    width: 150px;
+    margin-top:30px;
+    font-size: 22px;
+
+}
+
+#test{
+    display: block;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#collapsibleNavbar{
+    text-align: left;
+}
+
+/* Classes Section */
+
+.container{
+    background-color: #222222;
+    min-height: 100%; /* for footer */
+    position: relative; /* for footer */
+}
+
+/*
+ .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    margin: 5px;
+}
+
+.container-fluid>.navbar-header {
+}
+
+.navbar-collapse {
+    align-content: right;
+}
+*/
+
+.btn-group .button {
+    background-color: #ff87bd;
+    border: 1px solid white;
+    color: white;
+    margin-top: 2px;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    float: left;
+    width: 200px;
+}
+
+.btn-group .button:hover {
+    background-color: #ff3390;
+}
+
+@font-face {
+    font-family: appFont;
+    src: url('../fonts/Gotcha Gothic Light.ttf');
+}
+
+@font-face {
+    font-family: headerFont;
+    src: url('../fonts/Gotcha Gothic Stamp Basic.ttf');
+}

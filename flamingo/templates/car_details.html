@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Car: {{ car.car_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <h1>{{ car.car_name }}</h1>
+    <br>
+    <div class="col-sm-6">
+      <p>
+        <img src="/static/img/{{ car.image }}" />
+        <br><br>
+        <strong style="color:hotpink;">ID:</strong> {{ car.car_id }}
+        <br>
+        <strong style="color:hotpink;">Description:</strong> {{ car.description }}
+        <br>
+        <strong style="color:hotpink;">Price:</strong> {{ car.price }}
+        <br><br>
+      </p>
+    </div>
+    <div class="col-sm-6 text-center">
+      <p><strong style="color:hotpink;">Current Location</strong></p>
+      <br>
+      <div id="carmap"></div>
+    </div>
+</div>
+
+  <script>
+    var map;
+
+    function initMap() {
+        var options = {
+            zoom: 15,
+            center: {lat:{{ car.lat }}, lng:{{ car.lng }}}
+        }
+
+        // New map //
+        var map = new google.maps.Map(document.getElementById('carmap'), options);
+
+        var car{{ car.car_id }} = {
+            lat: {{ car.lat }},
+            lng: {{ car.lng }}
+        };
+
+        var imagecar1 = '{% static 'img/eco2icon.png' %}'
+        var imagecar2 = '{% static 'img/lux2icon.png' %}'
+        var imagecar3 = '{% static 'img/suv2icon.png' %}'
+
+        var markerc{{ car.car_id }} = new google.maps.Marker({
+            position: car{{ car.car_id }},
+            map: map,
+            icon: imagecar{{ car.icon }},
+        });
+      }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
+
+</div>
+{% endblock %}

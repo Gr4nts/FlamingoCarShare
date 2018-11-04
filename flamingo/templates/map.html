@@ -1,0 +1,483 @@
+{% load static %}
+<div id="map"></div>
+
+<script>
+    var map, infoWindow;
+
+    function initMap() {
+        var options = {
+            zoom: 14,
+            center: {lat:-37.8136, lng:144.9631}
+        }
+
+        // New map //
+        var map = new google.maps.Map(document.getElementById('map'), options);
+        var infoWindow = new google.maps.InfoWindow();
+
+        // User icon //
+        var uimage = {
+            url: '{% static 'img/usericon.png' %}',
+            scaledSize: new google.maps.Size(25, 32)
+        };
+        umarker = new google.maps.Marker({
+            map: map,
+            icon: uimage,
+        });
+
+
+        // Try HTML5 geolocation //
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('You are here');
+                infoWindow.open(map, umarker);
+                umarker.setPosition(pos);
+                map.setCenter(pos);
+                },
+                function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                }
+            );
+        }
+
+        // Browser doesn't support Geolocation //
+        else {
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        // Car locations //
+        {% for cars in Cars %}
+        var car{{ cars.car_id }} = {
+            lat: {{ cars.lat }},
+            lng: {{ cars.lng }}
+        };
+        {% endfor %}
+
+        // Marker icons //
+        var imagecar1 = '{% static 'img/eco3icon.png' %}'
+        var imagecar2 = '{% static 'img/lux3icon.png' %}'
+        var imagecar3 = '{% static 'img/suv3icon.png' %}'
+
+        // Car markers //
+        {% for cars in Cars %}
+
+        var markerc{{ cars.car_id }} = new google.maps.Marker({
+          position: car{{ cars.car_id }},
+          map: map,
+          icon: imagecar{{ cars.icon }},
+            //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+        });
+
+        {% endfor %}
+
+        // sidepanel input //
+        {% for cars in Cars %}
+        var content{{ cars.car_id }} = '<div id="viewcar" style="display:block;">\
+            <h1 class="col text-center">{{ cars.car_name }}</h1>\
+            <div class="col text-center"><img src="/static/img/{{ cars.image }}" height="200" width="300" /></div>\
+              <p><br>\
+              {{ cars.description }}\
+              <br>\
+              Price: ${{ cars.price }}\
+              </p><br><br>\
+              <a href="#" class="btn btn-danger" onClick="MyWindow=window.open(\'book/{{ cars.car_id }}\',\'MyWindow\',\'width=400,height=500\'); return false;">Book this car</a>\
+          </div>';
+
+        // markers change sidepanel //
+        google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
+            document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
+        });
+        {% endfor %}
+      }
+
+    // sidepanel DIV change //
+    /*function Swap() {
+      d1 = document.getElementById('viewcar');
+      d2 = document.getElementById('bookcar');
+      if( d2.style.display == "none" ) {
+        d1.style.display = "none";
+        d2.style.display = "block";
+      }
+      else {
+        d1.style.display = "block";
+        d2.style.display = "none";
+      }
+    }*/
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+  </script>
+
+  <div class="col text-center btn-group">
+    <button class="button" onclick="markerReset()">All</button>
+    <button class="button" onclick="markerEco()">Economy</button>
+    <button class="button" onclick="markerLux()">Luxury</button>
+    <button class="button" onclick="markerSUV()">SUV</button>
+  </div>
+</div><!--?????-->
+
+<script>
+  function markerReset() {
+    var options = {
+        zoom: 14,
+        center: {lat:-37.8136, lng:144.9631}
+    }
+
+    // New map //
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    var infoWindow = new google.maps.InfoWindow();
+
+    // User icon //
+    var uimage = {
+        url: '{% static 'img/usericon.png' %}',
+        scaledSize: new google.maps.Size(25, 32)
+    };
+    umarker = new google.maps.Marker({
+        map: map,
+        icon: uimage,
+    });
+
+    // Try HTML5 geolocation //
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('You are here');
+            infoWindow.open(map, umarker);
+            umarker.setPosition(pos);
+            map.setCenter(pos);
+            },
+            function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            }
+        );
+    }
+
+    // Browser doesn't support Geolocation //
+    else {
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+    // Car locations //
+    {% for cars in Cars %}
+    var car{{ cars.car_id }} = {
+        lat: {{ cars.lat }},
+        lng: {{ cars.lng }}
+    };
+    {% endfor %}
+
+    // Marker icons //
+    var imagecar1 = '{% static 'img/eco3icon.png' %}'
+    var imagecar2 = '{% static 'img/lux3icon.png' %}'
+    var imagecar3 = '{% static 'img/suv3icon.png' %}'
+
+    // Car markers //
+    {% for cars in Cars %}
+
+    var markerc{{ cars.car_id }} = new google.maps.Marker({
+      position: car{{ cars.car_id }},
+      map: map,
+      icon: imagecar{{ cars.icon }},
+        //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+    });
+
+    {% endfor %}
+    {% for cars in Cars %}
+    var content{{ cars.car_id }} = '<div id="viewcar" style="display:block;">\
+        <h1 class="col text-center">{{ cars.car_name }}</h1>\
+        <div class="col text-center"><img src="/static/img/{{ cars.image }}" height="200" width="300" /></div>\
+          <p><br>\
+          {{ cars.description }}\
+          <br>\
+          Price: ${{ cars.price }}\
+          </p><br><br>\
+          <a href="#" class="btn btn-danger" onClick="MyWindow=window.open(\'book/{{ cars.car_id }}\',\'MyWindow\',\'width=400,height=500\'); return false;">Book this car</a>\
+      </div>';
+
+    // markers change sidepanel //
+    google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
+        document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
+    });
+    {% endfor %}
+  }
+  </script>
+
+  <script>
+  function markerEco() {
+    var options = {
+      zoom: 14,
+      center: {lat:-37.8136, lng:144.9631}
+    }
+
+    // New map //
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    var infoWindow = new google.maps.InfoWindow();
+
+    // User icon //
+    var uimage = {
+      url: '{% static 'img/usericon.png' %}',
+      scaledSize: new google.maps.Size(25, 32)
+    };
+    umarker = new google.maps.Marker({
+      map: map,
+      icon: uimage,
+    });
+
+    // Try HTML5 geolocation //
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+          };
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('You are here');
+          infoWindow.open(map, umarker);
+          umarker.setPosition(pos);
+          map.setCenter(pos);
+          },
+          function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+          }
+      );
+    }
+
+    // Browser doesn't support Geolocation //
+    else {
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+    // Car locations //
+    {% for cars in Cars1 %}
+    var car{{ cars.car_id }} = {
+      lat: {{ cars.lat }},
+      lng: {{ cars.lng }}
+    };
+    {% endfor %}
+
+    // Marker icons //
+    var imagecar1 = '{% static 'img/eco3icon.png' %}'
+    var imagecar2 = '{% static 'img/lux3icon.png' %}'
+    var imagecar3 = '{% static 'img/suv3icon.png' %}'
+
+    // Car markers //
+    {% for cars in Cars1 %}
+    var markerc{{ cars.car_id }} = new google.maps.Marker({
+    position: car{{ cars.car_id }},
+    map: map,
+    icon: imagecar{{ cars.icon }},
+      //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+    });
+    {% endfor %}
+
+    {% for cars in Cars1 %}
+    var content{{ cars.car_id }} = '<div id="viewcar" style="display:block;">\
+      <h1 class="col text-center">{{ cars.car_name }}</h1>\
+      <div class="col text-center"><img src="/static/img/{{ cars.image }}" height="200" width="300" /></div>\
+        <p><br>\
+        {{ cars.description }}\
+        <br>\
+        Price: ${{ cars.price }}\
+        </p><br><br>\
+        <a href="#" class="btn btn-danger" onClick="MyWindow=window.open(\'book/{{ cars.car_id }}\',\'MyWindow\',\'width=400,height=500\'); return false;">Book this car</a>\
+        </div>';
+
+        // markers change sidepanel //
+    google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
+      document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
+    });
+    {% endfor %}
+
+    }
+  </script>
+
+  <script>
+    function markerLux() {
+
+    var options = {
+      zoom: 14,
+      center: {lat:-37.8136, lng:144.9631}
+    }
+
+    // New map //
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    var infoWindow = new google.maps.InfoWindow();
+
+    // User icon //
+    var uimage = {
+      url: '{% static 'img/usericon.png' %}',
+      scaledSize: new google.maps.Size(25, 32)
+    };
+    umarker = new google.maps.Marker({
+      map: map,
+      icon: uimage,
+    });
+
+    // Try HTML5 geolocation //
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+          };
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('You are here');
+          infoWindow.open(map, umarker);
+          umarker.setPosition(pos);
+          map.setCenter(pos);
+          },
+          function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+          }
+      );
+    }
+
+    // Browser doesn't support Geolocation //
+    else {
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+    // Car locations //
+    {% for cars in Cars2 %}
+    var car{{ cars.car_id }} = {
+      lat: {{ cars.lat }},
+      lng: {{ cars.lng }}
+    };
+    {% endfor %}
+
+    // Marker icons //
+    var imagecar1 = '{% static 'img/eco3icon.png' %}'
+    var imagecar2 = '{% static 'img/lux3icon.png' %}'
+    var imagecar3 = '{% static 'img/suv3icon.png' %}'
+
+    // Car markers //
+    {% for cars in Cars2 %}
+    var markerc{{ cars.car_id }} = new google.maps.Marker({
+      position: car{{ cars.car_id }},
+      map: map,
+      icon: imagecar{{ cars.icon }},
+      //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+    });
+    {% endfor %}
+
+    {% for cars in Cars2 %}
+    var content{{ cars.car_id }} = '<div id="viewcar" style="display:block;">\
+      <h1 class="col text-center">{{ cars.car_name }}</h1>\
+      <div class="col text-center"><img src="/static/img/{{ cars.image }}" height="200" width="300" /></div>\
+        <p><br>\
+        {{ cars.description }}\
+        <br>\
+        Price: ${{ cars.price }}\
+        </p><br><br>\
+        <a href="#" class="btn btn-danger" onClick="MyWindow=window.open(\'book/{{ cars.car_id }}\',\'MyWindow\',\'width=400,height=500\'); return false;">Book this car</a>\
+        </div>';
+
+    // markers change sidepanel //
+    google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
+      document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
+    });
+    {% endfor %}
+  }
+  </script>
+
+  <script>
+  function markerSUV() {
+    var options = {
+      zoom: 14,
+      center: {lat:-37.8136, lng:144.9631}
+    }
+
+    // New map //
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    var infoWindow = new google.maps.InfoWindow();
+
+    // User icon //
+    var uimage = {
+      url: '{% static 'img/usericon.png' %}',
+      scaledSize: new google.maps.Size(25, 32)
+    };
+    umarker = new google.maps.Marker({
+      map: map,
+      icon: uimage,
+    });
+
+    // Try HTML5 geolocation //
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+          };
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('You are here');
+          infoWindow.open(map, umarker);
+          umarker.setPosition(pos);
+          map.setCenter(pos);
+          },
+          function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+          }
+      );
+    }
+
+    // Browser doesn't support Geolocation //
+    else {
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+    // Car locations //
+    {% for cars in Cars3 %}
+    var car{{ cars.car_id }} = {
+      lat: {{ cars.lat }},
+      lng: {{ cars.lng }}
+    };
+    {% endfor %}
+
+    // Marker icons //
+    var imagecar1 = '{% static 'img/eco3icon.png' %}'
+    var imagecar2 = '{% static 'img/lux3icon.png' %}'
+    var imagecar3 = '{% static 'img/suv3icon.png' %}'
+
+    // Car markers //
+    {% for cars in Cars3 %}
+    var markerc{{ cars.car_id }} = new google.maps.Marker({
+      position: car{{ cars.car_id }},
+      map: map,
+      icon: imagecar{{ cars.icon }},
+      //zIndex: google.maps.Marker.MAX_ZINDEX + 1
+    });
+    {% endfor %}
+
+    {% for cars in Cars3 %}
+    var content{{ cars.car_id }} = '<div id="viewcar" style="display:block;">\
+      <h1 class="col text-center">{{ cars.car_name }}</h1>\
+      <div class="col text-center"><img src="/static/img/{{ cars.image }}" height="200" width="300" /></div>\
+        <p><br>\
+        {{ cars.description }}\
+        <br>\
+        Price: ${{ cars.price }}\
+        </p><br><br>\
+        <a href="#" class="btn btn-danger" onClick="MyWindow=window.open(\'book/{{ cars.car_id }}\',\'MyWindow\',\'width=400,height=500\'); return false;">Book this car</a>\
+        </div>';
+
+    // markers change sidepanel //
+    google.maps.event.addListener(markerc{{ cars.car_id }}, 'click', function() {
+      document.getElementById("sidepanel").innerHTML = content{{ cars.car_id }};
+    });
+    {% endfor %}
+  }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyCFqINDKm7Oa0_ldIEICdxDzDaMH6Ha-_8&callback=initMap"></script>
