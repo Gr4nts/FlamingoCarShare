@@ -22,10 +22,10 @@ class Car(models.Model):
     car_name = models.CharField("Model", max_length=50, null=True, blank=True)
     image = models.CharField(max_length=50, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    price = models.IntegerField("Price per day", null=True, blank=True)
+    price = models.IntegerField(null=True, blank=True)
     lat = models.CharField(max_length=50, null=True, blank=True)
     lng = models.CharField(max_length=50, null=True, blank=True)
-    icon = models.IntegerField("Car Image Icon", null=True, blank=True)
+    icon = models.IntegerField("Icon Tier", null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('car-details', kwargs={'pk': self.pk})

@@ -10,7 +10,6 @@ class About(TemplateView):
     template_name = 'about.html'
 
 def Home(request):
-    #Cars = Car.objects.filter(available=True)
     Cars = Car.objects.all()
     Cars1 = Car.objects.filter(icon=1)
     Cars2 = Car.objects.filter(icon=2)

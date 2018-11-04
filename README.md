@@ -14,6 +14,8 @@ book a vehicle of their choice for a time and place, and return the vehicle when
 * Python
 * Bootstrap
 * Javascript
+* Google Cloud
+* Paypal Sandbox
 
 ## Authors
 * Raphael Buenaventura - Scrum Master/Developer
