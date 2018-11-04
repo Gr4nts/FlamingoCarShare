@@ -21,7 +21,7 @@
     <form method="post">
       {% csrf_token %}
       <p class="col text-center" style="color:hotpink;">{{ car.car_name }}</p>
-      <p class="col text-center" style="color:white;">Price: <strong style="color:hotpink;">${{ car.price }}</strong> /day</p>
+      <p class="col text-center" style="color:white;">Price: <strong style="color:hotpink;">${{ car.price }}</strong></p>
 
       <select name="car" required id="id_car" style="display:none;">
           <option value="{{ car.car_id }}" selected>{{ car.car_name }}</option>
